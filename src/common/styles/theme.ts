@@ -1,14 +1,22 @@
 import { Theme } from '@emotion/react';
 
 const colors = {
-  testColor: '#ccc',
+  qve_gradient: 'linear-gradient(100deg, #2f44af 13%, #581a38 54%)',
+  qve_blue: '##4A3EE9',
+  invest_background: '#232323',
+  white: '#ffffff',
+  not_important: '#AEAEAE',
+  qve_background: '#010305',
+  sub_white: '#E2E3E2',
+  positive: '#19F6C1',
+  negative: '#F53966',
 };
 
 const FONT = (
   fontFamily: string,
   fontSize: number,
   fontStyle: string,
-  fontWeight: number,
+  fontWeight: string,
   lineHeight: string,
   letterSpacing: number
 ): string => `
@@ -16,12 +24,41 @@ const FONT = (
   font-size:${fontSize}rem;
   font-style:${fontStyle};
   font-weight:${fontWeight};
-  line-height:${lineHeight};
-  letter-spacing:${letterSpacing}rem;
+  line-height:${lineHeight}%;
+  letter-spacing:${letterSpacing}%;
 `;
 
 const fonts = {
-  testTitle: FONT('Montserrat', 2, 'normal', 600, 'normal', 0.04),
+  title_1: FONT('Montserrat', 3.4, 'normal', 'Bold', '140', 0),
+  title_1a: FONT('Montserrat', 3.4, 'normal', 'Bold', '140', 0),
+  title_2a: FONT('Pretendard Variable', 3, 'normal', 'Bold', '140', 0),
+  title_2: FONT('Montserrat', 2.8, 'normal', 'Bold', '140', 0),
+  body_0: FONT('Pretendard Variable', 2.4, 'normal', 'Bold', '100', 0),
+  body_0m: FONT('Montserrat', 2.4, 'normal', 'Bold', '100', 0),
+  body_1: FONT('Pretendard Variable', 2, 'normal', 'semibold', '140', 0),
+  body_2_bold: FONT('Pretendard Variable', 1.8, 'normal', 'Bold', 'auto', 0),
+  body_2: FONT('Pretendard Variable', 1.8, 'normal', 'Bold', '160', -2),
+  body_2_auto: FONT('Pretendard Variable', 1.8, 'normal', 'medium', 'auto', 0),
+  body_2m: FONT('Montserrat', 1.8, 'normal', 'semibold', '100', 0),
+  body_3: FONT('Pretendard Variable', 1.6, 'normal', 'regular', '100', 0),
+  body_3m: FONT('Montserrat', 1.6, 'normal', 'regular', '100', 0),
+  caption: FONT('Pretendard Variable', 1.4, 'normal', 'semibold', '100', 0),
+  small_phrase: FONT(
+    'Pretendard Variable',
+    1.4,
+    'normal',
+    'semibold',
+    '130',
+    0
+  ),
+  index_steptitle: FONT(
+    'Pretendard Variable',
+    1.2,
+    'normal',
+    'semibold',
+    '100',
+    0
+  ),
 };
 
 export type ColorsTypes = typeof colors;

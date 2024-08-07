@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import emotionReset from 'emotion-reset';
+import { theme } from './theme';
 
 const globalStyles = css`
   ${emotionReset}
@@ -12,6 +13,11 @@ const globalStyles = css`
 
   html {
     font-size: 62.5%;
+  }
+
+  body {
+    color: #fff;
+    background-color: ${theme.colors.qve_background};
   }
 `;
 
