@@ -19,6 +19,10 @@ const globalStyles = css`
     color: #fff;
     background-color: ${theme.colors.qve_background};
   }
+
+  button {
+    border: none;
+  }
 `;
 
 export default globalStyles;
