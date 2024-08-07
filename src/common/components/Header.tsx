@@ -29,12 +29,14 @@ const StContainer = styled.header`
   width: 100vw;
   display: flex;
   justify-content: center;
+  background-color: ${({ theme }) => theme.colors.qve_background};
+  z-index: 1;
 `;
 
 const StWrapper = styled.div`
   height: 4.6rem;
   width: 120rem;
-  margin: 3.2rem 0.8rem;
+  margin: 3.2rem 0.8rem 1.6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -1,11 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Dashborad from '../dashboard';
-import OnBoardiing from '../onboarding';
+import OnBoarding from '../onboarding';
 
 const router = createBrowserRouter([
   {
     path: '',
-    element: <OnBoardiing />,
+    element: <OnBoarding />,
   },
   {
     path: '/dashboard',

@@ -29,17 +29,19 @@ const FONT = (
 `;
 
 const fonts = {
+  title_0: FONT('Montserrat', 4.2, 'normal', 'Bold', '140', 0),
+  title_TVL: FONT('Montserrat', 4, 'normal', 'Bold', 'auto', 0),
   title_1: FONT('Montserrat', 3.4, 'normal', 'Bold', '140', 0),
   title_1a: FONT('Montserrat', 3.4, 'normal', 'Bold', '140', 0),
   title_2a: FONT('Pretendard Variable', 3, 'normal', 'Bold', '140', 0),
   title_2: FONT('Montserrat', 2.8, 'normal', 'Bold', '140', 0),
   body_0: FONT('Pretendard Variable', 2.4, 'normal', 'Bold', '100', 0),
   body_0m: FONT('Montserrat', 2.4, 'normal', 'Bold', '100', 0),
-  body_1: FONT('Pretendard Variable', 2, 'normal', 'semibold', '140', 0),
+  body_1: FONT('Pretendard Variable', 2, 'normal', '600', '140', 0),
   body_2_bold: FONT('Pretendard Variable', 1.8, 'normal', 'Bold', 'auto', 0),
   body_2: FONT('Pretendard Variable', 1.8, 'normal', 'Bold', '160', -2),
   body_2_auto: FONT('Pretendard Variable', 1.8, 'normal', 'medium', 'auto', 0),
-  body_2m: FONT('Montserrat', 1.8, 'normal', 'semibold', '100', 0),
+  body_2m: FONT('Montserrat', 1.8, 'normal', '600', '100', 0),
   body_3: FONT('Pretendard Variable', 1.6, 'normal', 'regular', '100', 0),
   body_3m: FONT('Montserrat', 1.6, 'normal', 'regular', '100', 0),
   caption: FONT('Pretendard Variable', 1.4, 'normal', 'semibold', '100', 0),
