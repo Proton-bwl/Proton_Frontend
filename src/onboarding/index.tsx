@@ -8,19 +8,21 @@ import {
   IcTwitter,
   Neutron,
 } from './assets/0_index';
+import { ABOUTQVE } from './constants.ts';
 
 const OnBoarding = () => {
   return (
     <St.Container>
       <Header />
       <OnBoarding1 />
+      <OnBoarding2 />
     </St.Container>
   );
 };
 
 const OnBoarding1 = () => {
   return (
-    <St.Section1.Container>
+    <St.Container>
       <St.Section1.BackgroundImg1 src={onBoardingCube} alt='cubeIMG' />
       <St.Section1.BackgroundImg2 src={onBoardingCube} alt='cubeIMG' />
       <St.Section1.ContentLayout>
@@ -47,7 +49,34 @@ const OnBoarding1 = () => {
         <p>Ecosystem</p>
         <Neutron />
       </St.Section1.Bottom>
-    </St.Section1.Container>
+    </St.Container>
+  );
+};
+
+const OnBoarding2 = () => {
+  return (
+    <St.Section2.Container>
+      <p>about QVE</p>
+      <St.Section2.Title>
+        Optimizing Yields in the Neutron Ecosystem
+      </St.Section2.Title>
+      <St.Section2.Contents>
+        {ABOUTQVE.map((item) => {
+          return (
+            <St.Section2.AboutItem key={item.keyWord}>
+              <div>
+                <item.icon />
+                <span>{item.keyWord}</span>
+              </div>
+              <St.Section2.AbouItemLayout>
+                <St.Section2.ItemTitle>{item.title}</St.Section2.ItemTitle>
+                <St.Section2.Explain>{item.explain}</St.Section2.Explain>
+              </St.Section2.AbouItemLayout>
+            </St.Section2.AboutItem>
+          );
+        })}
+      </St.Section2.Contents>
+    </St.Section2.Container>
   );
 };
 

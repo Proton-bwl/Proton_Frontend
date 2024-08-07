@@ -29,6 +29,7 @@ const StContainer = styled.header`
   width: 100vw;
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: ${({ theme }) => theme.colors.qve_background};
   z-index: 1;
 `;
