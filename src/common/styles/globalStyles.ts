@@ -22,6 +22,7 @@ const globalStyles = css`
 
   button {
     border: none;
+    cursor: pointer;
   }
 `;
 

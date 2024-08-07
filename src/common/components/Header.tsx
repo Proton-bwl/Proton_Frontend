@@ -1,21 +1,32 @@
 import styled from '@emotion/styled';
 import { QveLogo } from '../assets/0_index';
-import ConnectWallet from './ConnectWallet';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import TradeNowBtn from '../../onboarding/Components/TradeNowBtn';
 
 const Header = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   return (
     <StContainer>
       <StWrapper>
         <StQveLogo />
-        <StNav>
-          <StNavItem onClick={() => navigate('/')}>About</StNavItem>
-          <StNavItem onClick={() => navigate('/')}>Features</StNavItem>
-          <StNavItem onClick={() => navigate('/')}>Process</StNavItem>
-          <StNavItem onClick={() => navigate('/')}>Docs</StNavItem>
-          <ConnectWallet />
-        </StNav>
+        {location.pathname === '/dashboard' ? (
+          <></>
+        ) : (
+          <StNav>
+            <StNavItem onClick={() => navigate('/')}>About</StNavItem>
+            <StNavItem onClick={() => navigate('/')}>Features</StNavItem>
+            <StNavItem onClick={() => navigate('/')}>Process</StNavItem>
+            <StNavItem
+              onClick={() =>
+                window.open('https://blockwavelabs-1.gitbook.io/qve')
+              }
+            >
+              Docs
+            </StNavItem>
+            <TradeNowBtn />
+          </StNav>
+        )}
       </StWrapper>
     </StContainer>
   );
@@ -30,7 +41,12 @@ const StContainer = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.qve_background};
+  /* background-color: ${({ theme }) => theme.colors.qve_background}; */
+  background: linear-gradient(
+    to bottom,
+    rgba(1, 3, 5, 1) 70%,
+    rgba(1, 3, 5, 0) 100%
+  );
   z-index: 1;
 `;
 

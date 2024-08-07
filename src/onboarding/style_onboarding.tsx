@@ -10,6 +10,17 @@ export const MainContainer = styled.div`
   padding: 0 6.4rem;
 `;
 
+export const PreTitle = styled.div`
+  ${({ theme }) => theme.fonts.body_2m};
+  color: ${({ theme }) => theme.colors.sub_white};
+`;
+export const Title = styled.div`
+  ${({ theme }) => theme.fonts.title_0};
+  color: ${({ theme }) => theme.colors.white};
+  text-align: center;
+  word-wrap: break-word;
+`;
+
 export const Section1 = {
   Container: styled.section`
     width: 100%;
@@ -48,11 +59,11 @@ export const Section1 = {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    & > p:nth-child(1) {
+    & > p:nth-of-type(1) {
       ${({ theme }) => theme.fonts.body_2m};
       color: ${({ theme }) => theme.colors.not_important};
     }
-    & > p:nth-child(2) {
+    & > p:nth-of-type(2) {
       ${({ theme }) => theme.fonts.title_TVL};
       color: ${({ theme }) => theme.colors.white};
     }
@@ -76,7 +87,7 @@ export const Section1 = {
   BackgroundImg1: styled.img`
     width: 30%;
     position: absolute;
-    top: -3rem;
+    top: -2%;
     right: 30%;
     opacity: 0.4;
     transform: rotate(330deg);
@@ -104,12 +115,6 @@ export const Section2 = {
       margin-bottom: 1rem;
     }
   `,
-  Title: styled.div`
-    ${({ theme }) => theme.fonts.title_0};
-    color: ${({ theme }) => theme.colors.white};
-    text-align: center;
-    word-wrap: break-word;
-  `,
   Contents: styled.div`
     margin: 6.4rem 0 12.8rem;
     display: flex;
@@ -133,7 +138,7 @@ export const Section2 = {
       }
     }
   `,
-  AbouItemLayout: styled.p`
+  AbouItemLayout: styled.div`
     height: 60%;
     display: flex;
     flex-direction: column;
@@ -146,5 +151,33 @@ export const Section2 = {
   Explain: styled.p`
     ${({ theme }) => theme.fonts.body_1};
     word-wrap: break-word;
+  `,
+};
+
+export const Section3 = {
+  Container: styled.section`
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  `,
+  InTro: styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  `,
+  sufTitle: styled.p`
+    ${({ theme }) => theme.fonts.body_3};
+    color: ${({ theme }) => theme.colors.not_important};
+  `,
+  BackgroundImg: styled.img`
+    width: 80rem;
+    position: absolute;
+    top: 5rem;
+    left: -20rem;
+    transform: rotate(250deg);
   `,
 };

@@ -1,15 +1,15 @@
-import styled from '@emotion/styled';
+import * as St from './style_dashboard';
+import Footer from '../common/components/Footer';
+import Header from '../common/components/Header';
 
 const Dashborad = () => {
   return (
-    <div>
-      <Title>Quant Vault Escrow </Title>
-    </div>
+    <St.MainContainer>
+      <Header />
+      <section style={{ minHeight: '55rem' }}></section>
+      <Footer />
+    </St.MainContainer>
   );
 };
 
 export default Dashborad;
-
-const Title = styled.div`
-  ${({ theme }) => theme.fonts.title_1};
-`;

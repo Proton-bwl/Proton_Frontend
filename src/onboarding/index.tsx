@@ -1,5 +1,5 @@
 import Header from '../common/components/Header';
-import * as St from './style_onboarding';
+import * as St from './style_onboarding.tsx';
 import { QveLogo, onBoardingCube } from '../common/assets/0_index';
 import {
   IcGitbub,
@@ -9,6 +9,8 @@ import {
   Neutron,
 } from './assets/0_index';
 import { ABOUTQVE } from './constants.ts';
+import TradeNowBtn from './Components/TradeNowBtn.tsx';
+import Footer from '../common/components/Footer.tsx';
 
 const OnBoarding = () => {
   return (
@@ -17,6 +19,8 @@ const OnBoarding = () => {
       <OnBoarding1 />
       <OnBoarding2 />
       <OnBoarding3 />
+      <OnBoarding4 />
+      <Footer />
     </St.MainContainer>
   );
 };
@@ -57,10 +61,8 @@ const OnBoarding1 = () => {
 const OnBoarding2 = () => {
   return (
     <St.Section2.Container>
-      <p>about QVE</p>
-      <St.Section2.Title>
-        Optimizing Yields in the Neutron Ecosystem
-      </St.Section2.Title>
+      <p>About QVE</p>
+      <St.Title>Optimizing Yields in the Neutron Ecosystem</St.Title>
       <St.Section2.Contents>
         {ABOUTQVE.map((item) => {
           return (
@@ -82,7 +84,32 @@ const OnBoarding2 = () => {
 };
 
 const OnBoarding3 = () => {
-  return <St.Section1.Container></St.Section1.Container>;
+  return (
+    <St.Section3.Container>
+      <St.Section3.BackgroundImg src={onBoardingCube} alt='background-img' />
+      <St.Section3.InTro>
+        <St.PreTitle>
+          QVE offers various ‘vaults’, which are operated by the trading bots
+        </St.PreTitle>
+        <St.Title>Assets Into The Vault</St.Title>
+        <p>(Arbitrage is one of the strategies we use)</p>
+      </St.Section3.InTro>
+
+      <div style={{ height: '90rem' }}>작업 중..</div>
+    </St.Section3.Container>
+  );
+};
+
+const OnBoarding4 = () => {
+  return (
+    <St.Section3.Container>
+      <St.PreTitle>Asset Management Process</St.PreTitle>
+      <St.Title>Automated Trading Strategy</St.Title>
+      <div style={{ height: '27rem' }}>작업 중..</div>
+
+      <TradeNowBtn />
+    </St.Section3.Container>
+  );
 };
 
 export default OnBoarding;

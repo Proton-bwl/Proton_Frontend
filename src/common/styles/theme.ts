@@ -10,6 +10,7 @@ const colors = {
   sub_white: '#E2E3E2',
   positive: '#19F6C1',
   negative: '#F53966',
+  label: '#B7B8CD',
 };
 
 const FONT = (
@@ -46,6 +47,7 @@ const fonts = {
   body_2m: FONT('Montserrat', 1.8, 'normal', '600', '100', 0),
   body_3: FONT('Pretendard Variable', 1.6, 'normal', 'regular', '100', 0),
   body_3m: FONT('Montserrat', 1.6, 'normal', 'regular', '100', 0),
+  body: FONT('Pretendard Variable', 1.1, 'normal', '400', 'auto', 0),
   caption: FONT('Pretendard Variable', 1.4, 'normal', 'semibold', '100', 0),
   small_phrase: FONT(
     'Pretendard Variable',
