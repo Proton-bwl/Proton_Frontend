@@ -1,12 +1,13 @@
 import styled from '@emotion/styled';
 import { STCOMBoxWrapper } from '../common/styles/commonStyleComs';
-export const Container = styled.div`
+export const MainContainer = styled.div`
   width: 100vw;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0 6.4rem;
 `;
 
 export const Section1 = {
@@ -23,7 +24,6 @@ export const Section1 = {
     width: 100%;
     max-width: 132.8rem;
     margin: 24rem 0.8rem 0;
-    padding: 0 6.4rem;
     display: flex;
     flex-direction: column;
     gap: 5.4rem;
@@ -112,7 +112,6 @@ export const Section2 = {
   `,
   Contents: styled.div`
     margin: 6.4rem 0 12.8rem;
-    padding: 0 6.4rem;
     display: flex;
     justify-content: center;
     gap: 3rem;

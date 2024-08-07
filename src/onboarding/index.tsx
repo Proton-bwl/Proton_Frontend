@@ -12,17 +12,18 @@ import { ABOUTQVE } from './constants.ts';
 
 const OnBoarding = () => {
   return (
-    <St.Container>
+    <St.MainContainer>
       <Header />
       <OnBoarding1 />
       <OnBoarding2 />
-    </St.Container>
+      <OnBoarding3 />
+    </St.MainContainer>
   );
 };
 
 const OnBoarding1 = () => {
   return (
-    <St.Container>
+    <St.Section1.Container>
       <St.Section1.BackgroundImg1 src={onBoardingCube} alt='cubeIMG' />
       <St.Section1.BackgroundImg2 src={onBoardingCube} alt='cubeIMG' />
       <St.Section1.ContentLayout>
@@ -49,7 +50,7 @@ const OnBoarding1 = () => {
         <p>Ecosystem</p>
         <Neutron />
       </St.Section1.Bottom>
-    </St.Container>
+    </St.Section1.Container>
   );
 };
 
@@ -78,6 +79,10 @@ const OnBoarding2 = () => {
       </St.Section2.Contents>
     </St.Section2.Container>
   );
+};
+
+const OnBoarding3 = () => {
+  return <St.Section1.Container></St.Section1.Container>;
 };
 
 export default OnBoarding;
