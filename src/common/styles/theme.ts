@@ -2,7 +2,7 @@ import { Theme } from '@emotion/react';
 
 const colors = {
   qve_gradient: 'linear-gradient(100deg, #2f44af 13%, #581a38 54%)',
-  qve_blue: '##4A3EE9',
+  qve_blue: '#4A3EE9',
   invest_background: '#232323',
   white: '#ffffff',
   not_important: '#AEAEAE',
@@ -32,8 +32,8 @@ const FONT = (
 const fonts = {
   title_0: FONT('Montserrat', 4.2, 'normal', 'Bold', '140', 0),
   title_TVL: FONT('Montserrat', 4, 'normal', 'Bold', 'auto', 0),
-  title_1: FONT('Montserrat', 3.4, 'normal', 'Bold', '140', 0),
-  title_1a: FONT('Montserrat', 3.4, 'normal', 'Bold', '140', 0),
+  title_1m: FONT('Montserrat', 3.4, 'normal', 'Bold', '140', 0),
+  title_1: FONT('Pretendard Variable', 3.4, 'normal', 'Bold', '140', 0),
   title_2a: FONT('Pretendard Variable', 3, 'normal', 'Bold', '140', 0),
   title_2am: FONT('Montserrat', 3, 'normal', 'Bold', '140', 0),
   title_2: FONT('Montserrat', 2.8, 'normal', 'Bold', '140', 0),
