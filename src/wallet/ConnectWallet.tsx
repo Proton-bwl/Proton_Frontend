@@ -1,6 +1,13 @@
 // import nuetron_chainInfo from './network_info';
 
+import styled from '@emotion/styled';
+import { useState } from 'react';
+import { IcQveIcon } from './assets/0_indes';
+
 const ConnectWallet = () => {
+  const [address, setAddress] = useState(
+    localStorage.getItem('NUETRONADDRESS')
+  );
   const connectKeplr = async () => {
     if (!window.keplr) {
       alert('Please install Keplr extension');
@@ -19,16 +26,66 @@ const ConnectWallet = () => {
 
       // 계정 정보 가져오기
       const accounts = await offlineSigner.getAccounts();
-      console.log(accounts);
-
-      alert(`Wallet connected: ${accounts[0].address}`);
+      const userAddress = accounts[0].address;
+      localStorage.setItem('NUETRONADDRESS', userAddress);
+      setAddress(userAddress);
     } catch (error) {
       console.error(error);
       alert('Failed to connect to Keplr wallet');
     }
   };
 
-  return <button onClick={connectKeplr}>ConnectWallet</button>;
+  return (
+    <StWalletBtn onClick={connectKeplr}>
+      {address ? (
+        <StIcon>
+          <StI>
+            <IcQveIcon />
+          </StI>
+          <span>{address}</span>
+        </StIcon>
+      ) : (
+        <span>Connect Wallet</span>
+      )}
+    </StWalletBtn>
+  );
 };
 
 export default ConnectWallet;
+
+const StWalletBtn = styled.button`
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(125deg, #2f44b0ab 1%, #581a38e4 99%);
+  width: 16.7rem;
+  height: 4.6rem;
+  border-radius: 20px;
+  padding: 1rem;
+  & span {
+    color: ${({ theme }) => theme.colors.white};
+    ${({ theme }) => theme.fonts.body_2m};
+    overflow: hidden;
+    padding-left: 3.2rem;
+  }
+`;
+
+const StIcon = styled.div`
+  position: relative;
+  display: flex;
+  width: 100%;
+  gap: 0.5rem;
+  align-items: center;
+`;
+
+const StI = styled.div`
+  width: 2.8rem;
+  height: 2.8rem;
+  background-color: ${({ theme }) => theme.colors.white};
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+`;
