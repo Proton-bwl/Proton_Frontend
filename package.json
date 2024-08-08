@@ -10,18 +10,27 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
     "@cosmjs/proto-signing": "^0.32.4",
     "@cosmjs/stargate": "^0.32.4",
+    "@cosmos-kit/keplr": "^2.12.2",
+    "@cosmos-kit/react": "^2.18.0",
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
+    "@interchain-ui/react": "^1.23.29",
     "@keplr-wallet/types": "^0.12.119",
+    "buffer": "^6.0.3",
+    "chain-registry": "^1.63.53",
     "emotion-reset": "^3.0.1",
+    "framer-motion": "^11.3.23",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.0",
     "viem": "2.x"
   },
   "devDependencies": {
+    "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
+    "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^7.15.0",
@@ -30,6 +39,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
+    "rollup-plugin-node-polyfills": "^0.2.1",
     "typescript": "^5.2.2",
     "vite": "^5.3.4",
     "vite-plugin-svgr": "^4.2.0"
