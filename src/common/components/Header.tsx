@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { QveLogo } from '../assets/0_index';
 import { useLocation, useNavigate } from 'react-router-dom';
 import TradeNowBtn from '../../onboarding/Components/TradeNowBtn';
+import ConnectWallet from './ConnectWallet';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const Header = () => {
       <StWrapper>
         <StQveLogo />
         {location.pathname === '/dashboard' ? (
-          <></>
+          <ConnectWallet />
         ) : (
           <StNav>
             <StNavItem onClick={() => navigate('/')}>About</StNavItem>
@@ -52,7 +53,8 @@ const StContainer = styled.header`
 
 const StWrapper = styled.div`
   height: 4.6rem;
-  width: 120rem;
+  width: 100%;
+  max-width: 120rem;
   margin: 3.2rem 0.8rem 1.6rem;
   display: flex;
   justify-content: space-between;

@@ -18,6 +18,7 @@ const globalStyles = css`
   body {
     color: #fff;
     background-color: ${theme.colors.qve_background};
+    overflow-x: hidden;
   }
 
   button {
