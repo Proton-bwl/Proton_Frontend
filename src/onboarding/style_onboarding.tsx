@@ -2,12 +2,18 @@ import styled from '@emotion/styled';
 import { STCOMBoxWrapper } from '../common/styles/commonStyleComs';
 export const MainContainer = styled.div`
   width: 100vw;
+  max-width: 120rem;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 6.4rem;
+  margin: 9.5rem 6.4rem 0;
+
+  transform-origin: top center;
+  @media (max-width: 1600px) {
+    transform: scale(0.9);
+  }
 `;
 
 export const PreTitle = styled.div`
@@ -77,6 +83,9 @@ export const Section1 = {
     & nav {
       display: flex;
       gap: 1rem;
+      & > * {
+        cursor: pointer;
+      }
     }
 
     & p {
@@ -85,23 +94,24 @@ export const Section1 = {
     }
   `,
   BackgroundImg1: styled.img`
-    width: 30%;
+    width: 40%;
     position: absolute;
     top: -2%;
-    right: 30%;
+    right: 20%;
     opacity: 0.4;
     transform: rotate(330deg);
   `,
   BackgroundImg2: styled.img`
-    width: 60%;
+    width: 100%;
     position: absolute;
     top: 0;
-    right: 0;
+    right: -30%;
+    z-index: -1;
   `,
 };
 
 export const Section2 = {
-  Container: styled.section`
+  Container: styled.div`
     width: 100%;
     position: relative;
     display: flex;
@@ -116,6 +126,7 @@ export const Section2 = {
     }
   `,
   Contents: styled.div`
+    width: 100%;
     margin: 6.4rem 0 12.8rem;
     display: flex;
     justify-content: center;
@@ -127,15 +138,16 @@ export const Section2 = {
     width: 100%;
     height: 45.5rem;
     padding: 3rem;
-    & > div {
-      display: flex;
-      gap: 0.4rem;
-      align-items: center;
-      margin-bottom: 3.8rem;
-
-      & > span {
-        ${({ theme }) => theme.fonts.body_1m};
-      }
+    display: flex;
+    flex-direction: column;
+  `,
+  IconContainer: styled.div`
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+    margin-bottom: 3.8rem;
+    & > span {
+      ${({ theme }) => theme.fonts.body_1m};
     }
   `,
   AbouItemLayout: styled.div`
@@ -151,11 +163,13 @@ export const Section2 = {
   Explain: styled.p`
     ${({ theme }) => theme.fonts.body_1};
     word-wrap: break-word;
+    color: ${({ theme }) => theme.colors.sub_white};
+    height: 8.4rem;
   `,
 };
 
 export const Section3 = {
-  Container: styled.section`
+  Container: styled.div`
     width: 100%;
     position: relative;
     display: flex;
@@ -174,10 +188,16 @@ export const Section3 = {
     color: ${({ theme }) => theme.colors.not_important};
   `,
   BackgroundImg: styled.img`
-    width: 80rem;
+    width: 160rem;
     position: absolute;
-    top: 5rem;
-    left: -20rem;
-    transform: rotate(250deg);
+    top: 10rem;
+    left: -150%;
+    transform: rotate(260deg);
+    z-index: -1;
+  `,
+
+  SubTitle: styled.p`
+    ${({ theme }) => theme.fonts.body_3};
+    color: ${({ theme }) => theme.colors.not_important};
   `,
 };

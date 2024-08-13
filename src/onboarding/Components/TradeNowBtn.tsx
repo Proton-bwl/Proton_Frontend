@@ -8,7 +8,7 @@ const TradeNowBtn = () => {
     <StTradeNowBtn
       type='button'
       onClick={() => {
-        navigate('/dashboard');
+        navigate('/tradeBots');
       }}
     >
       <span>Trade Now</span>
@@ -32,5 +32,9 @@ const StTradeNowBtn = styled.button`
   & > span {
     color: ${({ theme }) => theme.colors.white};
     ${({ theme }) => theme.fonts.body_2m};
+  }
+
+  &:hover {
+    background: linear-gradient(125deg, #581a38e4 1%, #2f44b0ab 99%);
   }
 `;

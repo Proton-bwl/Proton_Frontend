@@ -2,12 +2,18 @@ import styled from '@emotion/styled';
 import { STCOMBoxWrapper } from '../common/styles/commonStyleComs';
 export const MainContainer = styled.div`
   width: 100vw;
+  max-width: 120rem;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 6.4rem;
+  margin: 9.5rem 6.4rem 0;
+
+  transform-origin: top center;
+  @media (max-width: 1600px) {
+    transform: scale(0.9);
+  }
 `;
 
 export const Announcement = {
@@ -36,5 +42,14 @@ export const Announcement = {
   `,
   Text: styled.p`
     ${({ theme }) => theme.fonts.title_1};
+  `,
+};
+
+export const Dashboard = {
+  Container: styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 4.7rem;
   `,
 };

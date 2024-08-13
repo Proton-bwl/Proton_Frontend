@@ -8,6 +8,9 @@ import IcProfits from './section2_profits.svg?react';
 import IcRisk from './section2_risk.svg?react';
 import IcSafety from './section2_safety.svg?react';
 
+import onboarding3 from './onboarding_mock3.webp';
+import onboarding4 from './onboarding_mock4.webp';
+
 export {
   IcGitbub,
   IcMedium,
@@ -17,4 +20,6 @@ export {
   IcProfits,
   IcRisk,
   IcSafety,
+  onboarding3,
+  onboarding4,
 };

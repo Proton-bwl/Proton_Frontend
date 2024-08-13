@@ -15,10 +15,18 @@ const globalStyles = css`
     font-size: 62.5%;
   }
 
+  #root {
+    height: 100vh;
+  }
+
   body {
+    width: 100vw;
     color: #fff;
     background-color: ${theme.colors.qve_background};
     overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   button {

@@ -5,6 +5,7 @@ import IcFooterTwitter from './icTwitter.svg?react';
 import IcFooterTelegram from './icTelegram.svg?react';
 import IcFooterMedium from './icMedium.svg?react';
 import IcFooterGithub from './icGithub.svg?react';
+import IcStrokeLogo from './qveStrokeLogo.svg?react';
 
 export {
   QveLogo,
@@ -14,4 +15,5 @@ export {
   IcFooterMedium,
   IcFooterTelegram,
   IcFooterTwitter,
+  IcStrokeLogo,
 };

@@ -7,25 +7,80 @@ import {
   IcTelegram,
   IcTwitter,
   Neutron,
+  onboarding3,
+  onboarding4,
 } from './assets/0_index';
 import { ABOUTQVE } from './constants.ts';
 import TradeNowBtn from './Components/TradeNowBtn.tsx';
 import Footer from '../common/components/Footer.tsx';
+import { useEffect, useRef, useState } from 'react';
+import axios from 'axios';
+import { formatPriceValue } from '../common/utils/formatPriceValue.ts';
+import {
+  moveGithub,
+  moveMedium,
+  moveTelegram,
+  moveTwitter,
+} from '../common/utils/moveLink.ts';
 
 const OnBoarding = () => {
+  const section2Ref = useRef<HTMLDivElement>(null);
+  const section3Ref = useRef<HTMLDivElement>(null);
+  const section4Ref = useRef<HTMLDivElement>(null);
+
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
+    if (ref.current) {
+      const headerOffset = 100;
+      const elementPosition =
+        ref.current.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
+  };
+
   return (
-    <St.MainContainer>
-      <Header />
-      <OnBoarding1 />
-      <OnBoarding2 />
-      <OnBoarding3 />
-      <OnBoarding4 />
-      <Footer />
-    </St.MainContainer>
+    <>
+      <Header
+        scrollToSection={scrollToSection}
+        section2Ref={section2Ref}
+        section3Ref={section3Ref}
+        section4Ref={section4Ref}
+      />
+      <St.MainContainer>
+        <OnBoarding1 />
+        <div ref={section2Ref}>
+          <OnBoarding2 />
+        </div>
+        <div ref={section3Ref}>
+          <OnBoarding3 />
+        </div>
+        <div ref={section4Ref}>
+          <OnBoarding4 />
+        </div>
+        <Footer />
+      </St.MainContainer>
+    </>
   );
 };
 
 const OnBoarding1 = () => {
+  const base_url = import.meta.env.VITE_BASE_URL;
+  const [totalValueLocked, setTotalValueLocked] = useState(0);
+  const getData = async () => {
+    try {
+      const { data } = await axios.get(`${base_url}/api/onboarding`);
+      setTotalValueLocked(data.total_value_locked);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <St.Section1.Container>
       <St.Section1.BackgroundImg1 src={onBoardingCube} alt='cubeIMG' />
@@ -41,15 +96,15 @@ const OnBoarding1 = () => {
         </St.Section1.QVEIntroduce>
         <St.Section1.TotalValue>
           <p>Total Value Locked</p>
-          <p>$351,276,998.12</p>
+          <p>$ {formatPriceValue(totalValueLocked)}</p>
         </St.Section1.TotalValue>
       </St.Section1.ContentLayout>
       <St.Section1.Bottom>
         <nav>
-          <IcTwitter />
-          <IcTelegram />
-          <IcMedium />
-          <IcGitbub />
+          <IcTwitter onClick={moveTwitter} />
+          <IcTelegram onClick={moveTelegram} />
+          <IcMedium onClick={moveMedium} />
+          <IcGitbub onClick={moveGithub} />
         </nav>
         <p>Ecosystem</p>
         <Neutron />
@@ -67,10 +122,10 @@ const OnBoarding2 = () => {
         {ABOUTQVE.map((item) => {
           return (
             <St.Section2.AboutItem key={item.keyWord}>
-              <div>
+              <St.Section2.IconContainer>
                 <item.icon />
                 <span>{item.keyWord}</span>
-              </div>
+              </St.Section2.IconContainer>
               <St.Section2.AbouItemLayout>
                 <St.Section2.ItemTitle>{item.title}</St.Section2.ItemTitle>
                 <St.Section2.Explain>{item.explain}</St.Section2.Explain>
@@ -92,10 +147,15 @@ const OnBoarding3 = () => {
           QVE offers various ‘vaults’, which are operated by the trading bots
         </St.PreTitle>
         <St.Title>Assets Into The Vault</St.Title>
-        <p>(Arbitrage is one of the strategies we use)</p>
+        <St.Section3.SubTitle>
+          (Arbitrage is one of the strategies we use)
+        </St.Section3.SubTitle>
       </St.Section3.InTro>
 
-      <div style={{ height: '90rem' }}>작업 중..</div>
+      <img
+        style={{ width: '69.4rem', margin: '6.4rem 0 13rem' }}
+        src={onboarding3}
+      />
     </St.Section3.Container>
   );
 };
@@ -105,7 +165,10 @@ const OnBoarding4 = () => {
     <St.Section3.Container>
       <St.PreTitle>Asset Management Process</St.PreTitle>
       <St.Title>Automated Trading Strategy</St.Title>
-      <div style={{ height: '27rem' }}>작업 중..</div>
+      <img
+        style={{ width: '70%', margin: '6.4rem 0 14rem' }}
+        src={onboarding4}
+      />
 
       <TradeNowBtn />
     </St.Section3.Container>
