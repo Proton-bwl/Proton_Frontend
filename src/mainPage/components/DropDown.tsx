@@ -50,9 +50,6 @@ export default DropDown;
 const StContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 5rem;
-  display: flex;
-  align-items: center;
   ${({ theme }) => theme.fonts.caption};
   cursor: pointer;
 `;
@@ -68,8 +65,7 @@ const StDropUp = styled(StContainer)`
 
 const StDropdown = {
   Container: styled.div`
-    position: absolute;
-    top: 0;
+    position: relative;
     width: 100%;
     border: 1px solid #ffffff;
     border-radius: 6px;

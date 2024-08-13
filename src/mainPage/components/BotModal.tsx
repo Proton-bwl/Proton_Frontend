@@ -70,53 +70,55 @@ const BotModal = ({
 
   return data ? (
     <STCOMBackground>
-      <StWrapper>
-        <StSpaceBetween>
-          <StModalTitle>Cyclic Arb bot</StModalTitle>
-          <IcModalX onClick={onClose} />
-        </StSpaceBetween>
-        <StModalExplain>
-          Cyclic arb bot automatically captures recurring price discrepancies
-          between multiple exchanges, operating 24/7.
-        </StModalExplain>
-        <StColumn>
+      <StScroll>
+        <StWrapper>
           <StSpaceBetween>
-            <StModalLabel>Investment</StModalLabel>
-            <StAvailable>
-              <span>Available:</span> {formatPriceValue(data.Available)} NTRN
-            </StAvailable>
+            <StModalTitle>Cyclic Arb bot</StModalTitle>
+            <IcModalX onClick={onClose} />
           </StSpaceBetween>
-          <StinputContainer>
-            <input
-              placeholder={placeholder}
-              value={depositValue}
-              onChange={handleDepositValue}
-            />
-            <button>Max</button>
-          </StinputContainer>
-        </StColumn>
+          <StModalExplain>
+            Cyclic arb bot automatically captures recurring price discrepancies
+            between multiple exchanges, operating 24/7.
+          </StModalExplain>
+          <StColumn>
+            <StSpaceBetween>
+              <StModalLabel>Investment</StModalLabel>
+              <StAvailable>
+                <span>Available:</span> {formatPriceValue(data.Available)} NTRN
+              </StAvailable>
+            </StSpaceBetween>
+            <StinputContainer>
+              <input
+                placeholder={placeholder}
+                value={depositValue}
+                onChange={handleDepositValue}
+              />
+              <button>Max</button>
+            </StinputContainer>
+          </StColumn>
 
-        <StGraphContaienr>
-          <p>Daily PnL(%): 56.12%</p>
-          <AreaChart chartData={data.data} />
-        </StGraphContaienr>
-        <DropDown />
-        <StDepositBtn
-          disabled={
-            placeholder !== DEPOSIT_PLACEHOLDER.default || !depositValue
-          }
-          onClick={() => deposit(botId)}
-        >
-          Deposit
-        </StDepositBtn>
-        <StModalNotice>
-          <IcNotice />
-          <span>
-            You are using a shared parameter. As market conditions differ, these
-            parameters cannot guarantee the same results.
-          </span>
-        </StModalNotice>
-      </StWrapper>
+          <StGraphContaienr>
+            <p>Daily PnL(%): 56.12%</p>
+            <AreaChart chartData={data.data} />
+          </StGraphContaienr>
+          <DropDown />
+          <StDepositBtn
+            disabled={
+              placeholder !== DEPOSIT_PLACEHOLDER.default || !depositValue
+            }
+            onClick={() => deposit(botId)}
+          >
+            Deposit
+          </StDepositBtn>
+          <StModalNotice>
+            <IcNotice />
+            <span>
+              You are using a shared parameter. As market conditions differ,
+              these parameters cannot guarantee the same results.
+            </span>
+          </StModalNotice>
+        </StWrapper>
+      </StScroll>
     </STCOMBackground>
   ) : (
     <>loading...</>
@@ -125,20 +127,25 @@ const BotModal = ({
 
 export default BotModal;
 
-const StWrapper = styled.div`
+const StScroll = styled.div`
+  overflow-y: scroll;
   width: 56rem;
   max-height: 74.4rem;
   height: 100%;
   border-radius: 16px;
-  padding: 2.4rem;
   background-color: ${({ theme }) => theme.colors.invest_background};
   z-index: 4;
+`;
+
+const StWrapper = styled.div`
+  width: 100%;
+  /* height: 1000px; */
+  padding: 2.4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   gap: 1.8rem;
-  overflow-y: scroll;
+  /* display: block; */
 
   & > * {
     width: 100%;
@@ -218,6 +225,7 @@ const StinputContainer = styled.div`
 `;
 
 const StGraphContaienr = styled.div`
+  position: relative;
   width: 100%;
   height: 27.5rem;
   border: 0.1rem solid ${({ theme }) => theme.colors.white};
