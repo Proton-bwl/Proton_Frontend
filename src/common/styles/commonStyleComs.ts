@@ -21,7 +21,7 @@ export const STCOMGlassWrapper = styled.div`
     linear-gradient(
       300deg,
       rgba(255, 255, 255, 0.1) -9.46%,
-      rgba(255, 255, 255, 1) 115.25%
+      rgba(255, 255, 255, 0.8) 115.25%
     );
   background-origin: border-box;
   background-clip: content-box, border-box;
