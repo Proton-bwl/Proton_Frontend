@@ -38,7 +38,6 @@ const BotModal = ({
   if (!isOpen) return null;
 
   const getData = async () => {
-    console.log(botId);
     try {
       const { data } = await axios.get(
         `${base_url}/api/PnLChart?bot_id=${botId}&user_id=${user_id}&timeframe=5`

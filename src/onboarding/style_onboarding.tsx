@@ -17,7 +17,7 @@ export const MainContainer = styled.div`
 `;
 
 export const PreTitle = styled.div`
-  ${({ theme }) => theme.fonts.body_2m};
+  ${({ theme }) => theme.fonts.mont_18_medium};
   color: ${({ theme }) => theme.colors.sub_white};
 `;
 export const Title = styled.div`
@@ -57,7 +57,7 @@ export const Section1 = {
     & > p {
       max-width: 51.5rem;
       word-wrap: break-word;
-      ${({ theme }) => theme.fonts.body_1};
+      ${({ theme }) => theme.fonts.body_1_1};
       color: ${({ theme }) => theme.colors.not_important};
     }
   `,
@@ -120,7 +120,7 @@ export const Section2 = {
     align-items: center;
 
     & > p {
-      ${({ theme }) => theme.fonts.body_2m};
+      ${({ theme }) => theme.fonts.mont_18_medium};
       color: ${({ theme }) => theme.colors.sub_white};
       margin-bottom: 1rem;
     }
@@ -161,7 +161,7 @@ export const Section2 = {
     word-wrap: break-word;
   `,
   Explain: styled.p`
-    ${({ theme }) => theme.fonts.body_1};
+    ${({ theme }) => theme.fonts.body_1_1};
     word-wrap: break-word;
     color: ${({ theme }) => theme.colors.sub_white};
     height: 8.4rem;

@@ -144,7 +144,7 @@ const StBotSummaryValue = styled.div`
     gap: 0.6rem;
     & > label {
       color: ${({ theme }) => theme.colors.not_important};
-      ${({ theme }) => theme.fonts.body_2_auto};
+      ${({ theme }) => theme.fonts.body_2_semibold};
     }
     & > p {
       color: ${({ theme }) => theme.colors.white};
