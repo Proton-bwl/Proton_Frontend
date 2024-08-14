@@ -128,24 +128,28 @@ const BotModal = ({
 export default BotModal;
 
 const StScroll = styled.div`
-  overflow-y: scroll;
+  overflow-y: auto;
   width: 56rem;
   max-height: 74.4rem;
-  height: 100%;
   border-radius: 16px;
   background-color: ${({ theme }) => theme.colors.invest_background};
   z-index: 4;
+  padding: 2.4rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none; /* 스크롤바 숨기기 */
+  }
 `;
 
 const StWrapper = styled.div`
   width: 100%;
-  /* height: 1000px; */
-  padding: 2.4rem;
+  height: 69.6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.8rem;
-  /* display: block; */
 
   & > * {
     width: 100%;
