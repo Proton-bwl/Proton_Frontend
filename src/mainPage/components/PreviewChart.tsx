@@ -38,59 +38,43 @@ const PreviewChart = ({ chartData }: { chartData: IChartData[] }) => {
       width: 2,
     },
     fill: {
-      type: 'gradient', // 그라데이션으로 채우기
+      type: 'gradient',
       gradient: {
-        shade: 'light', // 그라데이션의 밝기
-        type: 'vertical', // 수직 그라데이션
+        shade: 'light',
+        type: 'vertical',
         shadeIntensity: 0.5,
-        gradientToColors: ['#19F6C1'], // 그라데이션의 끝 색상
+        gradientToColors: ['#19F6C1'],
         inverseColors: false,
-        opacityFrom: 0.3, // 시작 색상의 투명도
-        opacityTo: 0, // 끝 색상의 투명도
-        stops: [0, 100], // 그라데이션의 위치
+        opacityFrom: 0.3,
+        opacityTo: 0.2,
+        stops: [0, 100],
       },
     },
     xaxis: {
-      type: 'category',
-      tickAmount: 4,
-      tickPlacement: 'on',
-      // categories: ['2023-01', '2023-02', '2023-03', '2023-04', '2023-05'],
+      type: 'datetime',
       labels: {
-        formatter: (value) => {
-          const date = new Date(value);
-          const month = date.getMonth() + 1; // getMonth() returns 0-based index
-          const day = date.getDate();
-          return `${month.toString().padStart(2, '0')}/${day
-            .toString()
-            .padStart(2, '0')}`;
-        },
-        style: {
-          colors: '#ffffff',
-        },
-
-        offsetX: 0,
+        show: false, // x축 레이블 숨기기
       },
       axisBorder: {
-        show: true,
-        color: '#FFFFFF', // x축 경계선 색상 하얀색으로 설정
+        show: false, // x축 경계선 숨기기
       },
       axisTicks: {
-        show: false,
+        show: false, // x축 눈금 숨기기
       },
     },
     yaxis: {
       labels: {
-        formatter: (value) => {
-          return value + '%'; // y축의 값을 %로 포맷팅합니다.
-        },
-        style: {
-          colors: ['#ffffff'],
-        },
+        show: false, // y축 레이블 숨기기
+      },
+      axisBorder: {
+        show: false, // y축 경계선 숨기기
+      },
+      axisTicks: {
+        show: false, // y축 눈금 숨기기
       },
     },
     grid: {
-      borderColor: '#FFFFFF', // 그리드 선 색상 하얀색으로 설정
-      strokeDashArray: 3, // 점선 스타일
+      show: false, // 그리드 숨기기
     },
     tooltip: {
       enabled: false,
@@ -102,8 +86,8 @@ const PreviewChart = ({ chartData }: { chartData: IChartData[] }) => {
       options={options}
       series={series}
       type='area'
-      height={240}
-      width={500}
+      height={110}
+      width={250}
     />
   );
 };

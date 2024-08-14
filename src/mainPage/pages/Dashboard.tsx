@@ -168,9 +168,9 @@ const Dashboard = () => {
   const getData = async () => {
     try {
       const { data } = await axios.get(
-        `${base_url}/api/dashboard?user_id=${isWalletConnect}&token=NTRN`
+        `${base_url}/api/dashboard?user_id=${isWalletConnect}`
       );
-      console.log(data);
+      console.log(`🫥dashboard : ${data}`);
       setData(data);
     } catch (err) {
       console.log(err);

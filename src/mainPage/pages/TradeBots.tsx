@@ -43,7 +43,10 @@ const TradeBots = () => {
     key_e: React.KeyboardEvent<HTMLInputElement>
   ) => {
     if (key_e.key === 'Enter') {
-      if (searchValue === '') getData('Profit');
+      if (searchValue === '') {
+        getData('Profit');
+        return;
+      }
       try {
         const { data } = await axios.get(
           `${base_url}/api/trade-bots?search=${searchValue}}`
@@ -55,7 +58,7 @@ const TradeBots = () => {
     }
   };
 
-  return (
+  return data ? (
     <StContainer>
       <SelectView view={VIEW.TRADE_BOTS} />
       <StTopContainer>
@@ -85,14 +88,18 @@ const TradeBots = () => {
             openModal={openBotModal}
           />
         ))}
-        <BotBoard
-          key={DUMMY_BOT.bot_id}
-          data={DUMMY_BOT}
-          active={DUMMY_BOT.bot_id}
-          openModal={openBotModal}
-        />
+        {!searchValue && (
+          <BotBoard
+            key={DUMMY_BOT.bot_id}
+            data={DUMMY_BOT}
+            active={DUMMY_BOT.bot_id}
+            openModal={openBotModal}
+          />
+        )}
       </StBotsContainer>
     </StContainer>
+  ) : (
+    <>loading..</>
   );
 };
 

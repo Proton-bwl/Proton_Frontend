@@ -4,7 +4,6 @@ import {
   STCOMBoxWrapper,
 } from '../../common/styles/commonStyleComs';
 import {
-  Graph,
   IcPersons,
   LogoCyclicArbBot,
   LogoGradationBot,
@@ -14,6 +13,10 @@ import { ITRADEBOTS } from '../types/dashboardType';
 import { formatPriceValue } from '../../common/utils/formatPriceValue';
 import { formatNumberValue } from '../../common/utils/formatNumberValue';
 import { formatPercentValue } from '../../common/utils/formatPercentValue';
+import PreviewChart from './PreviewChart';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { IChartData } from '../types/pnlChartType';
 
 interface IBotBoardProps {
   data: ITRADEBOTS;
@@ -21,16 +24,35 @@ interface IBotBoardProps {
   openModal: (id: string) => void;
 }
 
-const BotBoard = ({ data, active, openModal }: IBotBoardProps) => {
+const base_url = import.meta.env.VITE_BASE_URL;
+const user_id = localStorage.getItem('NEUTRONADDRESS');
+
+const BotBoard = ({ data: propsData, active, openModal }: IBotBoardProps) => {
+  const [chartData, setChartData] = useState<IChartData[]>();
+  useEffect(() => {
+    if (!active) return;
+    getData();
+  }, []);
+
+  const getData = async () => {
+    try {
+      const { data } = await axios.get(
+        `${base_url}/api/PnLChart?bot_id=${active}&user_id=${user_id}&timeframe=5`
+      );
+      setChartData(data.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <StContainer>
       <StBotInfo>
-        {data.bot_id ? <LogoCyclicArbBot /> : <LogoGradationBot />}
+        {active ? <LogoCyclicArbBot /> : <LogoGradationBot />}
         <StBotInfoLayout>
-          <StBotName>{data.name}</StBotName>
+          <StBotName>{propsData.name}</StBotName>
           <div>
             <IcPersons />
-            <p>{formatNumberValue(data.subscriber)}</p>
+            <p>{formatNumberValue(propsData.subscriber)}</p>
           </div>
         </StBotInfoLayout>
       </StBotInfo>
@@ -39,22 +61,22 @@ const BotBoard = ({ data, active, openModal }: IBotBoardProps) => {
           <StTotalProfitsContainer>
             <StTotalPRofits>
               <label>Total Profits</label>
-              <p>{formatPercentValue(data.total_profits)} %</p>
+              <p>{formatPercentValue(propsData.total_profits)} %</p>
             </StTotalPRofits>
-            <Graph />
+            {chartData && <PreviewChart chartData={chartData} />}
           </StTotalProfitsContainer>
           <StBotSummaryValue>
             <div>
               <label>APY</label>
-              <p>{formatPercentValue(data.apy)}%</p>
+              <p>{formatPercentValue(propsData.apy)}%</p>
             </div>
             <div>
               <label>Runtime</label>
-              <p>{data.runtime} Day</p>
+              <p>{propsData.runtime} Day</p>
             </div>
             <div>
               <label>TVL</label>
-              <p>{formatPriceValue(data.tvl)} NTRN</p>
+              <p>{formatPriceValue(propsData.tvl)} NTRN</p>
             </div>
           </StBotSummaryValue>
           <StBottomContainer>
@@ -62,7 +84,7 @@ const BotBoard = ({ data, active, openModal }: IBotBoardProps) => {
               <label>operated in</label>
               <img src={operatedLogo} alt='' />
             </StOperated>
-            <StDeposit onClick={() => openModal(data.bot_id)}>
+            <StDeposit onClick={() => openModal(propsData.bot_id)}>
               Deposit
             </StDeposit>
           </StBottomContainer>
