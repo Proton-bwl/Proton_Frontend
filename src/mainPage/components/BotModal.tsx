@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react';
 import { formatPriceValue } from '../../common/utils/formatPriceValue';
 import { IPnlChart } from '../types/pnlChartType';
 import { DEPOSIT_PLACEHOLDER } from '../constants/DEPOSIT_PLACEHOLDER';
+import { formatNumberWithCommas } from '../../common/utils/formatNumberWithCommas';
 
 const base_url = import.meta.env.VITE_BASE_URL;
 const user_id = localStorage.getItem('NEUTRONADDRESS');
@@ -49,7 +50,8 @@ const BotModal = ({
   };
 
   const handleDepositValue = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setDepositValue(e.target.value);
+    const formatValue = formatNumberWithCommas(e.target.value);
+    setDepositValue(formatValue);
   };
 
   const deposit = async (id: string | null) => {
@@ -60,7 +62,7 @@ const BotModal = ({
       const postData = {
         user_id: localStorage.getItem('NUETRONADDRESS'), // 지갑 주소
         bot_id: id,
-        amount: depositValue, // 입금할 금액
+        amount: depositValue.replace(/,/g, ''), // 입금할 금액
       };
       await axios.post(`${base_url}/api/deposit`, postData);
     } catch (err) {
