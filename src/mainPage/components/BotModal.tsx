@@ -15,7 +15,7 @@ import { formatNumberWithCommas } from '../../common/utils/formatNumberWithComma
 
 const base_url = import.meta.env.VITE_BASE_URL;
 const user_id = localStorage.getItem('NEUTRONADDRESS');
-
+const MINVAL = 10;
 const BotModal = ({
   isOpen,
   onClose,
@@ -114,7 +114,9 @@ const BotModal = ({
           <DropDown />
           <StDepositBtn
             disabled={
-              placeholder !== DEPOSIT_PLACEHOLDER.default || !depositValue
+              placeholder !== DEPOSIT_PLACEHOLDER.default ||
+              !depositValue ||
+              Number(depositValue.replace(/,/g, '')) < MINVAL
             }
             onClick={() => deposit(botId)}
           >
