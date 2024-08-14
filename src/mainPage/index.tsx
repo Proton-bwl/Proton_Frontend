@@ -3,7 +3,7 @@ import Footer from '../common/components/Footer';
 import Header from '../common/components/Header';
 import { announceIMG } from './assets/0_index';
 import { Outlet } from 'react-router-dom';
-import useModal from '../common/utils/useModal';
+import useModal from '../common/hooks/useModal';
 import BotModal from './components/BotModal';
 import RemoveModal from './components/RemoveModal';
 import WalletModal from '../wallet/components/WalletModal';

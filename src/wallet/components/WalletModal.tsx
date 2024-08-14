@@ -13,6 +13,8 @@ import { disconnectWallet } from '../utils/disconnectWallet';
 import { useNavigate } from 'react-router-dom';
 import { shortenWalletAddress } from '../../common/utils/shortenWalletAddress';
 import { copyLink } from '../../common/utils/copyLink';
+import CopyToast from '../../common/components/CopyToast';
+import useToast from '../../common/hooks/useToast';
 
 const WalletModal = ({
   isOpen,
@@ -23,6 +25,7 @@ const WalletModal = ({
 }) => {
   const navigate = useNavigate();
   const address = localStorage.getItem('NEUTRONADDRESS');
+  const { toast, showToast } = useToast();
   if (!isOpen || !address) return;
 
   return (
@@ -39,7 +42,15 @@ const WalletModal = ({
               <StAddress>
                 <WalletNeutronIcon />
                 <p>{shortenWalletAddress(address)}</p>
-                <StIcDuplicate onClick={() => copyLink(address)} />
+                <StCopyIcon>
+                  <StIcDuplicate
+                    onClick={() => {
+                      copyLink(address);
+                      showToast('copy address!');
+                    }}
+                  />
+                  {toast && <CopyToast message={toast.message} />}
+                </StCopyIcon>
               </StAddress>
             </StFlexC>
 
@@ -133,4 +144,11 @@ const StAddress = styled.div`
 
 const StIcDuplicate = styled(IcDuplicate)`
   cursor: pointer;
+`;
+
+const StCopyIcon = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
