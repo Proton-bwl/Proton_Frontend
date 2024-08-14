@@ -74,11 +74,11 @@ const StWalletBtn = styled.button`
   justify-content: center;
   align-items: center;
   background: linear-gradient(125deg, #2f44b0ab 1%, #581a38e4 99%);
-  /* min-width: 16.7rem; */
+  min-width: 16.7rem;
   width: fit-content;
   height: 4.6rem;
   border-radius: 20px;
-  padding: 1rem;
+  padding: 1.6rem;
   & span {
     color: ${({ theme }) => theme.colors.white};
     ${({ theme }) => theme.fonts.body_2m};

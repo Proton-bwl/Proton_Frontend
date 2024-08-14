@@ -11,6 +11,7 @@ import IcModalX from './modalXIcon.svg?react';
 import IcNotice from './noticeIcon.svg?react';
 import IcDropdown from './dropdownIcon.svg?react';
 import IcDropUp from './dropupIcon.svg?react';
+import LogoGradationBot from './gradationBotLogo.svg?react';
 
 export {
   announceIMG,
@@ -19,6 +20,7 @@ export {
   IcSearch,
   IcSort,
   LogoCyclicArbBot,
+  LogoGradationBot,
   IcPersons,
   Graph,
   operatedLogo,
