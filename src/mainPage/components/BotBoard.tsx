@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import {
   STCOMBlueBtn,
-  STCOMBoxWrapper,
+  STCOMGlassWrapper,
 } from '../../common/styles/commonStyleComs';
 import {
   IcPersons,
@@ -45,64 +45,71 @@ const BotBoard = ({ data: propsData, active, openModal }: IBotBoardProps) => {
     }
   };
   return (
-    <StContainer>
-      <StBotInfo>
-        {active ? <LogoCyclicArbBot /> : <LogoGradationBot />}
-        <StBotInfoLayout>
-          <StBotName>{propsData.name}</StBotName>
-          <div>
-            <IcPersons />
-            <p>{formatNumberValue(propsData.subscriber)}</p>
-          </div>
-        </StBotInfoLayout>
-      </StBotInfo>
-      {active ? (
-        <>
-          <StTotalProfitsContainer>
-            <StTotalPRofits>
-              <label>Total Profits</label>
-              <p>{formatPercentValue(propsData.total_profits)} %</p>
-            </StTotalPRofits>
-            {chartData && <PreviewChart chartData={chartData} />}
-          </StTotalProfitsContainer>
-          <StBotSummaryValue>
+    <StGlassWarpper>
+      <StContainer>
+        <StBotInfo>
+          {active ? <LogoCyclicArbBot /> : <LogoGradationBot />}
+          <StBotInfoLayout>
+            <StBotName>{propsData.name}</StBotName>
             <div>
-              <label>APY</label>
-              <p>{formatPercentValue(propsData.apy)}%</p>
+              <IcPersons />
+              <p>{formatNumberValue(propsData.subscriber)}</p>
             </div>
-            <div>
-              <label>Runtime</label>
-              <p>{propsData.runtime} Day</p>
-            </div>
-            <div>
-              <label>TVL</label>
-              <p>{formatPriceValue(propsData.tvl)} NTRN</p>
-            </div>
-          </StBotSummaryValue>
-          <StBottomContainer>
-            <StOperated>
-              <label>operated in</label>
-              <img src={operatedLogo} alt='' />
-            </StOperated>
-            <StDeposit onClick={() => openModal(propsData.bot_id)}>
-              Deposit
-            </StDeposit>
-          </StBottomContainer>
-        </>
-      ) : (
-        <StComingSoon>Coming Soon...</StComingSoon>
-      )}
-    </StContainer>
+          </StBotInfoLayout>
+        </StBotInfo>
+        {active ? (
+          <>
+            <StTotalProfitsContainer>
+              <StTotalPRofits>
+                <label>Total Profits</label>
+                <p>{formatPercentValue(propsData.total_profits)} %</p>
+              </StTotalPRofits>
+              {chartData && <PreviewChart chartData={chartData} />}
+            </StTotalProfitsContainer>
+            <StBotSummaryValue>
+              <div>
+                <label>APY</label>
+                <p>{formatPercentValue(propsData.apy)}%</p>
+              </div>
+              <div>
+                <label>Runtime</label>
+                <p>{propsData.runtime} Day</p>
+              </div>
+              <div>
+                <label>TVL</label>
+                <p>{formatPriceValue(propsData.tvl)} NTRN</p>
+              </div>
+            </StBotSummaryValue>
+            <StBottomContainer>
+              <StOperated>
+                <label>operated in</label>
+                <img src={operatedLogo} alt='' />
+              </StOperated>
+              <StDeposit onClick={() => openModal(propsData.bot_id)}>
+                Deposit
+              </StDeposit>
+            </StBottomContainer>
+          </>
+        ) : (
+          <StComingSoon>Coming Soon...</StComingSoon>
+        )}
+      </StContainer>
+    </StGlassWarpper>
   );
 };
 
 export default BotBoard;
 
-const StContainer = styled(STCOMBoxWrapper)`
+const StGlassWarpper = styled(STCOMGlassWrapper)`
   min-width: 43.2rem;
   width: calc(50% - 1rem);
   max-width: 59rem;
   min-height: 45.4rem;
+`;
+
+const StContainer = styled.div`
+  width: 100%;
+  height: 100%;
   padding: 3.6rem 4.6rem;
   display: flex;
   flex-direction: column;

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { STCOMBoxWrapper } from '../common/styles/commonStyleComs';
+import { STCOMGlassWrapper } from '../common/styles/commonStyleComs';
 export const MainContainer = styled.div`
   width: 100vw;
   max-width: 120rem;
@@ -20,14 +20,16 @@ export const MainContainer = styled.div`
 `;
 
 export const Announcement = {
-  Container: styled(STCOMBoxWrapper)`
+  GlassWrapper: styled(STCOMGlassWrapper)`
     position: relative;
     margin-top: 6.4rem;
     width: 100%;
     height: 21.8rem;
-    padding: 4.5rem 3rem;
-    border: 1px solid ${({ theme }) => theme.colors.white};
     overflow: hidden;
+    z-index: -1;
+  `,
+  Container: styled.div`
+    padding: 4.5rem 3rem;
   `,
   Background: styled.img`
     width: 48rem;

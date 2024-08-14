@@ -11,15 +11,8 @@ export const STCOMBoxWrapper = styled.div`
 `;
 
 export const STCOMGlassWrapper = styled.div`
-  width: fit-content;
-  height: fit-content;
   border-radius: 40px;
   border: 0.1rem solid transparent;
-  /* background: linear-gradient(
-    144deg,
-    rgba(255, 255, 255, 0.1) -9.46%,
-    rgba(255, 255, 255, 0.25) 115.25%
-  ); */
   background-image: linear-gradient(
       144deg,
       rgba(0, 0, 0, 0.95) -9.46%,
