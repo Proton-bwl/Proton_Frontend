@@ -94,7 +94,7 @@ export const Section1 = {
 
     & p {
       margin: 3.4rem 0 1.4rem;
-      ${({ theme }) => theme.fonts.caption};
+      ${({ theme }) => theme.fonts.body_3m};
     }
   `,
   BackgroundImg1: styled.img`
