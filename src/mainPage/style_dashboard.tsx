@@ -26,12 +26,15 @@ export const Announcement = {
     width: 100%;
     height: 21.8rem;
     padding: 4.5rem 3rem;
+    border: 1px solid ${({ theme }) => theme.colors.white};
+    overflow: hidden;
   `,
   Background: styled.img`
     width: 48rem;
     position: absolute;
     right: 0;
     bottom: 0;
+    z-index: -1;
   `,
   Label: styled.div`
     width: fit-content;
