@@ -3,7 +3,7 @@ import SelectView from '../components/SelectView';
 import { VIEW } from '../components/SelectView';
 import styled from '@emotion/styled';
 import { DASHBORADTABLEHEADER } from '../constants/DASHBOARD';
-import { MOCK_DASHBOARD } from '../constants/mainPage_MOCK';
+// import { MOCK_DASHBOARD } from '../constants/mainPage_MOCK';
 import {
   STCOMBlueBtn,
   STCOMBoxWrapper,
@@ -159,7 +159,7 @@ const ISnotSelectBot = () => {
 
 const Dashboard = () => {
   const [isWalletConnect] = useState(localStorage.getItem('NEUTRONADDRESS'));
-  const [data, setData] = useState<IDashboard>(MOCK_DASHBOARD);
+  const [data, setData] = useState<IDashboard>();
 
   useEffect(() => {
     getData();
@@ -172,8 +172,8 @@ const Dashboard = () => {
       );
       console.log(`🫥dashboard : ${data}`);
       setData(data);
-    } catch (err) {
-      console.log(err);
+    } catch {
+      //err
     }
   };
 
