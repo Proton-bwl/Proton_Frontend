@@ -50,7 +50,7 @@ const WalletModal = ({
                 navigate('/');
               }}
             >
-              DisConnect
+              Disconnect
               <IcDisConnect />
             </StDisconnectBtn>
           </StSpaceBetween>

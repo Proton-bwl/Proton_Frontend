@@ -30,13 +30,13 @@ const FONT = (
 `;
 
 const fonts = {
-  title_0: FONT('Montserrat', 4.2, 'normal', 'semiBold', '140', 0),
+  title_0: FONT('Montserrat', 4.2, 'normal', '600', '140', 0),
   title_0_pre: FONT('Pretendard Variable', 4, 'normal', '600', '140', 0),
   title_TVL: FONT('Montserrat', 4, 'normal', 'Bold', 'auto', 0),
   title_1m: FONT('Montserrat', 3.4, 'normal', 'Bold', '140', 0),
   title_1: FONT('Pretendard Variable', 3.4, 'normal', 'Bold', '140', 0),
   title_2a: FONT('Pretendard Variable', 3, 'normal', 'Bold', '140', 0),
-  title_2am: FONT('Montserrat', 3, 'normal', 'Bold', '140', 0),
+  title_2am: FONT('Montserrat', 3, 'normal', '600', '140', 0),
   title_2: FONT('Montserrat', 2.8, 'normal', 'Bold', '140', 0),
   body_0: FONT('Pretendard Variable', 2.4, 'normal', 'Bold', '100', 0),
   body_0m: FONT('Montserrat', 2.4, 'normal', 'Bold', '100', 0),

@@ -42,6 +42,9 @@ const BotModal = ({
       const { data } = await axios.get(
         `${base_url}/api/PnLChart?bot_id=${botId}&user_id=${user_id}&timeframe=5`
       );
+      if (data.Available === 0) {
+        setPlaceholder(DEPOSIT_PLACEHOLDER.lackOfMoney);
+      }
       setData(data);
     } catch (err) {
       console.log(err);
