@@ -69,7 +69,7 @@ const StDropdown = {
     width: 100%;
     border: 1px solid #ffffff;
     border-radius: 6px;
-    padding: 1.2rem 1.6rem;
+    padding: 1.6rem;
     display: flex;
     flex-direction: column;
     ${({ theme }) => theme.fonts.caption};
