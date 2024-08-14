@@ -22,6 +22,7 @@ import {
   moveTelegram,
   moveTwitter,
 } from '../common/utils/moveLink.ts';
+import { STCOMGlassWrapper } from '../common/styles/commonStyleComs.ts';
 
 const OnBoarding = () => {
   const section2Ref = useRef<HTMLDivElement>(null);
@@ -121,16 +122,18 @@ const OnBoarding2 = () => {
       <St.Section2.Contents>
         {ABOUTQVE.map((item) => {
           return (
-            <St.Section2.AboutItem key={item.keyWord}>
-              <St.Section2.IconContainer>
-                <item.icon />
-                <span>{item.keyWord}</span>
-              </St.Section2.IconContainer>
-              <St.Section2.AbouItemLayout>
-                <St.Section2.ItemTitle>{item.title}</St.Section2.ItemTitle>
-                <St.Section2.Explain>{item.explain}</St.Section2.Explain>
-              </St.Section2.AbouItemLayout>
-            </St.Section2.AboutItem>
+            <STCOMGlassWrapper key={item.keyWord}>
+              <St.Section2.AboutItem>
+                <St.Section2.IconContainer>
+                  <item.icon />
+                  <span>{item.keyWord}</span>
+                </St.Section2.IconContainer>
+                <St.Section2.AbouItemLayout>
+                  <St.Section2.ItemTitle>{item.title}</St.Section2.ItemTitle>
+                  <St.Section2.Explain>{item.explain}</St.Section2.Explain>
+                </St.Section2.AbouItemLayout>
+              </St.Section2.AboutItem>
+            </STCOMGlassWrapper>
           );
         })}
       </St.Section2.Contents>

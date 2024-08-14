@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { STCOMBoxWrapper } from '../common/styles/commonStyleComs';
 export const MainContainer = styled.div`
   width: 100vw;
   max-width: 120rem;
@@ -136,7 +135,7 @@ export const Section2 = {
     justify-content: center;
     gap: 3rem;
   `,
-  AboutItem: styled(STCOMBoxWrapper)`
+  AboutItem: styled.div`
     min-width: 28.2em;
     max-width: 38rem;
     width: 100%;
