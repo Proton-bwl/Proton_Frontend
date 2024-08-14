@@ -12,6 +12,7 @@ import IcNotice from './noticeIcon.svg?react';
 import IcDropdown from './dropdownIcon.svg?react';
 import IcDropUp from './dropupIcon.svg?react';
 import LogoGradationBot from './gradationBotLogo.svg?react';
+import LogoNeutron from './neutronLogo.svg?react';
 
 export {
   announceIMG,
@@ -28,4 +29,5 @@ export {
   IcNotice,
   IcDropdown,
   IcDropUp,
+  LogoNeutron,
 };

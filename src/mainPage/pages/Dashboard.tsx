@@ -15,7 +15,7 @@ import { useNavigate, useOutletContext } from 'react-router-dom';
 import ConnectWallet from '../../wallet/ConnectWallet';
 import axios from 'axios';
 import { formatPriceValue } from '../../common/utils/formatPriceValue';
-// import { LogoCyclicArbBot } from '../assets/0_index';
+import { LogoNeutron } from '../assets/0_index';
 
 const base_url = import.meta.env.VITE_BASE_URL;
 
@@ -64,8 +64,16 @@ const ShowDashboardData = ({ data }: { data: IDashboard }) => {
           {data.bots.map((item) => (
             <StTableRow key={item.bot_id}>
               <StTableCell>
-                {/* <StLogoCyclicArbBot /> */}
-                {item.bot_id}
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.6rem',
+                  }}
+                >
+                  <LogoNeutron />
+                  {item.bot_id}
+                </div>
               </StTableCell>
               <StTableCell>
                 {formatPriceValue(item.total_investment)} {TOKEN}
@@ -84,12 +92,19 @@ const ShowDashboardData = ({ data }: { data: IDashboard }) => {
                 </StPositiveColor>
               </StTableCell>
               <StTableCell>
-                <StAddBtn onClick={() => openBotModal(item.bot_id)}>
-                  Add
-                </StAddBtn>
-                <StRemoveBtn onClick={() => openRemoveModal(item.bot_id)}>
-                  Remove
-                </StRemoveBtn>
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                  }}
+                >
+                  <StAddBtn onClick={() => openBotModal(item.bot_id)}>
+                    Add
+                  </StAddBtn>
+                  <StRemoveBtn onClick={() => openRemoveModal(item.bot_id)}>
+                    Remove
+                  </StRemoveBtn>
+                </div>
               </StTableCell>
             </StTableRow>
           ))}
@@ -196,6 +211,7 @@ const StTotalContainer = styled.div`
     width: 50%;
     display: flex;
     flex-direction: column;
+    gap: 1.2rem;
     & label {
       ${({ theme }) => theme.fonts.body_1};
     }
@@ -235,6 +251,8 @@ const StTableCell = styled.td`
   padding: 3.7rem 0 3.7rem 2rem;
   color: ${({ theme }) => theme.colors.white};
   ${({ theme }) => theme.fonts.body_2_auto};
+  vertical-align: middle;
+  text-align: left;
 `;
 
 const StAddBtn = styled(STCOMBlueBtn)`
