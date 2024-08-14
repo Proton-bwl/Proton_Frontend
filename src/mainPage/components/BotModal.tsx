@@ -95,7 +95,13 @@ const BotModal = ({
                 value={depositValue}
                 onChange={handleDepositValue}
               />
-              <button>Max</button>
+              <button
+                onClick={() =>
+                  setDepositValue(formatPriceValue(data.Available))
+                }
+              >
+                Max
+              </button>
             </StinputContainer>
           </StColumn>
 
