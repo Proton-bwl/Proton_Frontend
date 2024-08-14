@@ -7,36 +7,25 @@ import {
   Graph,
   IcPersons,
   LogoCyclicArbBot,
+  LogoGradationBot,
   operatedLogo,
 } from '../assets/0_index';
 import { ITRADEBOTS } from '../types/dashboardType';
 import { formatPriceValue } from '../../common/utils/formatPriceValue';
 import { formatNumberValue } from '../../common/utils/formatNumberValue';
 import { formatPercentValue } from '../../common/utils/formatPercentValue';
-import { BOT_LOGO } from '../constants/BOTS_INFO';
-import React from 'react';
 
 interface IBotBoardProps {
   data: ITRADEBOTS;
   active: string;
   openModal: (id: string) => void;
 }
-interface BotIconProps {
-  botType: keyof typeof BOT_LOGO; // 'cyclicArbBot' | 'anotherBot' 등
-}
-
-const BotIcon: React.FC<BotIconProps> = ({ botType }: { botType: string }) => {
-  const SelectedIcon = BOT_LOGO[botType];
-
-  return <SelectedIcon />;
-};
 
 const BotBoard = ({ data, active, openModal }: IBotBoardProps) => {
   return (
     <StContainer>
       <StBotInfo>
-        {/* <LogoCyclicArbBot /> */}
-        <BotIcon botType={data.name} />
+        {data.bot_id ? <LogoCyclicArbBot /> : <LogoGradationBot />}
         <StBotInfoLayout>
           <StBotName>{data.name}</StBotName>
           <div>

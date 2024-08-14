@@ -1,7 +1,7 @@
 import { FunctionComponent, SVGProps } from 'react';
 import { LogoCyclicArbBot, LogoGradationBot } from '../assets/0_index';
 
-interface IBotLogo {
+export interface IBotLogo {
   'Bot One': FunctionComponent<SVGProps<SVGSVGElement>>;
   'Bot Two': FunctionComponent<SVGProps<SVGSVGElement>>;
   'NTRN/USDT Arb bot': FunctionComponent<SVGProps<SVGSVGElement>>;
