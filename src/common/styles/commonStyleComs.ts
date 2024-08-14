@@ -45,6 +45,9 @@ export const STCOMBackground = styled.div`
   @media (max-width: 1600px) {
     transform: scale(0.9);
   }
+  @media (max-width: 1300px) {
+    transform: scale(0.8);
+  }
 `;
 
 export const STCOMBackdrop = styled.div`

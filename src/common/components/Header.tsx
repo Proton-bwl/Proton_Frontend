@@ -82,11 +82,6 @@ const StContainer = styled.header`
     rgba(1, 3, 5, 0) 100%
   );
   z-index: 1;
-
-  transform-origin: top center;
-  @media (max-width: 1600px) {
-    transform: scale(0.9);
-  }
 `;
 
 const StWrapper = styled.div`
@@ -97,6 +92,15 @@ const StWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  transform-origin: top center;
+  @media (max-width: 1600px) {
+    transform: scale(0.9);
+  }
+
+  @media (max-width: 1300px) {
+    transform: scale(0.8);
+  }
 `;
 
 const StQveLogo = styled(QveLogo)`

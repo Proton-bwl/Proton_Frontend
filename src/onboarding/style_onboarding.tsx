@@ -3,6 +3,7 @@ import { STCOMBoxWrapper } from '../common/styles/commonStyleComs';
 export const MainContainer = styled.div`
   width: 100vw;
   max-width: 120rem;
+  min-width: 89.6rem;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -13,6 +14,9 @@ export const MainContainer = styled.div`
   transform-origin: top center;
   @media (max-width: 1600px) {
     transform: scale(0.9);
+  }
+  @media (max-width: 1200px) {
+    transform: scale(0.8);
   }
 `;
 
