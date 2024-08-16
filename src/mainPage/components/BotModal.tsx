@@ -88,7 +88,7 @@ const BotModal = ({
       <StScroll>
         <StWrapper>
           <StSpaceBetween>
-            <StModalTitle>Cyclic Arb bot</StModalTitle>
+            <StModalTitle>{data.bot_name}</StModalTitle>
             <IcModalX onClick={onClose} style={{ cursor: 'pointer' }} />
           </StSpaceBetween>
           <StModalExplain>

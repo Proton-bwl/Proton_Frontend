@@ -1,4 +1,5 @@
 export interface IPnlChart {
+  bot_name: string;
   bot_id: string;
   timeframe: number;
   Available: number;
