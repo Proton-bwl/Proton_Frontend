@@ -49,7 +49,7 @@ const TradeBots = () => {
       }
       try {
         const { data } = await axios.get(
-          `${base_url}/api/trade-bots?search=${searchValue}}`
+          `${base_url}/api/trade-bots?search=${searchValue}`
         );
         setData(data);
       } catch (err) {

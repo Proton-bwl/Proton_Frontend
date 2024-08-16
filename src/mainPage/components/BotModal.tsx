@@ -29,7 +29,7 @@ const BotModal = ({
   const [depositValue, setDepositValue] = useState<string>('');
   const [placeholder, setPlaceholder] = useState(DEPOSIT_PLACEHOLDER.default);
   const [data, setData] = useState<IPnlChart>();
-  const [balance, setBalance] = useState('loading..');
+  const [balance, setBalance] = useState('-');
 
   useEffect(() => {
     // if (!user_id) return;
@@ -89,7 +89,7 @@ const BotModal = ({
         <StWrapper>
           <StSpaceBetween>
             <StModalTitle>Cyclic Arb bot</StModalTitle>
-            <IcModalX onClick={onClose} />
+            <IcModalX onClick={onClose} style={{ cursor: 'pointer' }} />
           </StSpaceBetween>
           <StModalExplain>
             Cyclic arb bot automatically captures recurring price discrepancies

@@ -33,7 +33,7 @@ const WalletModal = ({
       <StWrapper>
         <StTop>
           <p>Account</p>
-          <IcModalX onClick={onClose} />
+          <IcModalX onClick={onClose} style={{ cursor: 'pointer' }} />
         </StTop>
         <StWalletInfo>
           <StSpaceBetween>

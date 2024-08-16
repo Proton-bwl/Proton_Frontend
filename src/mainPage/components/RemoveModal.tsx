@@ -39,7 +39,7 @@ const RemoveModal = ({
       <StWrapper>
         <StTop>
           <p>Remove</p>
-          <IcModalX onClick={onClose} />
+          <IcModalX onClick={onClose} style={{ cursor: 'pointer' }} />
         </StTop>
         <StMiddle>
           <span>Are you sure you want to stop the</span>
