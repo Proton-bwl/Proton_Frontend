@@ -28,6 +28,7 @@ const RemoveModal = ({
     try {
       await axios.post(`${base_url}/api/remove`, postBody);
       onClose();
+      window.location.reload();
     } catch (err) {
       console.log(err);
     }
