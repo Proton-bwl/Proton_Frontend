@@ -77,7 +77,7 @@ const BotModal = ({
       const postData = {
         user_id: localStorage.getItem('NEUTRONADDRESS'), // 지갑 주소
         bot_id: id,
-        amount: depositValue.replace(/,/g, ''), // 입금할 금액
+        amount: Number(depositValue.replace(/,/g, '')), // 입금할 금액
       };
       await axios.post(`${base_url}/api/deposit`, postData);
       onClose();
