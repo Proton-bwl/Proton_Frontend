@@ -156,6 +156,7 @@ const StScroll = styled.div`
   overflow-y: auto;
   width: 56rem;
   max-height: 74.4rem;
+  height: 100%;
   border-radius: 16px;
   background-color: ${({ theme }) => theme.colors.invest_background};
   z-index: 4;
@@ -170,7 +171,7 @@ const StScroll = styled.div`
 
 const StWrapper = styled.div`
   width: 100%;
-  height: 69.6rem;
+  min-height: 69.6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
