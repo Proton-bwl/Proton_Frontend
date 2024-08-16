@@ -32,7 +32,7 @@ const BotModal = ({
   const [balance, setBalance] = useState('loading..');
 
   useEffect(() => {
-    if (!user_id) return;
+    // if (!user_id) return;
     getData();
     if (!localStorage.getItem('NEUTRONADDRESS')) {
       setPlaceholder(DEPOSIT_PLACEHOLDER.notConnectWallet);
