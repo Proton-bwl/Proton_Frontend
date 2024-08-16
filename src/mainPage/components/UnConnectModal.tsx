@@ -2,6 +2,8 @@ import styled from '@emotion/styled';
 import { STCOMBackground } from '../../common/styles/commonStyleComs';
 import { IcModalX, IcNotice } from '../assets/0_index';
 import ConnectWallet from '../../wallet/ConnectWallet';
+import { useRef } from 'react';
+import useOutsideClick from '../../common/hooks/useOutsideClick';
 
 const UnConnectModal = ({
   isOpen,
@@ -10,11 +12,13 @@ const UnConnectModal = ({
   isOpen: boolean;
   onClose: () => void;
 }) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  useOutsideClick(wrapperRef, onClose);
   if (!isOpen) return;
 
   return (
     <STCOMBackground>
-      <StWrapper>
+      <StWrapper ref={wrapperRef}>
         <StTop>
           <p>Wallet unconnected</p>
           <IcModalX onClick={onClose} style={{ cursor: 'pointer' }} />

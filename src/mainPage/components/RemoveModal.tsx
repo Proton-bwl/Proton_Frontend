@@ -5,6 +5,8 @@ import {
 import styled from '@emotion/styled';
 import { IcModalX } from '../assets/0_index';
 import axios from 'axios';
+import { useRef } from 'react';
+import useOutsideClick from '../../common/hooks/useOutsideClick';
 
 const RemoveModal = ({
   isOpen,
@@ -15,6 +17,8 @@ const RemoveModal = ({
   onClose: () => void;
   botId?: string | null;
 }) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  useOutsideClick(wrapperRef, onClose);
   if (!isOpen) return;
 
   const remove = async () => {
@@ -36,7 +40,7 @@ const RemoveModal = ({
 
   return (
     <STCOMBackground>
-      <StWrapper>
+      <StWrapper ref={wrapperRef}>
         <StTop>
           <p>Remove</p>
           <IcModalX onClick={onClose} style={{ cursor: 'pointer' }} />

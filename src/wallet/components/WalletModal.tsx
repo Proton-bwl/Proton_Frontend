@@ -15,6 +15,8 @@ import { shortenWalletAddress } from '../../common/utils/shortenWalletAddress';
 import { copyLink } from '../../common/utils/copyLink';
 import CopyToast from '../../common/components/CopyToast';
 import useToast from '../../common/hooks/useToast';
+import { useRef } from 'react';
+import useOutsideClick from '../../common/hooks/useOutsideClick';
 
 const WalletModal = ({
   isOpen,
@@ -26,11 +28,13 @@ const WalletModal = ({
   const navigate = useNavigate();
   const address = localStorage.getItem('NEUTRONADDRESS');
   const { toast, showToast } = useToast();
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  useOutsideClick(wrapperRef, onClose);
   if (!isOpen || !address) return;
 
   return (
     <STCOMBackground>
-      <StWrapper>
+      <StWrapper ref={wrapperRef}>
         <StTop>
           <p>Account</p>
           <IcModalX onClick={onClose} style={{ cursor: 'pointer' }} />

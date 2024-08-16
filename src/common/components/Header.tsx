@@ -24,7 +24,10 @@ const Header = ({
   return (
     <StContainer>
       <StWrapper>
-        <StQveLogo onClick={() => navigate('/')} />
+        <StQveLogo
+          onClick={() => navigate('/')}
+          style={{ cursor: 'pointer' }}
+        />
         {location.pathname === '/onboarding' ? (
           <StNav>
             <StNavItem

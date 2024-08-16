@@ -7,12 +7,13 @@ import {
 } from '../../common/styles/commonStyleComs';
 import DropDown from './DropDown';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { IPnlChart } from '../types/pnlChartType';
 import { DEPOSIT_PLACEHOLDER } from '../constants/DEPOSIT_PLACEHOLDER';
 import { formatNumberWithCommas } from '../../common/utils/formatNumberWithCommas';
 import { formatPercentValue } from '../../common/utils/formatPercentValue';
 import { getBalance } from '../../common/utils/getBalance';
+import useOutsideClick from '../../common/hooks/useOutsideClick';
 
 const base_url = import.meta.env.VITE_BASE_URL;
 const MINVAL = 10;
@@ -32,6 +33,8 @@ const BotModal = ({
   const [data, setData] = useState<IPnlChart>();
   const [balance, setBalance] = useState('-');
   const [user_id, setUserId] = useState(localStorage.getItem('NEUTRONADDRESS'));
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  useOutsideClick(wrapperRef, onClose);
 
   useEffect(() => {
     // if (!user_id) return;
@@ -90,7 +93,7 @@ const BotModal = ({
   return data ? (
     <STCOMBackground>
       <StScroll>
-        <StWrapper>
+        <StWrapper ref={wrapperRef}>
           <StSpaceBetween>
             <StModalTitle>{data.bot_name}</StModalTitle>
             <IcModalX onClick={onClose} style={{ cursor: 'pointer' }} />

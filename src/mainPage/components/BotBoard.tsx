@@ -152,7 +152,7 @@ const StBotInfoLayout = styled.div`
 `;
 
 const StBotName = styled.p`
-  ${({ theme }) => theme.fonts.title_2};
+  ${({ theme }) => theme.fonts.title_2a};
   color: ${({ theme }) => theme.colors.white};
 `;
 
