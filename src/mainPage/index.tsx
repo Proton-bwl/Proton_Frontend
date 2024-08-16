@@ -8,6 +8,7 @@ import BotModal from './components/BotModal';
 import RemoveModal from './components/RemoveModal';
 import WalletModal from '../wallet/components/WalletModal';
 import { STCOMBackdrop } from '../common/styles/commonStyleComs';
+import UnConnectModal from './components/UnConnectModal';
 
 const MainPage = () => {
   //Bot Modal
@@ -31,6 +32,13 @@ const MainPage = () => {
     openModal: openWalletModal,
     closeModal: closeWalletModal,
   } = useModal();
+
+  //unconnect Modal
+  const {
+    isModalOpen: isUnConnectMoalOpen,
+    openModal: openUnConnectModal,
+    closeModal: closeUnConnectModal,
+  } = useModal();
   return (
     <>
       <Header openWalletModal={openWalletModal} />
@@ -39,12 +47,14 @@ const MainPage = () => {
         <Dashboard
           openBotModal={openBotMoal}
           openRemoveModal={openRemoveModal}
+          openUnConnectModal={openUnConnectModal}
         />
         <Footer />
       </St.MainContainer>
-      {(isBotModalOpen || isRemoveMoalOpen || isWalletModalOpen) && (
-        <STCOMBackdrop />
-      )}
+      {(isBotModalOpen ||
+        isRemoveMoalOpen ||
+        isWalletModalOpen ||
+        isUnConnectMoalOpen) && <STCOMBackdrop />}
       {isBotModalOpen && (
         <BotModal
           isOpen={isBotModalOpen}
@@ -61,6 +71,12 @@ const MainPage = () => {
       )}
       {isWalletModalOpen && (
         <WalletModal isOpen={isWalletModalOpen} onClose={closeWalletModal} />
+      )}
+      {isUnConnectMoalOpen && (
+        <UnConnectModal
+          isOpen={isUnConnectMoalOpen}
+          onClose={closeUnConnectModal}
+        />
       )}
     </>
   );
@@ -88,13 +104,15 @@ const Announcement = () => {
 const Dashboard = ({
   openBotModal,
   openRemoveModal,
+  openUnConnectModal,
 }: {
   openBotModal: (id: string) => void;
-  openRemoveModal: () => void;
+  openRemoveModal: (id: string) => void;
+  openUnConnectModal: () => void;
 }) => {
   return (
     <St.Dashboard.Container>
-      <Outlet context={{ openBotModal, openRemoveModal }} />
+      <Outlet context={{ openBotModal, openRemoveModal, openUnConnectModal }} />
     </St.Dashboard.Container>
   );
 };

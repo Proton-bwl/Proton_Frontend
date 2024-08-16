@@ -22,12 +22,18 @@ interface IBotBoardProps {
   data: ITRADEBOTS;
   active: string;
   openModal: (id: string) => void;
+  openUnConnectModal: () => void;
 }
 
 const base_url = import.meta.env.VITE_BASE_URL;
 const user_id = localStorage.getItem('NEUTRONADDRESS');
 
-const BotBoard = ({ data: propsData, active, openModal }: IBotBoardProps) => {
+const BotBoard = ({
+  data: propsData,
+  active,
+  openModal,
+  openUnConnectModal,
+}: IBotBoardProps) => {
   const [chartData, setChartData] = useState<IChartData[]>();
   useEffect(() => {
     if (!active) return;
@@ -85,7 +91,11 @@ const BotBoard = ({ data: propsData, active, openModal }: IBotBoardProps) => {
                 <label>operated in</label>
                 <img src={operatedLogo} alt='' />
               </StOperated>
-              <StDeposit onClick={() => openModal(propsData.bot_id)}>
+              <StDeposit
+                onClick={() =>
+                  user_id ? openModal(propsData.bot_id) : openUnConnectModal()
+                }
+              >
                 Deposit
               </StDeposit>
             </StBottomContainer>
