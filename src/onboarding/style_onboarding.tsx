@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { STCOMGlassWrapper } from '../common/styles/commonStyleComs';
 export const MainContainer = styled.div`
   width: 100vw;
   max-width: 120rem;
@@ -202,5 +203,39 @@ export const Section3 = {
   SubTitle: styled.p`
     ${({ theme }) => theme.fonts.body_3};
     color: ${({ theme }) => theme.colors.not_important};
+  `,
+};
+
+export const Section4 = {
+  Container: styled.div`
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  `,
+  ImgContainer: styled.div`
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+    margin: 6.4rem 0 14rem;
+    @media (max-width: 1200px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); // 2개의 열로 설정
+    }
+  `,
+  ItemWrapper: styled(STCOMGlassWrapper)`
+    width: 27rem;
+    height: 27rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.3rem;
+    ${({ theme }) => theme.fonts.body_2};
   `,
 };

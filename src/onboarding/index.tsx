@@ -8,9 +8,8 @@ import {
   IcTwitter,
   Neutron,
   onboarding3,
-  onboarding4,
 } from './assets/0_index';
-import { ABOUTQVE } from './constants.ts';
+import { ABOUTQVE } from './constants/constants.ts';
 import TradeNowBtn from './Components/TradeNowBtn.tsx';
 import Footer from '../common/components/Footer.tsx';
 import { useEffect, useRef, useState } from 'react';
@@ -23,6 +22,7 @@ import {
   moveTwitter,
 } from '../common/utils/moveLink.ts';
 import { STCOMGlassWrapper } from '../common/styles/commonStyleComs.ts';
+import { ONBOARDING4 } from './constants/constants.ts';
 
 const OnBoarding = () => {
   const section2Ref = useRef<HTMLDivElement>(null);
@@ -165,16 +165,19 @@ const OnBoarding3 = () => {
 
 const OnBoarding4 = () => {
   return (
-    <St.Section3.Container>
+    <St.Section4.Container>
       <St.PreTitle>Asset Management Process</St.PreTitle>
       <St.Title>Automated Trading Strategy</St.Title>
-      <img
-        style={{ width: '70%', margin: '6.4rem 0 14rem' }}
-        src={onboarding4}
-      />
-
+      <St.Section4.ImgContainer>
+        {ONBOARDING4.map((item) => (
+          <St.Section4.ItemWrapper key={item.label}>
+            <item.icon />
+            {item.label}
+          </St.Section4.ItemWrapper>
+        ))}
+      </St.Section4.ImgContainer>
       <TradeNowBtn />
-    </St.Section3.Container>
+    </St.Section4.Container>
   );
 };
 
