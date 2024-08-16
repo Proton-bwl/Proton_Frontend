@@ -15,7 +15,6 @@ import { formatPercentValue } from '../../common/utils/formatPercentValue';
 import { getBalance } from '../../common/utils/getBalance';
 
 const base_url = import.meta.env.VITE_BASE_URL;
-const user_id = localStorage.getItem('NEUTRONADDRESS');
 const MINVAL = 10;
 const BotModal = ({
   isOpen,
@@ -30,9 +29,11 @@ const BotModal = ({
   const [placeholder, setPlaceholder] = useState(DEPOSIT_PLACEHOLDER.default);
   const [data, setData] = useState<IPnlChart>();
   const [balance, setBalance] = useState('-');
+  const [user_id, setUserId] = useState(localStorage.getItem('NEUTRONADDRESS'));
 
   useEffect(() => {
     // if (!user_id) return;
+    setUserId(localStorage.getItem('NEUTRONADDRESS'));
     getData();
     if (!localStorage.getItem('NEUTRONADDRESS')) {
       setPlaceholder(DEPOSIT_PLACEHOLDER.notConnectWallet);

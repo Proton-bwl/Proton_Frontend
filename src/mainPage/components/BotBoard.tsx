@@ -26,7 +26,7 @@ interface IBotBoardProps {
 }
 
 const base_url = import.meta.env.VITE_BASE_URL;
-const user_id = localStorage.getItem('NEUTRONADDRESS');
+// const user_id = localStorage.getItem('NEUTRONADDRESS');
 
 const BotBoard = ({
   data: propsData,
@@ -35,9 +35,11 @@ const BotBoard = ({
   openUnConnectModal,
 }: IBotBoardProps) => {
   const [chartData, setChartData] = useState<IChartData[]>();
+  const [user_id, setUserId] = useState(localStorage.getItem('NEUTRONADDRESS'));
   useEffect(() => {
     if (!active) return;
     getData();
+    setUserId(localStorage.getItem('NEUTRONADDRESS'));
   }, []);
 
   const getData = async () => {

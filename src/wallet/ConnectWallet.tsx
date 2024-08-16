@@ -3,14 +3,14 @@
 import styled from '@emotion/styled';
 import { useEffect, useState } from 'react';
 import { IcQveIcon, IcWallet } from './assets/0_indes';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 const ConnectWallet = ({
   openWalletModal,
 }: {
   openWalletModal?: () => void;
 }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [address, setAddress] = useState(
     localStorage.getItem('NEUTRONADDRESS')
   );
@@ -37,7 +37,7 @@ const ConnectWallet = ({
       if (userAddress !== address) {
         localStorage.setItem('NEUTRONADDRESS', userAddress);
         setAddress(userAddress);
-        navigate('/tradeBots');
+        window.location.reload();
       } else {
         openWalletModal && openWalletModal();
       }
