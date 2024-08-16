@@ -15,7 +15,7 @@ export const MainContainer = styled.div`
   @media (max-width: 1600px) {
     transform: scale(0.9);
   }
-  @media (max-width: 1200px) {
+  @media (max-width: 1300px) {
     transform: scale(0.8);
   }
 `;
@@ -41,7 +41,7 @@ export const Section1 = {
     align-items: center;
   `,
   ContentLayout: styled.div`
-    min-width: 102.8rem;
+    min-width: 76.9rem;
     width: 100%;
     max-width: 132.8rem;
     margin: 24rem 0.8rem 0;
@@ -135,6 +135,10 @@ export const Section2 = {
     display: flex;
     justify-content: center;
     gap: 3rem;
+
+    @media (max-width: 1024px) {
+      gap: 2.5rem;
+    }
   `,
   AboutItem: styled.div`
     min-width: 28.2em;
@@ -223,7 +227,7 @@ export const Section4 = {
     gap: 4rem;
     flex-wrap: wrap;
     margin: 6.4rem 0 14rem;
-    @media (max-width: 1200px) {
+    @media (max-width: 1300px) {
       display: grid;
       grid-template-columns: repeat(2, 1fr); // 2개의 열로 설정
     }
