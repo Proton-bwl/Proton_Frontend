@@ -8,10 +8,11 @@ import {
 import DropDown from './DropDown';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { formatPriceValue } from '../../common/utils/formatPriceValue';
 import { IPnlChart } from '../types/pnlChartType';
 import { DEPOSIT_PLACEHOLDER } from '../constants/DEPOSIT_PLACEHOLDER';
 import { formatNumberWithCommas } from '../../common/utils/formatNumberWithCommas';
+import { formatPercentValue } from '../../common/utils/formatPercentValue';
+import { getBalance } from '../../common/utils/getBalance';
 
 const base_url = import.meta.env.VITE_BASE_URL;
 const user_id = localStorage.getItem('NEUTRONADDRESS');
@@ -28,23 +29,32 @@ const BotModal = ({
   const [depositValue, setDepositValue] = useState<string>('');
   const [placeholder, setPlaceholder] = useState(DEPOSIT_PLACEHOLDER.default);
   const [data, setData] = useState<IPnlChart>();
+  const [balance, setBalance] = useState('loading..');
 
   useEffect(() => {
+    if (!user_id) return;
     getData();
     if (!localStorage.getItem('NEUTRONADDRESS')) {
       setPlaceholder(DEPOSIT_PLACEHOLDER.notConnectWallet);
     }
+    fetchBalance();
   }, []);
   if (!isOpen) return null;
+
+  const fetchBalance = async () => {
+    if (!user_id) return;
+    const b = await getBalance(user_id);
+    setBalance(b);
+  };
 
   const getData = async () => {
     try {
       const { data } = await axios.get(
         `${base_url}/api/PnLChart?bot_id=${botId}&user_id=${user_id}&timeframe=5`
       );
-      if (data.Available === 0) {
-        setPlaceholder(DEPOSIT_PLACEHOLDER.lackOfMoney);
-      }
+      // if (data.Available === 0) {
+      //   setPlaceholder(DEPOSIT_PLACEHOLDER.lackOfMoney);
+      // }
       setData(data);
     } catch (err) {
       console.log(err);
@@ -59,14 +69,15 @@ const BotModal = ({
   const deposit = async (id: string | null) => {
     if (!id) return;
     const base_url = import.meta.env.VITE_BASE_URL;
-    if (!localStorage.getItem('NUETRONADDRESS') || !depositValue) return;
+    if (!localStorage.getItem('NEUTRONADDRESS') || !depositValue) return;
     try {
       const postData = {
-        user_id: localStorage.getItem('NUETRONADDRESS'), // 지갑 주소
+        user_id: localStorage.getItem('NEUTRONADDRESS'), // 지갑 주소
         bot_id: id,
         amount: depositValue.replace(/,/g, ''), // 입금할 금액
       };
       await axios.post(`${base_url}/api/deposit`, postData);
+      onClose();
     } catch (err) {
       console.log(err);
     }
@@ -88,7 +99,8 @@ const BotModal = ({
             <StSpaceBetween>
               <StModalLabel>Investment</StModalLabel>
               <StAvailable>
-                <span>Available:</span> {formatPriceValue(data.Available)} NTRN
+                <span>Available:</span> {balance}
+                NTRN
               </StAvailable>
             </StSpaceBetween>
             <StinputContainer>
@@ -97,18 +109,12 @@ const BotModal = ({
                 value={depositValue}
                 onChange={handleDepositValue}
               />
-              <button
-                onClick={() =>
-                  setDepositValue(formatPriceValue(data.Available))
-                }
-              >
-                Max
-              </button>
+              <button onClick={() => setDepositValue(balance)}>Max</button>
             </StinputContainer>
           </StColumn>
 
           <StGraphContaienr>
-            <p>Daily PnL(%): 56.12%</p>
+            <p>Daily PnL(%): {formatPercentValue(data.daily_PnL)}%</p>
             <AreaChart chartData={data.data} />
           </StGraphContaienr>
           <DropDown />

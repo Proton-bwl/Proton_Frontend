@@ -23,7 +23,7 @@ const RemoveModal = ({
 
     const postBody = {
       user_id: localStorage.getItem('NEUTRONADDRESS'),
-      bot_id: { botId },
+      bot_id: botId,
     };
     try {
       await axios.post(`${base_url}/api/remove`, postBody);

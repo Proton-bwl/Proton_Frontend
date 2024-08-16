@@ -169,7 +169,7 @@ const Dashboard = () => {
       const { data } = await axios.get(
         `${base_url}/api/dashboard?user_id=${isWalletConnect}`
       );
-      console.log(`🫥dashboard : ${data}`);
+      console.log(`🫥dashboard :`, data);
       setData(data);
     } catch {
       //err
