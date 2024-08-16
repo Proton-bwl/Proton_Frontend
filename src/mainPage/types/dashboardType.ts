@@ -7,6 +7,7 @@ export interface IDashboard {
 }
 
 export interface IBOTS {
+  bot_name: string;
   bot_id: string;
   total_investment: number;
   current_value: number;

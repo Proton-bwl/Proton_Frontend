@@ -7,6 +7,7 @@ export const MOCK_DASHBOARD: IDashboard = {
   total_profit_usdt: 6000,
   bots: [
     {
+      bot_name: 'Cyclic Arb bot',
       bot_id: 'Cyclic Arb bot',
       total_investment: 5000,
       current_value: 5500,

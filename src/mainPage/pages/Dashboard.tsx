@@ -71,8 +71,7 @@ const ShowDashboardData = ({ data }: { data: IDashboard }) => {
                   }}
                 >
                   <LogoNeutron />
-                  {/* {item.bot_id} */}
-                  Cyclic Arb bot
+                  {item.bot_name}
                 </div>
               </StTableCell>
               <StTableCell>
