@@ -171,7 +171,7 @@ const OnBoarding4 = () => {
       <St.Section4.ImgContainer>
         {ONBOARDING4.map((item) => (
           <St.Section4.ItemWrapper key={item.label}>
-            <item.icon />
+            <img src={item.icon} alt={item.label} />
             {item.label}
           </St.Section4.ItemWrapper>
         ))}

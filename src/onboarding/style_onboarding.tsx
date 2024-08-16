@@ -237,5 +237,10 @@ export const Section4 = {
     align-items: center;
     gap: 2.3rem;
     ${({ theme }) => theme.fonts.body_2};
+
+    & > img {
+      width: 10rem;
+      height: 10rem;
+    }
   `,
 };

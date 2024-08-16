@@ -13,10 +13,10 @@ import onboarding4 from './onboarding_mock4.webp';
 import onboarding4_1 from './onboarding_mock4_1.webp';
 import onboarding4_2 from './onboarding_mock4_2.webp';
 
-import IcDepositFunds from './section4_DepositFunds.svg?react';
-import IcGenerateProfits from './section4_GenerateProfits.svg?react';
-import IcLiquiryPosition from './section4_LiquifyPosition.svg?react';
-import IcWithdrawAssets from './section4_WithdrawAssets.svg?react';
+import imgDepositFunds from './depositFundsIMG.webp';
+import imgGenerateProfits from './generateProfitsIMG.webp';
+import imgLiquifyPosition from './liquifyPositionIMG.webp';
+import imgWithdrawAssets from './withdrawAssetsIMG.webp';
 
 export {
   IcGitbub,
@@ -31,8 +31,8 @@ export {
   onboarding4,
   onboarding4_1,
   onboarding4_2,
-  IcDepositFunds,
-  IcGenerateProfits,
-  IcLiquiryPosition,
-  IcWithdrawAssets,
+  imgDepositFunds,
+  imgGenerateProfits,
+  imgLiquifyPosition,
+  imgWithdrawAssets,
 };

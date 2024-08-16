@@ -3,10 +3,10 @@ import {
   IcProfits,
   IcRisk,
   IcSafety,
-  IcDepositFunds,
-  IcGenerateProfits,
-  IcLiquiryPosition,
-  IcWithdrawAssets,
+  imgDepositFunds,
+  imgGenerateProfits,
+  imgLiquifyPosition,
+  imgWithdrawAssets,
 } from '../assets/0_index';
 
 interface IAboutQve {
@@ -17,7 +17,7 @@ interface IAboutQve {
 }
 
 interface IOnboarding4 {
-  icon: FunctionComponent<SVGProps<SVGSVGElement>>;
+  icon: string;
   label: string;
 }
 
@@ -47,19 +47,19 @@ export const ABOUTQVE: IAboutQve[] = [
 
 export const ONBOARDING4: IOnboarding4[] = [
   {
-    icon: IcDepositFunds,
+    icon: imgDepositFunds,
     label: 'Deposit Funds',
   },
   {
-    icon: IcGenerateProfits,
+    icon: imgGenerateProfits,
     label: 'Generate Profits',
   },
   {
-    icon: IcLiquiryPosition,
+    icon: imgLiquifyPosition,
     label: 'Liquify Position',
   },
   {
-    icon: IcWithdrawAssets,
+    icon: imgWithdrawAssets,
     label: 'Withdraw Assets',
   },
 ];
