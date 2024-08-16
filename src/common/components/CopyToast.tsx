@@ -1,9 +1,6 @@
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
-
-interface ToastContainerProps {
-  message: string;
-}
+import { ToastContainerProps } from '../types/toastTypes';
 
 const CopyToast = ({ message }: ToastContainerProps) => {
   if (!message) return null;

@@ -12,9 +12,10 @@ import { ITRADEBOTS } from '../types/dashboardType';
 
 const TradeBots = () => {
   // const data = MOCK_TRADEBOTS;
-  const { openBotModal, openUnConnectModal } = useOutletContext<{
+  const { openBotModal, openUnConnectModal, showToast } = useOutletContext<{
     openBotModal: (id: string) => void;
     openUnConnectModal: () => void;
+    showToast: (message: string) => void;
   }>();
   const base_url = import.meta.env.VITE_BASE_URL;
   const [data, setData] = useState<ITRADEBOTS[]>();
@@ -88,6 +89,7 @@ const TradeBots = () => {
             active={bot.bot_id}
             openModal={openBotModal}
             openUnConnectModal={openUnConnectModal}
+            showToast={showToast}
           />
         ))}
         {!searchValue && (
@@ -97,6 +99,7 @@ const TradeBots = () => {
             active={DUMMY_BOT.bot_id}
             openModal={openBotModal}
             openUnConnectModal={openUnConnectModal}
+            showToast={showToast}
           />
         )}
       </StBotsContainer>

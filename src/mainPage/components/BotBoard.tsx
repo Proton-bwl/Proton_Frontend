@@ -23,6 +23,7 @@ interface IBotBoardProps {
   active: string;
   openModal: (id: string) => void;
   openUnConnectModal: () => void;
+  showToast: (message: string) => void;
 }
 
 const base_url = import.meta.env.VITE_BASE_URL;

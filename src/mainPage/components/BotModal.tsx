@@ -20,10 +20,12 @@ const BotModal = ({
   isOpen,
   onClose,
   botId,
+  showToast,
 }: {
   isOpen: boolean;
   onClose: () => void;
   botId: string | null;
+  showToast: (message: string) => void;
 }) => {
   const [depositValue, setDepositValue] = useState<string>('');
   const [placeholder, setPlaceholder] = useState(DEPOSIT_PLACEHOLDER.default);
@@ -79,6 +81,7 @@ const BotModal = ({
       };
       await axios.post(`${base_url}/api/deposit`, postData);
       onClose();
+      showToast('Your deposit has been successfully completed!');
     } catch (err) {
       console.log(err);
     }

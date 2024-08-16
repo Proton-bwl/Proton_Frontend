@@ -9,8 +9,11 @@ import RemoveModal from './components/RemoveModal';
 import WalletModal from '../wallet/components/WalletModal';
 import { STCOMBackdrop } from '../common/styles/commonStyleComs';
 import UnConnectModal from './components/UnConnectModal';
+import DepositToast from '../common/components/DepositToast';
+import useToast from '../common/hooks/useToast';
 
 const MainPage = () => {
+  const { toast, showToast } = useToast();
   //Bot Modal
   const {
     isModalOpen: isBotModalOpen,
@@ -60,6 +63,7 @@ const MainPage = () => {
           isOpen={isBotModalOpen}
           onClose={closeBotModal}
           botId={modalBotId}
+          showToast={showToast}
         />
       )}
       {isRemoveMoalOpen && (
@@ -78,6 +82,7 @@ const MainPage = () => {
           onClose={closeUnConnectModal}
         />
       )}
+      {toast && <DepositToast message={toast.message} />}
     </>
   );
 };
@@ -112,7 +117,13 @@ const Dashboard = ({
 }) => {
   return (
     <St.Dashboard.Container>
-      <Outlet context={{ openBotModal, openRemoveModal, openUnConnectModal }} />
+      <Outlet
+        context={{
+          openBotModal,
+          openRemoveModal,
+          openUnConnectModal,
+        }}
+      />
     </St.Dashboard.Container>
   );
 };
