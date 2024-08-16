@@ -12,7 +12,7 @@ export interface IChartData {
   pnlRate: number;
 }
 
-interface IDetail {
+export interface IDetail {
   apy: number;
   mdd: number;
   tvl: number;

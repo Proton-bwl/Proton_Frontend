@@ -1,8 +1,10 @@
 import styled from '@emotion/styled';
 import { IcDropUp, IcDropdown } from '../assets/0_index';
 import { useState } from 'react';
+import { IDetail } from '../types/pnlChartType';
+import { formatPercentValue } from '../../common/utils/formatPercentValue';
 
-const DropDown = () => {
+const DropDown = ({ detailData }: { detailData: IDetail }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <StContainer
@@ -19,19 +21,19 @@ const DropDown = () => {
           <StDropdown.List>
             <li>
               <span>APY</span>
-              <span>112.11%</span>
+              <span>{formatPercentValue(detailData.apy)}%</span>
             </li>
             <li>
               <span>Win rate</span>
-              <span>112.11%</span>
+              <span>{formatPercentValue(detailData.winRate)}%</span>
             </li>
             <li>
               <span>TVL</span>
-              <span>112.11%</span>
+              <span>{formatPercentValue(detailData.tvl)}%</span>
             </li>
             <li>
               <span>MDD</span>
-              <span>112.11%</span>
+              <span>{formatPercentValue(detailData.mdd)}%</span>
             </li>
           </StDropdown.List>
         </StDropdown.Container>

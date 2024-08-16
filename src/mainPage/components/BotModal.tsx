@@ -117,7 +117,7 @@ const BotModal = ({
             <p>Daily PnL(%): {formatPercentValue(data.daily_PnL)}%</p>
             <AreaChart chartData={data.data} />
           </StGraphContaienr>
-          <DropDown />
+          <DropDown detailData={data.detailInformation} />
           <StDepositBtn
             disabled={
               placeholder !== DEPOSIT_PLACEHOLDER.default ||
