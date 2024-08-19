@@ -19,6 +19,25 @@ const globalStyles = css`
     height: 100vh;
   }
 
+  @media (max-width: ${theme.breakpoints.mobile}) {
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    #root {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100vw;
+      overflow: hidden;
+    }
+  }
+
   body {
     width: 100vw;
     color: #fff;

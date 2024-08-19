@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { STCOMGlassWrapper } from '../common/styles/commonStyleComs';
+import { transformStyles } from '../common/styles/transformStyles';
 export const MainContainer = styled.div`
   width: 100vw;
   max-width: 120rem;
@@ -10,13 +11,7 @@ export const MainContainer = styled.div`
   align-items: center;
   margin: 9.5rem 6.4rem 0;
 
-  transform-origin: top center;
-  @media (max-width: 1600px) {
-    transform: scale(0.9);
-  }
-  @media (max-width: 1300px) {
-    transform: scale(0.8);
-  }
+  ${transformStyles}
 `;
 
 export const Announcement = {

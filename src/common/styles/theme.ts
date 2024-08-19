@@ -78,10 +78,18 @@ const fonts = {
   ),
 };
 
+const breakpoints = {
+  mobile: 768,
+  tablet: 1024,
+  desktop: 1280,
+};
+
 export type ColorsTypes = typeof colors;
 export type FontsTypes = typeof fonts;
+export type BreakPointsTypes = typeof breakpoints;
 
 export const theme: Theme = {
   colors,
   fonts,
+  breakpoints,
 };

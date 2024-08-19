@@ -3,6 +3,8 @@ import { ProtonLogo } from '../assets/0_index';
 import { useLocation, useNavigate } from 'react-router-dom';
 import TradeNowBtn from '../../onboarding/Components/TradeNowBtn';
 import ConnectWallet from '../../wallet/ConnectWallet';
+import { transformStyles } from '../styles/transformStyles';
+import useMobile from '../hooks/useMobile';
 
 interface HeaderProps {
   openWalletModal?: () => void;
@@ -21,6 +23,8 @@ const Header = ({
 }: HeaderProps) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const isMobile = useMobile();
+
   return (
     <StContainer>
       <StWrapper>
@@ -28,7 +32,9 @@ const Header = ({
           onClick={() => navigate('/')}
           style={{ cursor: 'pointer' }}
         />
-        {location.pathname === '/onboarding' ? (
+        {isMobile ? (
+          <></>
+        ) : location.pathname === '/onboarding' ? (
           <StNav>
             <StNavItem
               onClick={() =>
@@ -96,14 +102,7 @@ const StWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  transform-origin: top center;
-  @media (max-width: 1600px) {
-    transform: scale(0.9);
-  }
-
-  @media (max-width: 1300px) {
-    transform: scale(0.8);
-  }
+  ${transformStyles}
 `;
 
 const StProtonLogo = styled(ProtonLogo)`

@@ -2,6 +2,7 @@ import { keyframes } from '@emotion/react';
 // import { ToastContainerProps } from '../types/toastTypes';
 import styled from '@emotion/styled';
 import { IcSuccess } from '../assets/0_index';
+import { transformStyles } from '../styles/transformStyles';
 //{ message }: ToastContainerProps
 const DepositToast = ({ message }: { message: string }) => {
   // if (!message) return null;
@@ -57,12 +58,5 @@ const StToastWrapper = styled.div`
   align-items: center;
   gap: 0.6rem;
 
-  transform-origin: top center;
-  @media (max-width: 1600px) {
-    transform: scale(0.9);
-  }
-
-  @media (max-width: 1300px) {
-    transform: scale(0.8);
-  }
+  ${transformStyles}
 `;

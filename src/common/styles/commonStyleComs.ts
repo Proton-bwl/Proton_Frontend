@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { transformStyles } from './transformStyles';
 
 export const STCOMBoxWrapper = styled.div`
   border-radius: 40px;
@@ -58,13 +59,7 @@ export const STCOMBackground = styled.div`
   align-items: center;
   z-index: 3;
 
-  transform-origin: top center;
-  @media (max-width: 1600px) {
-    transform: scale(0.9);
-  }
-  @media (max-width: 1300px) {
-    transform: scale(0.8);
-  }
+  ${transformStyles}
 `;
 
 export const STCOMBackdrop = styled.div`

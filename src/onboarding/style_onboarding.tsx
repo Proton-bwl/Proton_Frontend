@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { STCOMGlassWrapper } from '../common/styles/commonStyleComs';
+import { transformStyles } from '../common/styles/transformStyles';
 export const MainContainer = styled.div`
   width: 100vw;
   max-width: 120rem;
@@ -11,13 +12,7 @@ export const MainContainer = styled.div`
   align-items: center;
   margin: 9.5rem 6.4rem 0;
 
-  transform-origin: top center;
-  @media (max-width: 1600px) {
-    transform: scale(0.9);
-  }
-  @media (max-width: 1300px) {
-    transform: scale(0.8);
-  }
+  ${transformStyles}
 `;
 
 export const PreTitle = styled.div`
@@ -137,7 +132,7 @@ export const Section2 = {
     justify-content: center;
     gap: 3rem;
 
-    @media (max-width: 1024px) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
       gap: 2.5rem;
     }
   `,
@@ -234,9 +229,9 @@ export const Section4 = {
     align-items: center;
     justify-content: center;
     gap: 4rem;
-    flex-wrap: wrap;
     margin: 6.4rem 0 14rem;
-    @media (max-width: 1300px) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+      flex-wrap: wrap;
       display: grid;
       grid-template-columns: repeat(2, 1fr); // 2개의 열로 설정
     }
