@@ -16,6 +16,5 @@ export interface IChartData {
 export interface IDetail {
   apy: number;
   mdd: number;
-  tvl: number;
   winRate: number;
 }

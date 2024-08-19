@@ -27,10 +27,6 @@ const DropDown = ({ detailData }: { detailData: IDetail }) => {
               <span>Win rate</span>
               <span>{formatPercentValue(detailData.winRate)}%</span>
             </li>
-            {/* <li>
-              <span>TVL</span>
-              <span>{formatPercentValue(detailData.tvl)}%</span>
-            </li> */}
             <li>
               <span>MDD</span>
               <span>{formatPercentValue(detailData.mdd)}%</span>
