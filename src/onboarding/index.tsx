@@ -20,14 +20,9 @@ import Footer from '../common/components/Footer.tsx';
 import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import { formatPriceValue } from '../common/utils/formatPriceValue.ts';
-import {
-  moveGithub,
-  moveMedium,
-  moveTelegram,
-  moveTwitter,
-} from '../common/utils/moveLink.ts';
 import { STCOMGlassWrapper } from '../common/styles/commonStyleComs.ts';
 import { ONBOARDING4 } from './constants/constants.ts';
+import { LINKS } from '../common/constants/LINKS.ts';
 
 const OnBoarding = () => {
   const section2Ref = useRef<HTMLDivElement>(null);
@@ -106,10 +101,18 @@ const OnBoarding1 = () => {
       </St.Section1.ContentLayout>
       <St.Section1.Bottom>
         <nav>
-          <IcTwitter onClick={moveTwitter} />
-          <IcTelegram onClick={moveTelegram} />
-          <IcMedium onClick={moveMedium} />
-          <IcGitbub onClick={moveGithub} />
+          <a href={LINKS.twitter} target='_blank'>
+            <IcTwitter />
+          </a>
+          <a href={LINKS.telegrem} target='_blank'>
+            <IcTelegram />
+          </a>
+          <a href={LINKS.medium} target='_blank'>
+            <IcMedium />
+          </a>
+          <a href={LINKS.github} target='_blank'>
+            <IcGitbub />
+          </a>
         </nav>
         <p>Ecosystem</p>
         <Neutron />

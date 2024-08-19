@@ -5,12 +5,7 @@ import {
   IcFooterTwitter,
 } from '../assets/0_index';
 import styled from '@emotion/styled';
-import {
-  moveGithub,
-  moveMedium,
-  moveTelegram,
-  moveTwitter,
-} from '../utils/moveLink';
+import { LINKS } from '../constants/LINKS';
 
 const Footer = () => {
   return (
@@ -23,10 +18,18 @@ const Footer = () => {
         <p>Blockwave Labs Inc. All rights reserved</p>
       </StFooter.BlockWave>
       <StFooter.ConnectIcon>
-        <IcFooterTwitter onClick={moveTwitter} />
-        <IcFooterTelegram onClick={moveTelegram} />
-        <IcFooterMedium onClick={moveMedium} />
-        <IcFooterGithub onClick={moveGithub} />
+        <a href={LINKS.twitter} target='_blank'>
+          <IcFooterTwitter />
+        </a>
+        <a href={LINKS.telegrem} target='_blank'>
+          <IcFooterTelegram />
+        </a>
+        <a href={LINKS.medium} target='_blank'>
+          <IcFooterMedium />
+        </a>
+        <a href={LINKS.github} target='_blank'>
+          <IcFooterGithub />
+        </a>
       </StFooter.ConnectIcon>
     </StFooter.Container>
   );
