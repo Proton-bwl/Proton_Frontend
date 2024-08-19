@@ -2,7 +2,7 @@
 
 import styled from '@emotion/styled';
 import { useEffect, useState } from 'react';
-import { IcQveIcon, IcWallet } from './assets/0_indes';
+import { IcProtonIcon, IcWallet } from './assets/0_indes';
 // import { useNavigate } from 'react-router-dom';
 
 const ConnectWallet = ({
@@ -52,7 +52,7 @@ const ConnectWallet = ({
       {address ? (
         <StIcon>
           <StI>
-            <IcQveIcon />
+            <IcProtonIcon />
           </StI>
           <span>{address}</span>
         </StIcon>

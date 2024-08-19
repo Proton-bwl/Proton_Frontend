@@ -158,7 +158,7 @@ const OnBoarding3 = () => {
       />
       <St.Section3.InTro>
         <St.PreTitle>
-          QVE offers various ‘vaults’, which are operated by the trading bots
+          Proton offers various ‘vaults’, which are operated by the trading bots
         </St.PreTitle>
         <St.Title>Assets Into The Vault</St.Title>
         <St.Section3.SubTitle>
