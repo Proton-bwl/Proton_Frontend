@@ -32,7 +32,8 @@ export const Announcement = {
     padding: 4.5rem 3rem;
   `,
   Background: styled.img`
-    width: 48rem;
+    /* width: 48rem; */
+    height: 100%;
     position: absolute;
     right: 0;
     bottom: 0;
