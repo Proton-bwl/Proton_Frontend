@@ -160,10 +160,13 @@ const ISnotSelectBot = () => {
 const Dashboard = () => {
   const [isWalletConnect] = useState(localStorage.getItem('NEUTRONADDRESS'));
   const [data, setData] = useState<IDashboard>();
+  const { refreshTrigger } = useOutletContext<{
+    refreshTrigger: boolean;
+  }>();
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [refreshTrigger]);
 
   const getData = async () => {
     try {

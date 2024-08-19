@@ -11,9 +11,16 @@ import { STCOMBackdrop } from '../common/styles/commonStyleComs';
 import UnConnectModal from './components/UnConnectModal';
 import DepositToast from '../common/components/DepositToast';
 import useToast from '../common/hooks/useToast';
+import { useState } from 'react';
 
 const MainPage = () => {
   const { toast, showToast } = useToast();
+  const [dataRefreshTrigger, setDataRefreshTrigger] = useState<boolean>(false);
+
+  const handleDataRefreshRequest = () => {
+    setDataRefreshTrigger((prev) => !prev); // 상태를 토글하여 Dashboard에 데이터 새로 고침을 트리거
+  };
+
   //Bot Modal
   const {
     isModalOpen: isBotModalOpen,
@@ -51,6 +58,7 @@ const MainPage = () => {
           openBotModal={openBotMoal}
           openRemoveModal={openRemoveModal}
           openUnConnectModal={openUnConnectModal}
+          refreshTrigger={dataRefreshTrigger}
         />
         <Footer />
       </St.MainContainer>
@@ -64,6 +72,7 @@ const MainPage = () => {
           onClose={closeBotModal}
           botId={modalBotId}
           showToast={showToast}
+          onDataRefreshRequest={handleDataRefreshRequest}
         />
       )}
       {isRemoveMoalOpen && (
@@ -110,10 +119,12 @@ const Dashboard = ({
   openBotModal,
   openRemoveModal,
   openUnConnectModal,
+  refreshTrigger,
 }: {
   openBotModal: (id: string) => void;
   openRemoveModal: (id: string) => void;
   openUnConnectModal: () => void;
+  refreshTrigger: boolean;
 }) => {
   return (
     <St.Dashboard.Container>
@@ -122,6 +133,7 @@ const Dashboard = ({
           openBotModal,
           openRemoveModal,
           openUnConnectModal,
+          refreshTrigger,
         }}
       />
     </St.Dashboard.Container>

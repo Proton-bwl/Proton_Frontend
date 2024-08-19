@@ -12,17 +12,19 @@ import { ITRADEBOTS } from '../types/dashboardType';
 
 const TradeBots = () => {
   // const data = MOCK_TRADEBOTS;
-  const { openBotModal, openUnConnectModal, showToast } = useOutletContext<{
-    openBotModal: (id: string) => void;
-    openUnConnectModal: () => void;
-    showToast: (message: string) => void;
-  }>();
+  const { openBotModal, openUnConnectModal, showToast, refreshTrigger } =
+    useOutletContext<{
+      openBotModal: (id: string) => void;
+      openUnConnectModal: () => void;
+      showToast: (message: string) => void;
+      refreshTrigger: boolean;
+    }>();
   const base_url = import.meta.env.VITE_BASE_URL;
   const [data, setData] = useState<ITRADEBOTS[]>();
   const [searchValue, setSearchValue] = useState('');
   useEffect(() => {
     getData('Profit');
-  }, []);
+  }, [refreshTrigger]);
 
   const getData = async (_sortKey: string) => {
     try {
