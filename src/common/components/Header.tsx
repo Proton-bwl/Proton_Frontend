@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { QveLogo } from '../assets/0_index';
+import { ProtonLogo } from '../assets/0_index';
 import { useLocation, useNavigate } from 'react-router-dom';
 import TradeNowBtn from '../../onboarding/Components/TradeNowBtn';
 import ConnectWallet from '../../wallet/ConnectWallet';
@@ -24,7 +24,7 @@ const Header = ({
   return (
     <StContainer>
       <StWrapper>
-        <StQveLogo
+        <StProtonLogo
           onClick={() => navigate('/')}
           style={{ cursor: 'pointer' }}
         />
@@ -106,8 +106,8 @@ const StWrapper = styled.div`
   }
 `;
 
-const StQveLogo = styled(QveLogo)`
-  width: 8.7rem;
+const StProtonLogo = styled(ProtonLogo)`
+  width: 15.9rem;
 `;
 
 const StNav = styled.nav`

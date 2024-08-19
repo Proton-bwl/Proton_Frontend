@@ -1,6 +1,6 @@
 import Header from '../common/components/Header';
 import * as St from './style_onboarding.tsx';
-import { QveLogo, onBoardingCube } from '../common/assets/0_index';
+import { ProtonLogo, onBoardingCube } from '../common/assets/0_index';
 import {
   IcGitbub,
   IcMedium,
@@ -89,7 +89,7 @@ const OnBoarding1 = () => {
       <St.Section1.ContentLayout>
         <St.Section1.QVEIntroduce>
           <h1>Quant Vault Escrow Protocol</h1>
-          <QveLogo />
+          <ProtonLogo />
           <p>
             A hybrid DeFi platform combining arbitrage trading bots and
             liquidity staking protocols in Neutron

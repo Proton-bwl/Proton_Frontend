@@ -1,4 +1,4 @@
-import QveLogo from './qveLogo.svg?react';
+import ProtonLogo from './protonLofo.svg?react';
 import onBoardingCube from './onboardingCube.webp';
 import IcTradeArrow from './tradeArrow.svg?react';
 import IcFooterTwitter from './icTwitter.svg?react';
@@ -9,7 +9,7 @@ import IcStrokeLogo from './qveStrokeLogo.svg?react';
 import IcSuccess from './icSuccess.svg?react';
 
 export {
-  QveLogo,
+  ProtonLogo,
   onBoardingCube,
   IcTradeArrow,
   IcFooterGithub,
