@@ -132,7 +132,7 @@ export const Section2 = {
     justify-content: center;
     gap: 3rem;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    @media (${({ theme }) => theme.breakpoints.tablet}) {
       gap: 2.5rem;
     }
   `,
@@ -230,7 +230,7 @@ export const Section4 = {
     justify-content: center;
     gap: 4rem;
     margin: 6.4rem 0 14rem;
-    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    @media (${({ theme }) => theme.breakpoints.tablet}) {
       flex-wrap: wrap;
       display: grid;
       grid-template-columns: repeat(2, 1fr); // 2개의 열로 설정

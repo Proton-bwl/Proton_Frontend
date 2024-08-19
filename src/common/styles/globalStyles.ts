@@ -19,7 +19,7 @@ const globalStyles = css`
     height: 100vh;
   }
 
-  @media (max-width: ${theme.breakpoints.mobile}) {
+  @media (${theme.breakpoints.mobile}) {
     body {
       display: flex;
       flex-direction: column;
@@ -34,6 +34,8 @@ const globalStyles = css`
       align-items: center;
       justify-content: flex-start;
       width: 100vw;
+      height: 100%;
+      max-width: 768px;
       overflow: hidden;
     }
   }

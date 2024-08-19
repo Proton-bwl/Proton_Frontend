@@ -79,9 +79,9 @@ const fonts = {
 };
 
 const breakpoints = {
-  mobile: 768,
-  tablet: 1024,
-  desktop: 1280,
+  mobile: 'max-width: 768px',
+  tablet: 'max-width: 1024px',
+  desktop: 'max-width: 1280px',
 };
 
 export type ColorsTypes = typeof colors;
