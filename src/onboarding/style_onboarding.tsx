@@ -98,12 +98,13 @@ export const Section1 = {
     }
   `,
   BackgroundImg1: styled.img`
-    width: 40%;
+    width: 127rem;
     position: absolute;
-    top: -2%;
-    right: 20%;
-    opacity: 0.4;
-    transform: rotate(330deg);
+    top: -10rem;
+    right: -50rem;
+    z-index: -1;
+    /* opacity: 0.4; */
+    /* transform: rotate(330deg); */
   `,
   BackgroundImg2: styled.img`
     width: 100%;
@@ -196,11 +197,19 @@ export const Section3 = {
     color: ${({ theme }) => theme.colors.not_important};
   `,
   BackgroundImg: styled.img`
-    width: 160rem;
+    width: 127rem;
     position: absolute;
-    top: 10rem;
-    left: -150%;
-    transform: rotate(260deg);
+    top: -30rem;
+    left: -110%;
+    transform: rotate(15deg);
+    z-index: -1;
+  `,
+  BackgroundImg2: styled.img`
+    width: 57rem;
+    position: absolute;
+    bottom: -30rem;
+    right: -41rem;
+    transform: rotate(11deg);
     z-index: -1;
   `,
 

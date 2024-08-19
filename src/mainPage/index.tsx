@@ -95,7 +95,7 @@ const Announcement = () => {
         <St.Announcement.Text>
           Unlock the Full Potential of Your
         </St.Announcement.Text>
-        <St.Announcement.Text>Investments with QVE!</St.Announcement.Text>
+        <St.Announcement.Text>Investments with Proton!</St.Announcement.Text>
         <St.Announcement.Background
           src={announceIMG}
         ></St.Announcement.Background>

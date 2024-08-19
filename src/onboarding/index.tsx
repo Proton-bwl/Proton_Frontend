@@ -1,6 +1,11 @@
 import Header from '../common/components/Header';
 import * as St from './style_onboarding.tsx';
-import { ProtonLogo, onBoardingCube } from '../common/assets/0_index';
+import {
+  ProtonLogo,
+  onBoardingBackImg1,
+  onBoardingBackImg2,
+  onBoardingBackImg3,
+} from '../common/assets/0_index';
 import {
   IcGitbub,
   IcMedium,
@@ -84,8 +89,7 @@ const OnBoarding1 = () => {
   }, []);
   return (
     <St.Section1.Container>
-      <St.Section1.BackgroundImg1 src={onBoardingCube} alt='cubeIMG' />
-      <St.Section1.BackgroundImg2 src={onBoardingCube} alt='cubeIMG' />
+      <St.Section1.BackgroundImg1 src={onBoardingBackImg1} alt='cubeIMG' />
       <St.Section1.ContentLayout>
         <St.Section1.QVEIntroduce>
           <h1>Quant Vault Escrow Protocol</h1>
@@ -117,7 +121,7 @@ const OnBoarding1 = () => {
 const OnBoarding2 = () => {
   return (
     <St.Section2.Container>
-      <p>About QVE</p>
+      <p>About Proton</p>
       <St.Title>Optimizing Yields in the Neutron Ecosystem</St.Title>
       <St.Section2.Contents>
         {ABOUTQVE.map((item) => {
@@ -144,7 +148,14 @@ const OnBoarding2 = () => {
 const OnBoarding3 = () => {
   return (
     <St.Section3.Container>
-      <St.Section3.BackgroundImg src={onBoardingCube} alt='background-img' />
+      <St.Section3.BackgroundImg
+        src={onBoardingBackImg2}
+        alt='background-img'
+      />
+      <St.Section3.BackgroundImg2
+        src={onBoardingBackImg3}
+        alt='background-img'
+      />
       <St.Section3.InTro>
         <St.PreTitle>
           QVE offers various ‘vaults’, which are operated by the trading bots
