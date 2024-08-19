@@ -14,6 +14,8 @@ import IcDropUp from './dropupIcon.svg?react';
 import LogoGradationBot from './gradationBotLogo.svg?react';
 import LogoNeutron from './neutronLogo.svg?react';
 
+import dashboardBackIMG from './dashboardBackIMG.webp';
+
 export {
   announceIMG,
   IcDashboard,
@@ -30,4 +32,5 @@ export {
   IcDropdown,
   IcDropUp,
   LogoNeutron,
+  dashboardBackIMG,
 };

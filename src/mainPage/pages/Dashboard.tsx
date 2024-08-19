@@ -9,12 +9,13 @@ import {
   STCOMGreyBtn,
 } from '../../common/styles/commonStyleComs';
 import { IDashboard } from '../types/dashboardType';
-import { IcStrokeLogo, onBoardingCube } from '../../common/assets/0_index';
+import { IcStrokeLogo } from '../../common/assets/0_index';
 import { useNavigate, useOutletContext } from 'react-router-dom';
 import ConnectWallet from '../../wallet/ConnectWallet';
 import axios from 'axios';
 import { formatPriceValue } from '../../common/utils/formatPriceValue';
-import { LogoNeutron } from '../assets/0_index';
+import BotLogo from '../../common/components/BotLogo';
+import { dashboardBackIMG } from '../assets/0_index';
 
 const base_url = import.meta.env.VITE_BASE_URL;
 
@@ -70,7 +71,7 @@ const ShowDashboardData = ({ data }: { data: IDashboard }) => {
                     gap: '0.6rem',
                   }}
                 >
-                  <LogoNeutron />
+                  <BotLogo width='24' height='24' />
                   {item.bot_name}
                 </div>
               </StTableCell>
@@ -116,10 +117,10 @@ const ShowDashboardData = ({ data }: { data: IDashboard }) => {
 const ISnotConnectWallet = () => {
   return (
     <StNotConnectContainer>
-      <StBackbround src={onBoardingCube} />
+      <StBackbround src={dashboardBackIMG} />
       <IcStrokeLogo />
       <span>
-        <StText1>QVE is not connected</StText1>
+        <StText1>PROTON is not connected</StText1>
         <StText1>to your wallet</StText1>
         <div />
         <StText2>To see more information about this vault</StText2>
@@ -134,13 +135,13 @@ const ISnotSelectBot = () => {
   const navigate = useNavigate();
   return (
     <StNotConnectContainer>
-      <StBackbround src={onBoardingCube} />
+      <StBackbround src={dashboardBackIMG} />
       <IcStrokeLogo />
       <span>
         <StText1>You are not investing in the</StText1>
         <StText1>trading bot. Go invest now!</StText1>
         <div />
-        <StText2>You have not deposited to QVE.</StText2>
+        <StText2>You have not deposited to PROTON.</StText2>
         <StText2>
           If you want to earn profits, go ahead and make a deposit!
         </StText2>
@@ -322,9 +323,9 @@ const StConnectWallet = styled(STCOMBlueBtn)`
 `;
 
 const StBackbround = styled.img`
-  width: 90%;
+  width: 100%;
   position: absolute;
-  top: 25%;
-  right: 20%;
+  top: 27rem;
+  right: 0;
   z-index: -1;
 `;
