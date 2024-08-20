@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { transformStyles } from './transformStyles';
 
 export const STCOMBoxWrapper = styled.div`
   border-radius: 40px;
@@ -8,6 +9,8 @@ export const STCOMBoxWrapper = styled.div`
     rgba(255, 255, 255, 0.1) -9.46%,
     rgba(255, 255, 255, 0.25) 115.25%
   );
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(10px);
 `;
 
 export const STCOMGlassWrapper = styled.div`
@@ -15,7 +18,7 @@ export const STCOMGlassWrapper = styled.div`
   border: 0.1rem solid transparent;
   background-image: linear-gradient(
       144deg,
-      rgba(0, 0, 0, 0.95) -9.46%,
+      rgba(0, 0, 0, 0.85) -9.46%,
       rgba(0, 0, 0, 0.3) 115.25%
     ),
     linear-gradient(
@@ -25,6 +28,8 @@ export const STCOMGlassWrapper = styled.div`
     );
   background-origin: border-box;
   background-clip: content-box, border-box;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 `;
 
 export const STCOMBlueBtn = styled.button`
@@ -58,13 +63,7 @@ export const STCOMBackground = styled.div`
   align-items: center;
   z-index: 3;
 
-  transform-origin: top center;
-  @media (max-width: 1600px) {
-    transform: scale(0.9);
-  }
-  @media (max-width: 1300px) {
-    transform: scale(0.8);
-  }
+  ${transformStyles}
 `;
 
 export const STCOMBackdrop = styled.div`

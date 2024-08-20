@@ -1,8 +1,12 @@
 import styled from '@emotion/styled';
-import { ProtonLogo } from '../assets/0_index';
+import { IcMenu, ProtonLogo } from '../assets/0_index';
 import { useLocation, useNavigate } from 'react-router-dom';
 import TradeNowBtn from '../../onboarding/Components/TradeNowBtn';
 import ConnectWallet from '../../wallet/ConnectWallet';
+import { transformStyles } from '../styles/transformStyles';
+import useMobile from '../hooks/useMobile';
+import MobileSideNav from './MobileSideNav';
+import { useState } from 'react';
 
 interface HeaderProps {
   openWalletModal?: () => void;
@@ -10,6 +14,7 @@ interface HeaderProps {
   section2Ref?: React.RefObject<HTMLDivElement>;
   section3Ref?: React.RefObject<HTMLDivElement>;
   section4Ref?: React.RefObject<HTMLDivElement>;
+  onClose?: () => void;
 }
 
 const Header = ({
@@ -21,6 +26,9 @@ const Header = ({
 }: HeaderProps) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const isMobile = useMobile();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <StContainer>
       <StWrapper>
@@ -28,43 +36,81 @@ const Header = ({
           onClick={() => navigate('/')}
           style={{ cursor: 'pointer' }}
         />
-        {location.pathname === '/onboarding' ? (
-          <StNav>
-            <StNavItem
-              onClick={() =>
-                scrollToSection && section2Ref && scrollToSection(section2Ref)
-              }
-            >
-              About
-            </StNavItem>
-            <StNavItem
-              onClick={() =>
-                scrollToSection && section3Ref && scrollToSection(section3Ref)
-              }
-            >
-              Features
-            </StNavItem>
-            <StNavItem
-              onClick={() =>
-                scrollToSection && section4Ref && scrollToSection(section4Ref)
-              }
-            >
-              Process
-            </StNavItem>
-            <StNavItem
-              onClick={() =>
-                window.open('https://blockwavelabs-1.gitbook.io/qve')
-              }
-            >
-              Docs
-            </StNavItem>
-            <TradeNowBtn />
-          </StNav>
+        {isMobile ? (
+          <>
+            <IcMenu onClick={() => setIsMenuOpen(true)} />
+            {isMenuOpen && (
+              <MobileSideNav
+                isOpen={isMenuOpen}
+                onClose={() => {
+                  setIsMenuOpen(false);
+                }}
+              >
+                <HeaderNav
+                  scrollToSection={scrollToSection}
+                  section2Ref={section2Ref}
+                  section3Ref={section3Ref}
+                  section4Ref={section4Ref}
+                  onClose={() => setIsMenuOpen(false)}
+                />
+              </MobileSideNav>
+            )}
+          </>
+        ) : location.pathname === '/onboarding' ? (
+          <HeaderNav
+            scrollToSection={scrollToSection}
+            section2Ref={section2Ref}
+            section3Ref={section3Ref}
+            section4Ref={section4Ref}
+          />
         ) : (
           <ConnectWallet openWalletModal={openWalletModal} />
         )}
       </StWrapper>
     </StContainer>
+  );
+};
+
+const HeaderNav = ({
+  scrollToSection,
+  section2Ref,
+  section3Ref,
+  section4Ref,
+  onClose,
+}: HeaderProps) => {
+  return (
+    <StNav>
+      <StNavItem
+        onClick={() => {
+          onClose && onClose();
+          scrollToSection && section2Ref && scrollToSection(section2Ref);
+        }}
+      >
+        About
+      </StNavItem>
+      <StNavItem
+        onClick={() => {
+          onClose && onClose();
+          scrollToSection && section3Ref && scrollToSection(section3Ref);
+        }}
+      >
+        Features
+      </StNavItem>
+      <StNavItem
+        onClick={() => {
+          onClose && onClose();
+          scrollToSection && section4Ref && scrollToSection(section4Ref);
+        }}
+      >
+        Process
+      </StNavItem>
+      <StNavItem
+        onClick={() => window.open('https://blockwavelabs-1.gitbook.io/qve')}
+      >
+        Docs
+      </StNavItem>
+      <TradeNowBtn />
+    </StNav>
   );
 };
 
@@ -78,16 +124,18 @@ const StContainer = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: ${({ theme }) => theme.colors.qve_background}; */
   background: linear-gradient(
     to bottom,
     rgba(1, 3, 5, 1) 80%,
     rgba(1, 3, 5, 0) 100%
   );
   z-index: 1;
+  padding: 0;
+  margin: 0;
 `;
 
 const StWrapper = styled.div`
+  position: relative;
   height: 4.6rem;
   width: 100%;
   max-width: 120rem;
@@ -96,23 +144,32 @@ const StWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  transform-origin: top center;
-  @media (max-width: 1600px) {
-    transform: scale(0.9);
-  }
+  ${transformStyles}
 
-  @media (max-width: 1300px) {
-    transform: scale(0.8);
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    margin: 2.5rem 2rem;
   }
 `;
 
 const StProtonLogo = styled(ProtonLogo)`
   width: 15.9rem;
+
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    width: 14.4rem;
+  }
 `;
 
 const StNav = styled.nav`
   display: flex;
   gap: 3.5rem;
+
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    flex-direction: column;
+    width: 100%;
+    gap: 2rem;
+    align-items: start;
+    margin-top: 6rem;
+  }
 `;
 
 const StNavItem = styled.button`
@@ -122,5 +179,10 @@ const StNavItem = styled.button`
 
   &:hover {
     color: #4a3ee9;
+  }
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    &:nth-of-type(4) {
+      margin-bottom: 6.4rem;
+    }
   }
 `;
