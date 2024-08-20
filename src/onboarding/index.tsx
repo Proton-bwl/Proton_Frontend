@@ -163,7 +163,7 @@ const OnBoarding2 = ({ isMobile }: IOnboardingProps) => {
           <>
             {ABOUTQVE.map((item) => {
               return (
-                <St.Mobile.SectionItemBox>
+                <St.Mobile.SectionItemBox key={item.keyWord}>
                   <item.icon style={{ width: '6.4rem', height: '6.4rem' }} />
                   <St.Mobile.AboutItem>{item.title}</St.Mobile.AboutItem>
                   <St.Mobile.Explain>{item.explain}</St.Mobile.Explain>
