@@ -54,7 +54,7 @@ const BotBoard = ({
     }
   };
   return (
-    <StGlassWarpper>
+    <StGlassWrapper>
       <StContainer>
         <StBotInfo>
           {active ? <LogoCyclicArbBot /> : <LogoGradationBot />}
@@ -107,13 +107,13 @@ const BotBoard = ({
           <StComingSoon>Coming Soon...</StComingSoon>
         )}
       </StContainer>
-    </StGlassWarpper>
+    </StGlassWrapper>
   );
 };
 
 export default BotBoard;
 
-const StGlassWarpper = styled(STCOMGlassWrapper)`
+const StGlassWrapper = styled(STCOMGlassWrapper)`
   min-width: 43.2rem;
   width: calc(50% - 1rem);
   max-width: 59rem;
@@ -127,6 +127,9 @@ const StContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    padding: 1.9rem 2.7rem;
+  }
 `;
 
 const StBotInfo = styled.section`
