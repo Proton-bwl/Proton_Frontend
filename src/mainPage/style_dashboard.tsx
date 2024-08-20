@@ -12,6 +12,13 @@ export const MainContainer = styled.div`
   margin: 9.5rem 6.4rem 0;
 
   ${transformStyles}
+
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    min-width: 375px;
+    max-width: 480px;
+    margin: 0;
+    padding: 6.4rem 2.4rem 0;
+  }
 `;
 
 export const Announcement = {

@@ -9,6 +9,7 @@ import MobileSideNav from './MobileSideNav';
 import { useState } from 'react';
 
 interface HeaderProps {
+  pathname?: string;
   openWalletModal?: () => void;
   scrollToSection?: (ref: React.RefObject<HTMLDivElement>) => void;
   section2Ref?: React.RefObject<HTMLDivElement>;
@@ -47,6 +48,7 @@ const Header = ({
                 }}
               >
                 <HeaderNav
+                  pathname={location.pathname}
                   scrollToSection={scrollToSection}
                   section2Ref={section2Ref}
                   section3Ref={section3Ref}
@@ -72,6 +74,7 @@ const Header = ({
 };
 
 const HeaderNav = ({
+  pathname,
   scrollToSection,
   section2Ref,
   section3Ref,
@@ -109,7 +112,7 @@ const HeaderNav = ({
       >
         Docs
       </StNavItem>
-      <TradeNowBtn />
+      {pathname === '/onboarding' ? <TradeNowBtn /> : <ConnectWallet />}
     </StNav>
   );
 };

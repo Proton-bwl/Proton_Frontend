@@ -17,7 +17,7 @@ export const MainContainer = styled.div`
 
   @media (${({ theme }) => theme.breakpoints.mobile}) {
     min-width: 375px;
-    max-width: 430px;
+    max-width: 480px;
     padding: 6.4rem 2.4rem 0;
   }
 `;
