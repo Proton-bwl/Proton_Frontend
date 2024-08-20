@@ -247,11 +247,11 @@ const OnBoarding4 = ({ isMobile }: IOnboardingProps) => {
         {isMobile ? (
           <>
             {ONBOARDING4.map((item) => (
-              <St.Mobile.SectionItemBox key={item.label}>
+              <St.Mobile.Section4ItemBox key={item.label}>
                 <img src={item.icon} alt={item.label} />
                 <St.Mobile.Body1>{item.label}</St.Mobile.Body1>
                 <St.Mobile.Explain>{item.explain}</St.Mobile.Explain>
-              </St.Mobile.SectionItemBox>
+              </St.Mobile.Section4ItemBox>
             ))}
           </>
         ) : (

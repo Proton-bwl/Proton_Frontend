@@ -274,7 +274,7 @@ export const Section4 = {
     gap: 4rem;
     margin: 6.4rem 0 14rem;
     @media (${({ theme }) => theme.breakpoints.tablet}) {
-      width: 80%;
+      width: 85%;
       flex-wrap: wrap;
     }
   `,
@@ -368,7 +368,15 @@ export const Mobile = {
     align-items: center;
     justify-content: center;
     gap: 1.2rem;
-    padding: 3.2rem;
+    padding: 3.2rem 3rem;
+  `,
+  Section4ItemBox: styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    padding: 3.2rem 0;
   `,
   Body1: styled.p`
     margin-top: 1.8rem;
