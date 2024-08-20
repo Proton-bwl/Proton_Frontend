@@ -29,9 +29,16 @@ export const Announcement = {
     height: 21.8rem;
     overflow: hidden;
     z-index: -1;
+
+    @media (${({ theme }) => theme.breakpoints.mobile}) {
+      height: 16rem;
+    }
   `,
   Container: styled.div`
     padding: 4.5rem 3rem;
+    @media (${({ theme }) => theme.breakpoints.mobile}) {
+      padding: 2rem;
+    }
   `,
   Background: styled.img`
     /* width: 48rem; */
@@ -40,6 +47,11 @@ export const Announcement = {
     right: 0;
     bottom: 0;
     z-index: -1;
+
+    @media (${({ theme }) => theme.breakpoints.mobile}) {
+      right: -10rem;
+      opacity: 0.8;
+    }
   `,
   Label: styled.div`
     width: fit-content;
@@ -53,6 +65,9 @@ export const Announcement = {
   `,
   Text: styled.p`
     ${({ theme }) => theme.fonts.title_1};
+    @media (${({ theme }) => theme.breakpoints.mobile}) {
+      ${({ theme }) => theme.fonts.body_1};
+    }
   `,
 };
 

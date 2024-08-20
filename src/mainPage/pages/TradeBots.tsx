@@ -9,6 +9,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { TRADE_BOTS_ORDER, TRADE_BOTS_SORT } from '../constants/TRADE_BOTS_API';
 import { ITRADEBOTS } from '../types/dashboardType';
+import useMobile from '../../common/hooks/useMobile';
 
 const TradeBots = () => {
   // const data = MOCK_TRADEBOTS;
@@ -118,10 +119,11 @@ const SortBtn = ({
   title: string;
   getData: (sorting: string) => void;
 }) => {
+  const isMobile = useMobile();
   return (
     <StSortBtn onClick={() => getData(title)}>
       {title}
-      <IcSort />
+      {!isMobile && <IcSort />}
     </StSortBtn>
   );
 };
@@ -135,15 +137,17 @@ const StContainer = styled.div`
 `;
 const StTopContainer = styled.div`
   width: 100%;
-  height: 5rem;
   margin: 2.4rem 0;
   display: flex;
   justify-content: space-between;
   gap: 2rem;
+  flex-wrap: wrap;
 `;
 const StSearchInput = styled.div`
-  width: 65rem;
-  height: 100%;
+  min-width: 38.2rem;
+  width: 100%;
+  max-width: 65rem;
+  height: 5rem;
   border-radius: 10px;
   background-color: ${({ theme }) => theme.colors.invest_background};
   padding: 0.75rem 1.4rem;
@@ -168,6 +172,7 @@ const StSearchInput = styled.div`
 `;
 
 const StSortContainer = styled.div`
+  height: 5rem;
   display: flex;
   height: 100%;
   gap: 1rem;
@@ -175,9 +180,9 @@ const StSortContainer = styled.div`
 
 const StSortBtn = styled.button`
   width: fit-content;
-  height: 100%;
+  height: 5rem;
   border-radius: 10px;
-  padding: 0 1.6rem 0 2.2rem;
+  padding: 0 1.6rem 0;
   ${({ theme }) => theme.fonts.body_3m};
   background-color: ${({ theme }) => theme.colors.invest_background};
   color: ${({ theme }) => theme.colors.white};
