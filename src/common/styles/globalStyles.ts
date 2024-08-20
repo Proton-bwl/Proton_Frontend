@@ -34,6 +34,7 @@ const globalStyles = css`
       align-items: center;
       justify-content: flex-start;
       width: 100vw;
+      min-width: 375px;
       height: 100%;
       max-width: 768px;
       overflow: hidden;

@@ -9,6 +9,8 @@ import IcRisk from './section2_risk.svg?react';
 import IcSafety from './section2_safety.svg?react';
 
 import onboarding3 from './onboarding_mock3.webp';
+import onboarding3_mobile from './onboarding_monk3_mobile.webp';
+import onboardingBackPng from './test.png';
 
 import imgDepositFunds from './depositFundsIMG.webp';
 import imgGenerateProfits from './generateProfitsIMG.webp';
@@ -29,4 +31,6 @@ export {
   imgGenerateProfits,
   imgLiquifyPosition,
   imgWithdrawAssets,
+  onboarding3_mobile,
+  onboardingBackPng,
 };

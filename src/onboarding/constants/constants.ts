@@ -19,6 +19,7 @@ interface IAboutQve {
 interface IOnboarding4 {
   icon: string;
   label: string;
+  explain: string;
 }
 
 export const ABOUTQVE: IAboutQve[] = [
@@ -49,17 +50,21 @@ export const ONBOARDING4: IOnboarding4[] = [
   {
     icon: imgDepositFunds,
     label: 'Deposit Funds',
+    explain: 'Choose a bot and transfer money to your account.',
   },
   {
     icon: imgGenerateProfits,
     label: 'Generate Profits',
+    explain: 'Bot will analyze the market, trade smartly, and aim for profits.',
   },
   {
     icon: imgLiquifyPosition,
     label: 'Liquify Position',
+    explain: 'Sell assets when profitable to convert them to cash.',
   },
   {
     icon: imgWithdrawAssets,
     label: 'Withdraw Assets',
+    explain: 'Transfer funds from the platform to your bank or wallet.',
   },
 ];

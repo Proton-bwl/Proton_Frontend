@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { STCOMGlassWrapper } from '../common/styles/commonStyleComs';
 import { transformStyles } from '../common/styles/transformStyles';
+import { onBoardingBackImg1 } from '../common/assets/0_index';
 export const MainContainer = styled.div`
   width: 100vw;
   max-width: 120rem;
@@ -24,12 +25,21 @@ export const MainContainer = styled.div`
 export const PreTitle = styled.div`
   ${({ theme }) => theme.fonts.mont_18_medium};
   color: ${({ theme }) => theme.colors.sub_white};
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    ${({ theme }) => theme.fonts.body_2m};
+    margin-top: 1rem;
+    margin-bottom: 0.2rem;
+  }
 `;
 export const Title = styled.div`
   ${({ theme }) => theme.fonts.title_0};
   color: ${({ theme }) => theme.colors.white};
   text-align: center;
   word-wrap: break-word;
+
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    ${({ theme }) => theme.fonts.title_2};
+  }
 `;
 
 export const Section1 = {
@@ -53,7 +63,7 @@ export const Section1 = {
   QVEIntroduce: styled.div`
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 2rem;
     & > h1 {
       ${({ theme }) => theme.fonts.body_0};
       color: ${({ theme }) => theme.colors.white};
@@ -64,6 +74,7 @@ export const Section1 = {
       word-wrap: break-word;
       ${({ theme }) => theme.fonts.body_1_1};
       color: ${({ theme }) => theme.colors.not_important};
+      margin-top: 0.4rem;
     }
   `,
   TotalValue: styled.div`
@@ -98,18 +109,23 @@ export const Section1 = {
       ${({ theme }) => theme.fonts.body_3m};
     }
   `,
-  BackgroundImg1: styled.img`
+  BackgroundImg1: styled.div`
     width: 127rem;
+    height: 114rem;
     position: absolute;
     top: -10rem;
     right: -50rem;
     z-index: -1;
+    background-image: url(${onBoardingBackImg1});
+    background-size: cover;
+    background-repeat: no-repeat;
 
     @media (${({ theme }) => theme.breakpoints.mobile}) {
-      width: 100rem;
-      top: 0;
-      left: -33rem;
-      opacity: 0.8;
+      width: 112.8rem;
+      height: 101rem;
+      top: -5rem;
+      right: -35rem;
+      opacity: 0.6;
     }
   `,
   BackgroundImg2: styled.img`
@@ -134,6 +150,10 @@ export const Section2 = {
       ${({ theme }) => theme.fonts.mont_18_medium};
       color: ${({ theme }) => theme.colors.sub_white};
       margin-bottom: 1rem;
+
+      @media (${({ theme }) => theme.breakpoints.tablet}) {
+        flex: 0 1 calc(50% - 2rem); /* 2개씩 wrap되도록 설정 */
+      }
     }
   `,
   Contents: styled.div`
@@ -145,6 +165,11 @@ export const Section2 = {
 
     @media (${({ theme }) => theme.breakpoints.tablet}) {
       gap: 2.5rem;
+    }
+    @media (${({ theme }) => theme.breakpoints.mobile}) {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.6rem;
     }
   `,
   AboutItem: styled.div`
@@ -209,12 +234,19 @@ export const Section3 = {
     left: -110%;
     transform: rotate(15deg);
     z-index: -1;
+
+    @media (${({ theme }) => theme.breakpoints.mobile}) {
+      width: 44rem;
+      top: -15rem;
+      left: -20rem;
+      transform: rotate(0deg);
+    }
   `,
   BackgroundImg2: styled.img`
     width: 57rem;
     position: absolute;
     bottom: -30rem;
-    right: -41rem;
+    right: -170px;
     transform: rotate(11deg);
     z-index: -1;
   `,
@@ -242,13 +274,13 @@ export const Section4 = {
     gap: 4rem;
     margin: 6.4rem 0 14rem;
     @media (${({ theme }) => theme.breakpoints.tablet}) {
+      width: 80%;
       flex-wrap: wrap;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr); // 2개의 열로 설정
     }
   `,
   ItemWrapper: styled(STCOMGlassWrapper)`
-    width: 27rem;
+    max-width: 27rem;
+    min-width: 27rem;
     height: 27rem;
     display: flex;
     flex-direction: column;
@@ -262,10 +294,24 @@ export const Section4 = {
       height: 10rem;
     }
   `,
+  BackgroundImg: styled.img`
+    width: 57rem;
+    position: absolute;
+    top: -30rem;
+    right: -180px;
+    z-index: -1;
+
+    @media (${({ theme }) => theme.breakpoints.mobile}) {
+      top: auto;
+      bottom: -10rem;
+      right: 50px;
+    }
+  `,
 };
 
 export const Mobile = {
   ContentLayout: styled.div`
+    position: relative;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -287,38 +333,26 @@ export const Mobile = {
     }
   `,
   GlassWrapper: styled.div`
-    background-image: linear-gradient(
-        144deg,
-        rgba(255, 255, 255, 0.1) -9.46%,
-        rgba(255, 255, 255, 0.25) 115.25%
-      ),
-      linear-gradient(
-        300deg,
-        rgba(255, 255, 255, 0.01) -9.46%,
-        rgba(255, 255, 255, 0.01) 115.25%
-      );
-    border: 0.1rem solid transparent;
-    background-origin: border-box;
-    backdrop-filter: blur(10px);
-    background-clip: content-box, border-box;
     border-radius: 20px;
     width: 100%;
+    height: 12rem;
     color: ${({ theme }) => theme.colors.sub_white};
     margin-top: 5.1rem;
     margin-bottom: 2.4rem;
     z-index: 1;
+    background: rgba(0, 0, 0, 0.1);
+    border: none;
+    backdrop-filter: saturate(130%) blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   `,
   ValueContainer: styled.div`
     position: relative;
     width: 100%;
-    height: 12rem;
     padding: 2.5rem;
-    border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: transparent;
     gap: 1.5rem;
   `,
   ValueLabel: styled.p`
@@ -327,5 +361,24 @@ export const Mobile = {
   Value: styled.p`
     ${({ theme }) => theme.fonts.title_2a};
     color: white;
+  `,
+  SectionItemBox: styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    padding: 3.2rem;
+  `,
+  Body1: styled.p`
+    margin-top: 1.8rem;
+    ${({ theme }) => theme.fonts.body_1};
+  `,
+  Explain: styled.p`
+    ${({ theme }) => theme.fonts.body_2};
+    text-align: center;
+  `,
+  AboutItem: styled.p`
+    ${({ theme }) => theme.fonts.body_0m};
   `,
 };
