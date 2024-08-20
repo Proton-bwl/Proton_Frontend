@@ -60,6 +60,7 @@ const Header = ({
           </>
         ) : location.pathname === '/onboarding' ? (
           <HeaderNav
+            pathname={location.pathname}
             scrollToSection={scrollToSection}
             section2Ref={section2Ref}
             section3Ref={section3Ref}

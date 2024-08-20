@@ -14,6 +14,7 @@ import { formatNumberWithCommas } from '../../common/utils/formatNumberWithComma
 import { formatPercentValue } from '../../common/utils/formatPercentValue';
 import { getBalance } from '../../common/utils/getBalance';
 import useOutsideClick from '../../common/hooks/useOutsideClick';
+import { depositTransfer } from '../../contract/deposit';
 
 const base_url = import.meta.env.VITE_BASE_URL;
 const MINVAL = 10;
@@ -70,7 +71,8 @@ const BotModal = ({
   };
 
   const handleDepositValue = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const formatValue = formatNumberWithCommas(e.target.value);
+    const rawValue = e.target.value;
+    const formatValue = formatNumberWithCommas(rawValue);
     setDepositValue(formatValue);
   };
 
@@ -78,11 +80,13 @@ const BotModal = ({
     if (!id) return;
     const base_url = import.meta.env.VITE_BASE_URL;
     if (!localStorage.getItem('NEUTRONADDRESS') || !depositValue) return;
+    const _amount = Number(depositValue.replace(/,/g, ''));
     try {
+      await depositTransfer(_amount);
       const postData = {
         user_id: localStorage.getItem('NEUTRONADDRESS'), // 지갑 주소
         bot_id: id,
-        amount: Number(depositValue.replace(/,/g, '')), // 입금할 금액
+        amount: _amount, // 입금할 금액
       };
       await axios.post(`${base_url}/api/deposit`, postData);
       onClose();
