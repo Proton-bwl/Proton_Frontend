@@ -13,6 +13,12 @@ export const MainContainer = styled.div`
   margin: 9.5rem 6.4rem 0;
 
   ${transformStyles}
+
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    min-width: 375px;
+    max-width: 430px;
+    padding: 6.4rem 2.4rem 0;
+  }
 `;
 
 export const PreTitle = styled.div`
@@ -39,7 +45,7 @@ export const Section1 = {
     min-width: 76.9rem;
     width: 100%;
     max-width: 132.8rem;
-    margin: 24rem 0.8rem 0;
+    margin: 24rem 0.8rem 7.8rem;
     display: flex;
     flex-direction: column;
     gap: 5.4rem;
@@ -77,7 +83,7 @@ export const Section1 = {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 15rem 0;
+    margin: 7.2rem 0;
 
     & nav {
       display: flex;
@@ -98,8 +104,13 @@ export const Section1 = {
     top: -10rem;
     right: -50rem;
     z-index: -1;
-    /* opacity: 0.4; */
-    /* transform: rotate(330deg); */
+
+    @media (${({ theme }) => theme.breakpoints.mobile}) {
+      width: 100rem;
+      top: 0;
+      left: -33rem;
+      opacity: 0.8;
+    }
   `,
   BackgroundImg2: styled.img`
     width: 100%;
@@ -250,5 +261,71 @@ export const Section4 = {
       width: 10rem;
       height: 10rem;
     }
+  `,
+};
+
+export const Mobile = {
+  ContentLayout: styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    & > h1 {
+      width: 34rem;
+      text-align: center;
+      word-wrap: break-word;
+      ${({ theme }) => theme.fonts.title_TVL};
+    }
+    & > p {
+      width: 38.2rem;
+      text-align: center;
+      ${({ theme }) => theme.fonts.body_3};
+      color: ${({ theme }) => theme.colors.not_important};
+      margin-top: 1rem;
+    }
+  `,
+  GlassWrapper: styled.div`
+    background-image: linear-gradient(
+        144deg,
+        rgba(255, 255, 255, 0.1) -9.46%,
+        rgba(255, 255, 255, 0.25) 115.25%
+      ),
+      linear-gradient(
+        300deg,
+        rgba(255, 255, 255, 0.01) -9.46%,
+        rgba(255, 255, 255, 0.01) 115.25%
+      );
+    border: 0.1rem solid transparent;
+    background-origin: border-box;
+    backdrop-filter: blur(10px);
+    background-clip: content-box, border-box;
+    border-radius: 20px;
+    width: 100%;
+    color: ${({ theme }) => theme.colors.sub_white};
+    margin-top: 5.1rem;
+    margin-bottom: 2.4rem;
+    z-index: 1;
+  `,
+  ValueContainer: styled.div`
+    position: relative;
+    width: 100%;
+    height: 12rem;
+    padding: 2.5rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    gap: 1.5rem;
+  `,
+  ValueLabel: styled.p`
+    ${({ theme }) => theme.fonts.body_2m};
+  `,
+  Value: styled.p`
+    ${({ theme }) => theme.fonts.title_2a};
+    color: white;
   `,
 };

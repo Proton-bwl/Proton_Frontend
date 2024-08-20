@@ -23,6 +23,7 @@ import { formatPriceValue } from '../common/utils/formatPriceValue.ts';
 import { STCOMGlassWrapper } from '../common/styles/commonStyleComs.ts';
 import { ONBOARDING4 } from './constants/constants.ts';
 import { LINKS } from '../common/constants/LINKS.ts';
+import useMobile from '../common/hooks/useMobile.tsx';
 
 const OnBoarding = () => {
   const section2Ref = useRef<HTMLDivElement>(null);
@@ -71,6 +72,12 @@ const OnBoarding = () => {
 const OnBoarding1 = () => {
   const base_url = import.meta.env.VITE_BASE_URL;
   const [totalValueLocked, setTotalValueLocked] = useState(0);
+  const isMobile = useMobile();
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   const getData = async () => {
     try {
       const { data } = await axios.get(`${base_url}/api/onboarding`);
@@ -79,41 +86,62 @@ const OnBoarding1 = () => {
       console.log(err);
     }
   };
-  useEffect(() => {
-    getData();
-  }, []);
   return (
     <St.Section1.Container>
       <St.Section1.BackgroundImg1 src={onBoardingBackImg1} alt='cubeIMG' />
-      <St.Section1.ContentLayout>
-        <St.Section1.QVEIntroduce>
+      {isMobile ? (
+        <St.Mobile.ContentLayout>
           <h1>Quant Vault Escrow Protocol</h1>
-          <ProtonLogo />
           <p>
             A hybrid DeFi platform combining arbitrage trading bots and
             liquidity staking protocols in Neutron
           </p>
-        </St.Section1.QVEIntroduce>
-        <St.Section1.TotalValue>
-          <p>Total Value Locked</p>
-          <p>$ {formatPriceValue(totalValueLocked)}</p>
-        </St.Section1.TotalValue>
-      </St.Section1.ContentLayout>
+          <St.Mobile.GlassWrapper>
+            <St.Mobile.ValueContainer>
+              <St.Mobile.ValueLabel>Total Value Locked</St.Mobile.ValueLabel>
+              <St.Mobile.Value>
+                $ {formatPriceValue(totalValueLocked)}
+              </St.Mobile.Value>
+            </St.Mobile.ValueContainer>
+          </St.Mobile.GlassWrapper>
+          <TradeNowBtn />
+        </St.Mobile.ContentLayout>
+      ) : (
+        <St.Section1.ContentLayout>
+          <St.Section1.QVEIntroduce>
+            <h1>Quant Vault Escrow Protocol</h1>
+            <ProtonLogo />
+            <p>
+              A hybrid DeFi platform combining arbitrage trading bots and
+              liquidity staking protocols in Neutron
+            </p>
+          </St.Section1.QVEIntroduce>
+          <St.Section1.TotalValue>
+            <p>Total Value Locked</p>
+            <p>$ {formatPriceValue(totalValueLocked)}</p>
+          </St.Section1.TotalValue>
+        </St.Section1.ContentLayout>
+      )}
+
       <St.Section1.Bottom>
-        <nav>
-          <a href={LINKS.twitter} target='_blank'>
-            <IcTwitter />
-          </a>
-          <a href={LINKS.telegrem} target='_blank'>
-            <IcTelegram />
-          </a>
-          <a href={LINKS.medium} target='_blank'>
-            <IcMedium />
-          </a>
-          <a href={LINKS.github} target='_blank'>
-            <IcGitbub />
-          </a>
-        </nav>
+        {isMobile ? (
+          <></>
+        ) : (
+          <nav>
+            <a href={LINKS.twitter} target='_blank'>
+              <IcTwitter />
+            </a>
+            <a href={LINKS.telegrem} target='_blank'>
+              <IcTelegram />
+            </a>
+            <a href={LINKS.medium} target='_blank'>
+              <IcMedium />
+            </a>
+            <a href={LINKS.github} target='_blank'>
+              <IcGitbub />
+            </a>
+          </nav>
+        )}
         <p>Ecosystem</p>
         <Neutron />
       </St.Section1.Bottom>
