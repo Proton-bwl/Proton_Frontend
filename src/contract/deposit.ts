@@ -1,23 +1,3 @@
-// import { CosmWasmClient } from '@cosmjs/cosmwasm-stargate'; // 실제 RPC 엔드포인트로 변경
-
-// // Deposit 함수
-// export async function depositTransfer() {
-//   try {
-//     const rpcEndpoint = 'https://neutron-rpc.publicnode.com/';
-//     const client = await CosmWasmClient.connect(rpcEndpoint);
-
-//     const contractAddress =
-//       'neutron1un7g0tnyye7cp576h5t27tqa0r065lnf0rr0ghxf7jhgc87paumsjh4wfd';
-//     const queryMsg = { Transfer: { amount: 10 } }; // 여기에 쿼리 메시지를 정의합니다.
-
-//     const result = await client.queryContractSmart(contractAddress, queryMsg);
-//     console.log(result);
-//   } catch (error) {
-//     console.error('Deposit Error:', error);
-//     throw error; // 에러를 호출자에게 전달
-//   }
-// }
-
 import { Coin, OfflineDirectSigner } from '@cosmjs/proto-signing';
 import { SigningCosmWasmClient } from '@cosmjs/cosmwasm-stargate';
 import { GasPrice } from '@cosmjs/stargate';
@@ -66,7 +46,7 @@ export const depositTransfer = async (value: number) => {
   try {
     const result = await client.execute(
       address,
-      'neutron1un7g0tnyye7cp576h5t27tqa0r065lnf0rr0ghxf7jhgc87paumsjh4wfd',
+      'neutron19z78v2lzp5ryyl4t3h67vquhtj7eg6uuk4zv2mh8rhyk02gkm4yq0h2su2',
       executeMsg,
       'auto',
       'memo',
