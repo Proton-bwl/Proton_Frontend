@@ -114,19 +114,39 @@ const ShowDashboardData = ({ data }: { data: IDashboard }) => {
   );
 };
 
-const ISnotConnectWallet = () => {
+const ISnotConnectWallet = ({
+  openUnConnectModal,
+}: {
+  openUnConnectModal: () => void;
+}) => {
+  useEffect(() => {
+    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+      openUnConnectModal();
+    }
+  }, []);
   return (
     <StNotConnectContainer>
       <StBackbround src={dashboardBackIMG} />
       <IcStrokeLogo />
-      <span>
-        <StText1>PROTON is not connected</StText1>
-        <StText1>to your wallet</StText1>
-        <div />
-        <StText2>To see more information about this vault</StText2>
-        <StText2>you need to connect your wallet</StText2>
-      </span>
-      <ConnectWallet />
+      {/iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ? (
+        <span>
+          <StText1>Please switch to a desktop</StText1>
+          <div />
+          <StText2>Investing in the bot is only available on desktop.</StText2>
+          <StText2>Please switch to a desktop to proceed.</StText2>
+        </span>
+      ) : (
+        <>
+          <span>
+            <StText1>PROTON is not connected</StText1>
+            <StText1>to your wallet</StText1>
+            <div />
+            <StText2>To see more information about this vault</StText2>
+            <StText2>you need to connect your wallet</StText2>
+          </span>
+          <ConnectWallet />
+        </>
+      )}
     </StNotConnectContainer>
   );
 };
@@ -160,8 +180,9 @@ const ISnotSelectBot = () => {
 const Dashboard = () => {
   const [isWalletConnect] = useState(localStorage.getItem('NEUTRONADDRESS'));
   const [data, setData] = useState<IDashboard>();
-  const { refreshTrigger } = useOutletContext<{
+  const { refreshTrigger, openUnConnectModal } = useOutletContext<{
     refreshTrigger: boolean;
+    openUnConnectModal: () => void;
   }>();
 
   useEffect(() => {
@@ -190,7 +211,7 @@ const Dashboard = () => {
           <ISnotSelectBot />
         )
       ) : (
-        <ISnotConnectWallet />
+        <ISnotConnectWallet openUnConnectModal={openUnConnectModal} />
       )}
     </StContainer>
   );
