@@ -17,7 +17,7 @@ import useOutsideClick from '../../common/hooks/useOutsideClick';
 // import { depositTransfer } from '../../contract/deposit';
 
 const base_url = import.meta.env.VITE_BASE_URL;
-const MINVAL = 10;
+const MINVAL = 1;
 const BotModal = ({
   isOpen,
   onClose,
