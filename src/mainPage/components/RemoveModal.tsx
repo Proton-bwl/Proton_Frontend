@@ -5,7 +5,7 @@ import {
 import styled from '@emotion/styled';
 import { IcModalX } from '../assets/0_index';
 import axios from 'axios';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import useOutsideClick from '../../common/hooks/useOutsideClick';
 
 const RemoveModal = ({
@@ -19,6 +19,7 @@ const RemoveModal = ({
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   useOutsideClick(wrapperRef, onClose);
+  const [isLoading, setIsLoading] = useState(false);
   if (!isOpen) return;
 
   const remove = async () => {
@@ -30,10 +31,13 @@ const RemoveModal = ({
       bot_id: botId,
     };
     try {
+      setIsLoading(true);
       await axios.post(`${base_url}/api/remove`, postBody);
       onClose();
+      setIsLoading(false);
       window.location.reload();
     } catch (err) {
+      setIsLoading(false);
       console.log(err);
     }
   };
@@ -47,10 +51,12 @@ const RemoveModal = ({
         </StTop>
         <StMiddle>
           <span>Are you sure you want to stop the</span>
-          <span>CEX-DEX Arb BOT and close your trades?</span>
+          <span>Cyclic Arb BOT and close your trades?</span>
         </StMiddle>
         <StBottom>
-          <StRemoveBtn onClick={remove}>Remove</StRemoveBtn>
+          <StRemoveBtn onClick={remove}>
+            {isLoading ? 'Removing Bot..' : 'Remove'}
+          </StRemoveBtn>
         </StBottom>
       </StWrapper>
     </STCOMBackground>

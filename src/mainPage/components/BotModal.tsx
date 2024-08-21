@@ -37,6 +37,7 @@ const BotModal = ({
   const [balance, setBalance] = useState('-');
   const [user_id, setUserId] = useState(localStorage.getItem('NEUTRONADDRESS'));
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const [isLoading, setIsLoading] = useState('Deposit');
   useOutsideClick(wrapperRef, onClose);
 
   useEffect(() => {
@@ -82,7 +83,9 @@ const BotModal = ({
     if (!localStorage.getItem('NEUTRONADDRESS') || !depositValue) return;
     const _amount = Number(depositValue.replace(/,/g, ''));
     try {
+      setIsLoading('Open Wallet...');
       await depositTransfer(_amount);
+      setIsLoading('Depositing...');
       const postData = {
         user_id: localStorage.getItem('NEUTRONADDRESS'), // 지갑 주소
         bot_id: id,
@@ -90,9 +93,11 @@ const BotModal = ({
       };
       await axios.post(`${base_url}/api/deposit`, postData);
       onClose();
+      setIsLoading('Deposit');
       showToast('Your deposit has been successfully completed!');
       onDataRefreshRequest();
     } catch (err) {
+      setIsLoading('Deposit');
       console.log(err);
     }
   };
@@ -140,7 +145,7 @@ const BotModal = ({
             }
             onClick={() => deposit(botId)}
           >
-            Deposit
+            {isLoading}
           </StDepositBtn>
           <StModalNotice>
             <IcNotice />
