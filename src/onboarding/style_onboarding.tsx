@@ -230,7 +230,7 @@ export const Section3 = {
     width: 127rem;
     position: absolute;
     top: -30rem;
-    left: -110%;
+    left: -55rem;
     transform: rotate(15deg);
     z-index: -1;
 
