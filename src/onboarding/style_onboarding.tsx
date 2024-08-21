@@ -113,8 +113,7 @@ export const Section1 = {
     width: 127rem;
     height: 114rem;
     position: absolute;
-    top: -10rem;
-    right: -50rem;
+    right: -40rem;
     z-index: -1;
     background-image: url(${onBoardingBackImg1});
     background-size: cover;
