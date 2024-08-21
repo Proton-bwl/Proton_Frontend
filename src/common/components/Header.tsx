@@ -9,6 +9,7 @@ import MobileSideNav from './MobileSideNav';
 import { useState } from 'react';
 
 interface HeaderProps {
+  openUnConnectModal?: () => void;
   pathname?: string;
   openWalletModal?: () => void;
   scrollToSection?: (ref: React.RefObject<HTMLDivElement>) => void;
@@ -113,7 +114,13 @@ const HeaderNav = ({
       >
         Docs
       </StNavItem>
-      {pathname === '/onboarding' ? <TradeNowBtn /> : <ConnectWallet />}
+      {pathname === '/onboarding' ? (
+        <TradeNowBtn />
+      ) : (
+        !/iPhone|iPad|iPod|Android/i.test(navigator.userAgent) && (
+          <ConnectWallet />
+        )
+      )}
     </StNav>
   );
 };

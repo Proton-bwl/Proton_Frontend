@@ -89,7 +89,7 @@ const PreviewChart = ({ chartData }: { chartData: IChartData[] }) => {
       series={series}
       type='area'
       height={70}
-      width={210}
+      width={160}
     />
   ) : (
     <ApexCharts

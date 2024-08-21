@@ -1,5 +1,8 @@
 import styled from '@emotion/styled';
-import { STCOMBackground } from '../../common/styles/commonStyleComs';
+import {
+  STCOMBackground,
+  STCOMBlueBtn,
+} from '../../common/styles/commonStyleComs';
 import { IcModalX, IcNotice } from '../assets/0_index';
 import ConnectWallet from '../../wallet/ConnectWallet';
 import { useRef } from 'react';
@@ -16,7 +19,23 @@ const UnConnectModal = ({
   useOutsideClick(wrapperRef, onClose);
   if (!isOpen) return;
 
-  return (
+  return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ? (
+    <STCOMBackground>
+      <StWrapper ref={wrapperRef}>
+        <StTop>
+          <p>Notice</p>
+          <IcModalX onClick={onClose} style={{ cursor: 'pointer' }} />
+        </StTop>
+        <StMiddle>
+          <span>Investing in the bot is only available on desktop.</span>
+          <span>Please switch to a desktop to proceed.</span>
+        </StMiddle>
+        <StBottom>
+          <StBlueBtn onClick={onClose}>Ok</StBlueBtn>
+        </StBottom>
+      </StWrapper>
+    </STCOMBackground>
+  ) : (
     <STCOMBackground>
       <StWrapper ref={wrapperRef}>
         <StTop>
@@ -53,6 +72,11 @@ const StWrapper = styled.div`
   & > * {
     width: 100%;
   }
+
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    width: 90%;
+    height: 20rem;
+  }
 `;
 
 const StTop = styled.div`
@@ -78,5 +102,8 @@ const StMiddle = styled.div`
 const StBottom = styled.div`
   display: flex;
   justify-content: center;
-  padding-bottom: 3.3rem;
+`;
+
+const StBlueBtn = styled(STCOMBlueBtn)`
+  padding: 1rem 2rem;
 `;
