@@ -3,5 +3,5 @@ export const LINKS = {
   twitter: 'https://x.com/blockwavelabs',
   telegrem: '',
   medium: '',
-  github: '',
+  github: 'https://github.com/ziptalk/proton-frontend-typescript',
 };

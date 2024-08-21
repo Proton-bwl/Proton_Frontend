@@ -7,7 +7,7 @@ import {
 } from '../common/assets/0_index';
 import {
   IcGitbub,
-  IcMedium,
+  // IcMedium,
   IcTelegram,
   IcTwitter,
   Neutron,
@@ -138,9 +138,9 @@ const OnBoarding1 = ({ isMobile }: IOnboardingProps) => {
             <a href={LINKS.telegrem} target='_blank'>
               <IcTelegram />
             </a>
-            <a href={LINKS.medium} target='_blank'>
+            {/* <a href={LINKS.medium} target='_blank'>
               <IcMedium />
-            </a>
+            </a> */}
             <a href={LINKS.github} target='_blank'>
               <IcGitbub />
             </a>

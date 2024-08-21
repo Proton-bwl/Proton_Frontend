@@ -1,6 +1,6 @@
 import {
   IcFooterGithub,
-  IcFooterMedium,
+  // IcFooterMedium,
   IcFooterTelegram,
   IcFooterTwitter,
 } from '../assets/0_index';
@@ -24,9 +24,9 @@ const Footer = () => {
         <a href={LINKS.telegrem} target='_blank'>
           <IcFooterTelegram />
         </a>
-        <a href={LINKS.medium} target='_blank'>
+        {/* <a href={LINKS.medium} target='_blank'>
           <IcFooterMedium />
-        </a>
+        </a> */}
         <a href={LINKS.github} target='_blank'>
           <IcFooterGithub />
         </a>
