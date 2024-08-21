@@ -41,14 +41,14 @@ const ShowDashboardData = ({ data }: { data: IDashboard }) => {
         <div>
           <label>Total Profit</label>
           <StTotalTokenValue>
-            <StPositiveColor>
-              + {formatPriceValue(data.total_profit)} NTRN
-            </StPositiveColor>
+            <StColor isPositive={data.total_profit >= 0}>
+              {formatPriceValue(data.total_profit)} NTRN
+            </StColor>
           </StTotalTokenValue>
           <StTotalDollarValue>
-            <StPositiveColor>
+            <StColor isPositive={data.total_profit >= 0}>
               ≈ ${formatPriceValue(data.total_profit_usdt)}
-            </StPositiveColor>
+            </StColor>
           </StTotalDollarValue>
         </div>
       </StTotalContainer>
@@ -82,14 +82,14 @@ const ShowDashboardData = ({ data }: { data: IDashboard }) => {
                 {formatPriceValue(item.current_value)} {TOKEN}
               </StTableCell>
               <StTableCell>
-                <StPositiveColor>
-                  + {formatPriceValue(item.daily_pnl)} {TOKEN}
-                </StPositiveColor>
+                <StColor isPositive={item.daily_pnl >= 0}>
+                  {formatPriceValue(item.daily_pnl)} {TOKEN}
+                </StColor>
               </StTableCell>
               <StTableCell>
-                <StPositiveColor>
-                  + {formatPriceValue(item.total_profit)} {TOKEN}
-                </StPositiveColor>
+                <StColor isPositive={item.total_profit >= 0}>
+                  {formatPriceValue(item.total_profit)} {TOKEN}
+                </StColor>
               </StTableCell>
               <StTableCell>
                 <div
@@ -234,8 +234,12 @@ const StTable = styled.table`
   width: 100%;
 `;
 
-const StPositiveColor = styled.span`
-  color: ${({ theme }) => theme.colors.positive};
+const StColor = styled.span<{ isPositive: boolean }>`
+  color: ${({ theme, isPositive }) =>
+    isPositive ? theme.colors.positive : theme.colors.negative};
+  &::before {
+    content: ${(props) => (props.isPositive ? '+' : '')};
+  }
 `;
 
 const StTableRow = styled.tr`
