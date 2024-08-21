@@ -295,29 +295,29 @@ const StNotConnectContainer = styled.div`
     );
   background-origin: border-box;
   background-clip: content-box, border-box;
-  /* background: var(
-    --glass-effect,
-    linear-gradient(
-      144deg,
-      rgba(255, 255, 255, 0.1) -9.46%,
-      rgba(255, 255, 255, 0.25) 115.25%
-    )
-  ); */
 
   & > span {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 
     & > div {
       height: 2rem;
     }
   }
+
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    height: 47rem;
+  }
 `;
 
 const StText1 = styled.p`
   ${({ theme }) => theme.fonts.title_0};
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    ${({ theme }) => theme.fonts.title_2};
+  }
 `;
 
 const StText2 = styled.p`

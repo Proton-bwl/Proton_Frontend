@@ -77,5 +77,9 @@ export const Dashboard = {
     display: flex;
     flex-direction: column;
     margin-top: 4.7rem;
+
+    @media (${({ theme }) => theme.breakpoints.mobile}) {
+      margin-top: 2.4rem;
+    }
   `,
 };

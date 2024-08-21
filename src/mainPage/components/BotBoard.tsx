@@ -57,12 +57,14 @@ const BotBoard = ({
     <StGlassWrapper>
       <StContainer>
         <StBotInfo>
-          {active ? <LogoCyclicArbBot /> : <LogoGradationBot />}
+          {active ? <StLogoCyclicArbBot /> : <StLogoGradationBot />}
           <StBotInfoLayout>
             <StBotName>{propsData.name}</StBotName>
             <div>
               <IcPersons />
-              <p>{formatNumberValue(propsData.subscriber)}</p>
+              <StSubscriber>
+                {formatNumberValue(propsData.subscriber)}
+              </StSubscriber>
             </div>
           </StBotInfoLayout>
         </StBotInfo>
@@ -120,6 +122,19 @@ const StGlassWrapper = styled(STCOMGlassWrapper)`
   min-height: 45.4rem;
   @media (${({ theme }) => theme.breakpoints.mobile}) {
     width: 100%;
+    min-height: 33rem;
+  }
+`;
+
+const StLogoGradationBot = styled(LogoGradationBot)`
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    width: 4rem;
+  }
+`;
+
+const StLogoCyclicArbBot = styled(LogoCyclicArbBot)`
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    width: 4rem;
   }
 `;
 
@@ -132,7 +147,7 @@ const StContainer = styled.div`
   gap: 3rem;
   @media (${({ theme }) => theme.breakpoints.tablet}) {
     padding: 2.8rem 3rem;
-    gap: 1.5rem;
+    gap: 1.2rem;
   }
   @media (${({ theme }) => theme.breakpoints.mobile}) {
     padding: 1.9rem 2.7rem;
@@ -146,6 +161,15 @@ const StBotInfo = styled.section`
   padding-bottom: 2rem;
   margin-bottom: 0.5rem;
   border-bottom: 1.5px solid ${({ theme }) => theme.colors.not_important};
+
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    padding-bottom: 1.2rem;
+    margin-bottom: 0;
+  }
+`;
+
+const StSubscriber = styled.p`
+  ${({ theme }) => theme.fonts.body_2_auto};
 `;
 
 const StBotInfoLayout = styled.div`
@@ -164,6 +188,10 @@ const StBotInfoLayout = styled.div`
 const StBotName = styled.p`
   ${({ theme }) => theme.fonts.title_2a};
   color: ${({ theme }) => theme.colors.white};
+
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    ${({ theme }) => theme.fonts.body_2_semibold};
+  }
 `;
 
 const StTotalProfitsContainer = styled.div`
@@ -185,6 +213,17 @@ const StTotalPRofits = styled.div`
     color: #19f6c1;
     ${({ theme }) => theme.fonts.title_1};
   }
+
+  @media (${({ theme }) => theme.breakpoints.tablet}) {
+    gap: 0.1rem;
+    & > label {
+      ${({ theme }) => theme.fonts.body_2_semibold};
+    }
+    & > p {
+      color: #19f6c1;
+      ${({ theme }) => theme.fonts.title_2a};
+    }
+  }
 `;
 
 const StBotSummaryValue = styled.div`
@@ -197,15 +236,21 @@ const StBotSummaryValue = styled.div`
     & > label {
       color: ${({ theme }) => theme.colors.not_important};
       ${({ theme }) => theme.fonts.body_2_semibold};
+      @media (${({ theme }) => theme.breakpoints.mobile}) {
+        ${({ theme }) => theme.fonts.caption};
+      }
     }
     & > p {
       color: ${({ theme }) => theme.colors.white};
       ${({ theme }) => theme.fonts.body_2_bold};
+      @media (${({ theme }) => theme.breakpoints.mobile}) {
+        ${({ theme }) => theme.fonts.caption};
+      }
     }
-  }
 
-  & div:nth-of-type(3) {
-    align-items: end;
+    &:nth-of-type(3) {
+      align-items: end;
+    }
   }
 `;
 
@@ -223,15 +268,25 @@ const StOperated = styled.span`
   & label {
     color: ${({ theme }) => theme.colors.not_important};
     ${({ theme }) => theme.fonts.body_2_auto};
+    @media (${({ theme }) => theme.breakpoints.mobile}) {
+      ${({ theme }) => theme.fonts.caption};
+    }
   }
 
   & > img {
     width: 4.5rem;
+    @media (${({ theme }) => theme.breakpoints.mobile}) {
+      width: 2.8rem;
+    }
   }
 `;
 
 const StDeposit = styled(STCOMBlueBtn)`
   padding: 1.25rem 3.7rem;
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    padding: 0.8rem 2.7rem;
+    ${({ theme }) => theme.fonts.small_phrase};
+  }
 `;
 
 const StComingSoon = styled.div`

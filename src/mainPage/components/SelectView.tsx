@@ -26,7 +26,7 @@ const SelectView = ({ view }: { view: string }) => {
         name={VIEW.TRADE_BOTS}
         onClick={handleView}
       >
-        {view === VIEW.TRADE_BOTS ? <IcTradeBots /> : <></>}
+        <StIcon>{view === VIEW.TRADE_BOTS ? <IcTradeBots /> : <></>}</StIcon>
         {VIEW.TRADE_BOTS}
       </StBtn>
       <StBtn
@@ -35,7 +35,7 @@ const SelectView = ({ view }: { view: string }) => {
         name={VIEW.DASHBOARD}
         onClick={handleView}
       >
-        {view === VIEW.DASHBOARD ? <IcDashboard /> : <></>}
+        <StIcon>{view === VIEW.DASHBOARD ? <IcDashboard /> : <></>}</StIcon>
         {VIEW.DASHBOARD}
       </StBtn>
     </StContainer>
@@ -46,6 +46,10 @@ export default SelectView;
 
 const StContainer = styled.div`
   display: flex;
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    width: 100%;
+    justify-content: space-between;
+  }
 `;
 
 const StBtn = styled.button<{
@@ -65,4 +69,23 @@ const StBtn = styled.button<{
     selectView === name ? '2px solid #fff;' : ''};
   cursor: pointer;
   ${({ theme }) => theme.fonts.body_1};
+
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    width: calc(50% - 0.7rem);
+    height: 5rem;
+    border-radius: 5px;
+    border: ${({ selectView, name, theme }) =>
+      selectView === name ? 'none' : `1px solid ${theme.colors.not_important}`};
+    color: ${({ selectView, name, theme }) =>
+      selectView === name ? theme.colors.white : theme.colors.not_important};
+    background-color: ${({ selectView, name, theme }) =>
+      selectView === name ? theme.colors.qve_blue : 'transparent'};
+    ${({ theme }) => theme.fonts.body_2_semibold};
+  }
+`;
+
+const StIcon = styled.span`
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    display: none;
+  }
 `;

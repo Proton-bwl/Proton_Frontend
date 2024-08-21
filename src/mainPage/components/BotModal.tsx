@@ -14,10 +14,10 @@ import { formatNumberWithCommas } from '../../common/utils/formatNumberWithComma
 import { formatPercentValue } from '../../common/utils/formatPercentValue';
 import { getBalance } from '../../common/utils/getBalance';
 import useOutsideClick from '../../common/hooks/useOutsideClick';
-// import { depositTransfer } from '../../contract/deposit';
+import { depositTransfer } from '../../contract/deposit';
 
 const base_url = import.meta.env.VITE_BASE_URL;
-const MINVAL = 1;
+const MINVAL = 10;
 const BotModal = ({
   isOpen,
   onClose,
@@ -82,7 +82,7 @@ const BotModal = ({
     if (!localStorage.getItem('NEUTRONADDRESS') || !depositValue) return;
     const _amount = Number(depositValue.replace(/,/g, ''));
     try {
-      // await depositTransfer(_amount);
+      await depositTransfer(_amount);
       const postData = {
         user_id: localStorage.getItem('NEUTRONADDRESS'), // 지갑 주소
         bot_id: id,
@@ -98,7 +98,7 @@ const BotModal = ({
   };
 
   return data ? (
-    <STCOMBackground>
+    <StBotModalBackGround>
       <StScroll>
         <StWrapper ref={wrapperRef}>
           <StSpaceBetween>
@@ -151,13 +151,19 @@ const BotModal = ({
           </StModalNotice>
         </StWrapper>
       </StScroll>
-    </STCOMBackground>
+    </StBotModalBackGround>
   ) : (
     <>loading...</>
   );
 };
 
 export default BotModal;
+
+const StBotModalBackGround = styled(STCOMBackground)`
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    align-items: end;
+  }
+`;
 
 const StScroll = styled.div`
   overflow-y: auto;
@@ -173,6 +179,9 @@ const StScroll = styled.div`
 
   &::-webkit-scrollbar {
     display: none; /* 스크롤바 숨기기 */
+  }
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    width: 100%;
   }
 `;
 

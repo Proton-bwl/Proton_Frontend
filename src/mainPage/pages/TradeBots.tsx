@@ -147,7 +147,6 @@ const StTopContainer = styled.div`
   }
 `;
 const StSearchInput = styled.div`
-  min-width: 30rem;
   width: 100%;
   height: 5rem;
   border-radius: 10px;
