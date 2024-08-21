@@ -6,6 +6,12 @@ export const getBalance = async (address: string): Promise<string> => {
 
   const balance = await client.getBalance(address, 'untrn'); // NTRN 토큰의 denom 설정
   const amount = balance.amount;
-  const formattedNumber = (Number(amount) / 1000000).toFixed(2);
-  return formattedNumber;
+
+  // Calculate the balance in the correct format (convert from micro units)
+  const balanceInUnits = Number(amount) / 1000000;
+
+  // Round down to two decimal places
+  const formattedNumber = Math.floor(balanceInUnits * 100) / 100;
+
+  return formattedNumber.toFixed(2); // Always display two decimal places
 };
