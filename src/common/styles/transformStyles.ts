@@ -9,7 +9,7 @@ export const transformStyles = css`
   }
 
   @media (${theme.breakpoints.tablet}) {
-    transform: scale(0.75);
+    transform: scale(0.8);
   }
 
   @media (${theme.breakpoints.mobile}) {

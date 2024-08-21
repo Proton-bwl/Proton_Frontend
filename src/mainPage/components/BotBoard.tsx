@@ -114,10 +114,13 @@ const BotBoard = ({
 export default BotBoard;
 
 const StGlassWrapper = styled(STCOMGlassWrapper)`
-  min-width: 43.2rem;
+  min-width: 30rem;
   width: calc(50% - 1rem);
   max-width: 59rem;
   min-height: 45.4rem;
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    width: 100%;
+  }
 `;
 
 const StContainer = styled.div`
@@ -127,6 +130,10 @@ const StContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  @media (${({ theme }) => theme.breakpoints.tablet}) {
+    padding: 2.8rem 3rem;
+    gap: 1.5rem;
+  }
   @media (${({ theme }) => theme.breakpoints.mobile}) {
     padding: 1.9rem 2.7rem;
   }

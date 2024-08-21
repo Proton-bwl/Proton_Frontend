@@ -140,13 +140,15 @@ const StTopContainer = styled.div`
   margin: 2.4rem 0;
   display: flex;
   justify-content: space-between;
-  gap: 2rem;
-  flex-wrap: wrap;
+  gap: 5rem;
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    flex-wrap: wrap;
+    row-gap: 1.5rem;
+  }
 `;
 const StSearchInput = styled.div`
-  min-width: 38.2rem;
+  min-width: 30rem;
   width: 100%;
-  max-width: 65rem;
   height: 5rem;
   border-radius: 10px;
   background-color: ${({ theme }) => theme.colors.invest_background};
