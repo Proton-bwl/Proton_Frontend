@@ -1,10 +1,10 @@
 import ApexCharts from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import { IChartData } from '../types/pnlChartType';
-import useMobile from '../../common/hooks/useMobile';
+import useTablet from '../../common/hooks/useTablet';
 
 const PreviewChart = ({ chartData }: { chartData: IChartData[] }) => {
-  const isMobile = useMobile();
+  const isTablet = useTablet();
   const series = [
     {
       name: '차트 미리보기',
@@ -83,13 +83,13 @@ const PreviewChart = ({ chartData }: { chartData: IChartData[] }) => {
     },
   };
 
-  return isMobile ? (
+  return isTablet ? (
     <ApexCharts
       options={options}
       series={series}
       type='area'
       height={70}
-      width={220}
+      width={210}
     />
   ) : (
     <ApexCharts
@@ -97,7 +97,7 @@ const PreviewChart = ({ chartData }: { chartData: IChartData[] }) => {
       series={series}
       type='area'
       height={110}
-      width={250}
+      width={300}
     />
   );
 };

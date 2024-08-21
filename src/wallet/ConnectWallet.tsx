@@ -20,7 +20,6 @@ const ConnectWallet = ({
   }, []);
   const connectKeplr = async () => {
     if (!window.keplr) {
-      // alert('Please install Keplr extension');
       window.open('https://www.keplr.app/chains/neutron');
       return;
     }

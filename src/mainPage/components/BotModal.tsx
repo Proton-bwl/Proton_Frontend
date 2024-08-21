@@ -15,6 +15,7 @@ import { formatPercentValue } from '../../common/utils/formatPercentValue';
 import { getBalance } from '../../common/utils/getBalance';
 import useOutsideClick from '../../common/hooks/useOutsideClick';
 import { depositTransfer } from '../../contract/deposit';
+import { slideUp } from '../../common/utils/animation';
 
 const base_url = import.meta.env.VITE_BASE_URL;
 const MINVAL = 10;
@@ -187,6 +188,7 @@ const StScroll = styled.div`
   }
   @media (${({ theme }) => theme.breakpoints.mobile}) {
     width: 100%;
+    animation: ${slideUp} 0.5s ease-out;
   }
 `;
 
