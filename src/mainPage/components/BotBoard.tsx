@@ -71,7 +71,7 @@ const BotBoard = ({
         {active ? (
           <>
             <StTotalProfitsContainer>
-              <StTotalPRofits>
+              <StTotalPRofits isPositive={propsData.total_profits >= 0}>
                 <label>Total Profits</label>
                 <p>{formatPercentValue(propsData.total_profits)} %</p>
               </StTotalPRofits>
@@ -200,7 +200,7 @@ const StTotalProfitsContainer = styled.div`
   justify-content: space-between;
 `;
 
-const StTotalPRofits = styled.div`
+const StTotalPRofits = styled.div<{ isPositive: boolean }>`
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
@@ -210,7 +210,8 @@ const StTotalPRofits = styled.div`
     line-height: 100%;
   }
   & > p {
-    color: #19f6c1;
+    color: ${({ theme, isPositive }) =>
+      isPositive ? theme.colors.positive : theme.colors.negative};
     ${({ theme }) => theme.fonts.title_1};
   }
 
