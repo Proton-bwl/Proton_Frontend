@@ -83,7 +83,7 @@ const ShowDashboardData = ({ data }: { data: IDashboard }) => {
               </StTableCell>
               <StTableCell>
                 <StColor isPositive={item.daily_pnl >= 0}>
-                  {formatPriceValue(item.daily_pnl)} {TOKEN}
+                  {formatPriceValue(item.daily_pnl)} %
                 </StColor>
               </StTableCell>
               <StTableCell>
