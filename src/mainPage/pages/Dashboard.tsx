@@ -16,6 +16,7 @@ import axios from 'axios';
 import { formatPriceValue } from '../../common/utils/formatPriceValue';
 import BotLogo from '../../common/components/BotLogo';
 import { dashboardBackIMG } from '../assets/0_index';
+import { formatUnits } from '../../common/utils/formatUnits';
 
 const base_url = import.meta.env.VITE_BASE_URL;
 
@@ -83,7 +84,7 @@ const ShowDashboardData = ({ data }: { data: IDashboard }) => {
               </StTableCell>
               <StTableCell>
                 <StColor isPositive={item.daily_pnl >= 0}>
-                  {formatPriceValue(item.daily_pnl)} %
+                  {formatUnits(item.daily_pnl)} {TOKEN}
                 </StColor>
               </StTableCell>
               <StTableCell>

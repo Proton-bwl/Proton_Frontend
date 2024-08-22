@@ -16,6 +16,8 @@ import { getBalance } from '../../common/utils/getBalance';
 import useOutsideClick from '../../common/hooks/useOutsideClick';
 import { depositTransfer } from '../../contract/deposit';
 import { slideUp } from '../../common/utils/animation';
+import IconTriangleDown from '../../common/assets/IconTriangleDown';
+import IconTriangleUp from '../../common/assets/IconTriangleUp';
 
 const base_url = import.meta.env.VITE_BASE_URL;
 const MINVAL = 10;
@@ -134,7 +136,13 @@ const BotModal = ({
           </StColumn>
 
           <StGraphContaienr>
-            <p>Daily PnL(%): {formatPercentValue(data.daily_PnL)}%</p>
+            <StPnlWrapper>
+              {data.daily_PnL >= 0 ? <IconTriangleUp /> : <IconTriangleDown />}
+              <StPnl isPositive={data.daily_PnL >= 0}>
+                {formatPercentValue(data.daily_PnL)}%
+              </StPnl>
+              <span>1D</span>
+            </StPnlWrapper>
             <AreaChart chartData={data.data} />
           </StGraphContaienr>
           <DropDown detailData={data.detailInformation} />
@@ -284,9 +292,25 @@ const StGraphContaienr = styled.div`
   border: 0.1rem solid ${({ theme }) => theme.colors.white};
   border-radius: 6px;
   padding: 1.6rem;
+`;
 
-  & > p {
-    ${({ theme }) => theme.fonts.caption};
+const StPnlWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  ${({ theme }) => theme.fonts.caption};
+
+  & > span {
+    color: ${({ theme }) => theme.colors.not_important};
+  }
+`;
+
+const StPnl = styled.p<{ isPositive: boolean }>`
+  color: ${({ theme, isPositive }) =>
+    isPositive ? theme.colors.positive : theme.colors.negative};
+  &::before {
+    content: ${({ isPositive }) =>
+      isPositive ? `${(<IconTriangleUp />)}` : `${(<IconTriangleDown />)}`};
   }
 `;
 
