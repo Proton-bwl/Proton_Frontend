@@ -187,6 +187,7 @@ const Dashboard = () => {
   }>();
 
   useEffect(() => {
+    if (!isWalletConnect) return;
     getData();
   }, [refreshTrigger]);
 
