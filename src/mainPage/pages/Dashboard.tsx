@@ -206,10 +206,14 @@ const Dashboard = () => {
     <StContainer>
       <SelectView view={VIEW.DASHBOARD} />
       {isWalletConnect ? (
-        data?.bots?.length ? (
-          <ShowDashboardData data={data} />
+        data ? (
+          data?.bots?.length ? (
+            <ShowDashboardData data={data} />
+          ) : (
+            <ISnotSelectBot />
+          )
         ) : (
-          <ISnotSelectBot />
+          <>loading..</>
         )
       ) : (
         <ISnotConnectWallet openUnConnectModal={openUnConnectModal} />
