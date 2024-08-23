@@ -186,7 +186,7 @@ const StBotInfoLayout = styled.div`
 `;
 
 const StBotName = styled.p`
-  ${({ theme }) => theme.fonts.title_2a};
+  ${({ theme }) => theme.fonts.title_2b};
   color: ${({ theme }) => theme.colors.white};
 
   @media (${({ theme }) => theme.breakpoints.mobile}) {

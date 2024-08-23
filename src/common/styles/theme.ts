@@ -38,6 +38,7 @@ const fonts = {
   title_2a: FONT('Pretendard Variable', 3, 'normal', 'Bold', '140', 0),
   title_2am: FONT('Montserrat', 3, 'normal', '600', '140', 0),
   title_2: FONT('Montserrat', 2.8, 'normal', 'Bold', '140', 0),
+  title_2b: FONT('Pretendard Variable', 3, 'normal', '600', '140', 0),
   body_0: FONT('Pretendard Variable', 2.4, 'normal', 'Bold', '100', 0),
   body_0m: FONT('Montserrat', 2.4, 'normal', 'Bold', '100', 0),
   body_1: FONT('Pretendard Variable', 2, 'normal', '600', '140', 0),
