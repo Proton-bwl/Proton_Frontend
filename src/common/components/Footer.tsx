@@ -55,7 +55,7 @@ const StFooter = {
     color: ${({ theme }) => theme.colors.label};
 
     & p {
-      ${({ theme }) => theme.fonts.body};
+      ${({ theme }) => theme.fonts.caption};
     }
   `,
   Bold: styled.span`
