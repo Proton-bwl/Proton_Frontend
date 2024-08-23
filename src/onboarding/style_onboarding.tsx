@@ -338,8 +338,6 @@ export const Mobile = {
     margin-top: 5.1rem;
     margin-bottom: 2.4rem;
     z-index: 1;
-    backdrop-filter: saturate(130%) blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     background-image: linear-gradient(
         144deg,
         rgba(0, 0, 0, 0.3) -9.46%,
