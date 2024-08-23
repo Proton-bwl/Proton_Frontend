@@ -134,7 +134,6 @@ const BotModal = ({
               <button onClick={() => setDepositValue(balance)}>Max</button>
             </StinputContainer>
           </StColumn>
-
           <StGraphContaienr>
             <StPnlWrapper>
               {data.daily_PnL >= 0 ? <IconTriangleUp /> : <IconTriangleDown />}
@@ -163,6 +162,10 @@ const BotModal = ({
               these parameters cannot guarantee the same results.
             </span>
           </StModalNotice>
+          <StNoticeP>
+            If you remove the bot, a 20% fee on the revenue it generated will be
+            charged.
+          </StNoticeP>
         </StWrapper>
       </StScroll>
     </StBotModalBackGround>
@@ -324,10 +327,23 @@ const StModalNotice = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 5.8rem;
+  /* height: 5.8rem; */
   background-color: #4f4f4f;
   padding: 1.2rem 2.4rem;
   ${({ theme }) => theme.fonts.caption};
   gap: 0.9rem;
   line-height: 120%;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+`;
+
+const StNoticeP = styled.p`
+  width: 100%;
+  text-align: center;
+  ${({ theme }) => theme.fonts.index_steptitle};
+  color: ${({ theme }) => theme.colors.not_important};
 `;
