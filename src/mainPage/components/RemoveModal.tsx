@@ -37,8 +37,12 @@ const RemoveModal = ({
       setIsLoading(false);
       window.location.reload();
     } catch (err) {
-      setIsLoading(false);
-      console.log(err);
+      if (axios.isAxiosError(err) && err.response) {
+        setIsLoading(false);
+        err.response.status === 499 &&
+          alert('You can remove this bot after 3 days of deposing!');
+        return;
+      }
     }
   };
 
