@@ -185,7 +185,7 @@ const StBotModalBackGround = styled(STCOMBackground)`
 const StScroll = styled.div`
   overflow-y: auto;
   width: 56rem;
-  max-height: 74.4rem;
+  max-height: 76rem;
   height: 100%;
   border-radius: 16px;
   background-color: ${({ theme }) => theme.colors.invest_background};
@@ -295,9 +295,13 @@ const StGraphContaienr = styled.div`
   border: 0.1rem solid ${({ theme }) => theme.colors.white};
   border-radius: 6px;
   padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const StPnlWrapper = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 0.5rem;

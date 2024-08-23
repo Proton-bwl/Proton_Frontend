@@ -1,8 +1,10 @@
 import ApexCharts from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import { IChartData } from '../types/pnlChartType';
+import useMobile from '../../common/hooks/useMobile';
 
 const AreaChart = ({ chartData }: { chartData: IChartData[] }) => {
+  const isMobile = useMobile();
   const series = [
     {
       name: '이번 연도',
@@ -97,7 +99,15 @@ const AreaChart = ({ chartData }: { chartData: IChartData[] }) => {
     },
   };
 
-  return (
+  return isMobile ? (
+    <ApexCharts
+      options={options}
+      series={series}
+      type='area'
+      height={240}
+      width={450}
+    />
+  ) : (
     <ApexCharts
       options={options}
       series={series}
