@@ -285,7 +285,7 @@ const StOperated = styled.span`
 const StDeposit = styled(STCOMBlueBtn)`
   padding: 1.25rem 3.7rem;
   @media (${({ theme }) => theme.breakpoints.mobile}) {
-    padding: 0.8rem 2.7rem;
+    padding: 1.2rem 3.7rem;
     ${({ theme }) => theme.fonts.small_phrase};
   }
 `;

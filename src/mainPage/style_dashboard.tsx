@@ -32,6 +32,7 @@ export const Announcement = {
 
     @media (${({ theme }) => theme.breakpoints.mobile}) {
       height: 16rem;
+      border-radius: 12px;
     }
   `,
   Container: styled.div`

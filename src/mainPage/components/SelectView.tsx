@@ -73,7 +73,7 @@ const StBtn = styled.button<{
   @media (${({ theme }) => theme.breakpoints.mobile}) {
     width: calc(50% - 0.7rem);
     height: 5rem;
-    border-radius: 5px;
+    border-radius: 10px;
     border: ${({ selectView, name, theme }) =>
       selectView === name ? 'none' : `1px solid ${theme.colors.not_important}`};
     color: ${({ selectView, name, theme }) =>
