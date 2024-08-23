@@ -85,6 +85,9 @@ const StBtn = styled.button<{
 `;
 
 const StIcon = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   @media (${({ theme }) => theme.breakpoints.mobile}) {
     display: none;
   }
