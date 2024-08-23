@@ -331,18 +331,25 @@ export const Mobile = {
       margin-top: 1rem;
     }
   `,
-  GlassWrapper: styled.div`
+  GlassWrapper: styled(STCOMGlassWrapper)`
     border-radius: 20px;
     width: 100%;
     height: 12rem;
-    color: ${({ theme }) => theme.colors.sub_white};
     margin-top: 5.1rem;
     margin-bottom: 2.4rem;
     z-index: 1;
-    background: rgba(0, 0, 0, 0.1);
-    border: none;
     backdrop-filter: saturate(130%) blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    background-image: linear-gradient(
+        144deg,
+        rgba(0, 0, 0, 0.3) -9.46%,
+        rgba(0, 0, 0, 0.3) 115.25%
+      ),
+      linear-gradient(
+        330deg,
+        rgba(255, 255, 255, 0.1) -9.46%,
+        rgba(255, 255, 255, 0.8) 115.25%
+      );
   `,
   ValueContainer: styled.div`
     position: relative;
