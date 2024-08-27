@@ -3,8 +3,16 @@ import { ApexOptions } from 'apexcharts';
 import { IChartData } from '../types/pnlChartType';
 import useMobile from '../../common/hooks/useMobile';
 
+const getYRange = (data: IChartData[]) => {
+  const yValues = data.map((item) => item.pnlRate);
+  const minY = Math.min(...yValues);
+  const maxY = Math.max(...yValues);
+  return { minY, maxY };
+};
+
 const AreaChart = ({ chartData }: { chartData: IChartData[] }) => {
   const isMobile = useMobile();
+  const { minY, maxY } = getYRange(chartData);
   const series = [
     {
       name: '이번 연도',
@@ -56,7 +64,6 @@ const AreaChart = ({ chartData }: { chartData: IChartData[] }) => {
       type: 'category',
       tickAmount: 4,
       tickPlacement: 'on',
-      // categories: ['2023-01', '2023-02', '2023-03', '2023-04', '2023-05'],
       labels: {
         formatter: (value) => {
           const date = new Date(value);
@@ -89,6 +96,11 @@ const AreaChart = ({ chartData }: { chartData: IChartData[] }) => {
           colors: ['#ffffff'],
         },
       },
+      tickAmount: 5,
+      min: minY - 10,
+      max: maxY + 10,
+      // min: -10,
+      // max: 100,
     },
     grid: {
       borderColor: '#FFFFFF', // 그리드 선 색상 하얀색으로 설정
