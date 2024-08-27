@@ -119,7 +119,6 @@ const StGlassWrapper = styled(STCOMGlassWrapper)`
   min-width: 30rem;
   width: calc(50% - 1rem);
   max-width: 59rem;
-  min-height: 45.4rem;
   @media (${({ theme }) => theme.breakpoints.mobile}) {
     width: 100%;
     min-height: 33rem;
